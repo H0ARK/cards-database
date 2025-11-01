@@ -10,6 +10,8 @@ import { getAllCards, findOneCard, findCards, toBrief, getCardById, getCompiledC
 import { findOneSet, findSets, setToBrief } from '../Components/Set'
 import { findOneSerie, findSeries, serieToBrief } from '../Components/Serie'
 import { listSKUs } from '../../libs/providers/tcgplayer'
+import fs from 'fs/promises'
+import path from 'path'
 
 type CustomRequest = Request & {
 	/**
@@ -206,6 +208,64 @@ server
 	})
 
 	/**
+	 * Card by set/localId format
+	 * ex: /v2/en/cards/dp7/1 (returns card data)
+	 */
+	.get('/:lang/cards/:setId/:localId', async (req: CustomRequest, res) => {
+		const { lang, setId, localId } = req.params
+
+		if (!checkLanguage(lang)) {
+			return sendError(Errors.LANGUAGE_INVALID, res, { lang })
+		}
+
+		// Convert set/localId to global card ID
+		const cardId = `${setId}-${localId}`
+		const result = await getCardById(lang, cardId)
+		if (!result) {
+			return sendError(Errors.NOT_FOUND, res)
+		}
+		return res.json(result)
+	})
+
+	/**
+	 * Card history by set/localId format
+	 * ex: /v2/en/cards/dp7/1/history?range=monthly (returns price history)
+	 */
+	.get('/:lang/cards/:setId/:localId/:action', async (req: CustomRequest, res) => {
+		const { lang, setId, localId, action } = req.params
+
+		if (!checkLanguage(lang)) {
+			return sendError(Errors.LANGUAGE_INVALID, res, { lang })
+		}
+
+		if (action === 'history') {
+			const range = (req.query.range as string) || 'monthly'
+			// Convert set/localId to global card ID
+			const cardId = `${setId}-${localId}`
+			const result = await getCardPriceHistory(lang, cardId, range)
+			return res.json(result)
+		}
+
+		return sendError(Errors.NOT_FOUND, res, { action })
+	})
+
+	/**
+	 * Card history by global ID format
+	 * ex: /v2/en/cards/lc-1/history?range=monthly
+	 */
+	.get('/:lang/cards/:cardId/history', async (req: CustomRequest, res) => {
+		const { lang, cardId } = req.params
+
+		if (!checkLanguage(lang)) {
+			return sendError(Errors.LANGUAGE_INVALID, res, { lang })
+		}
+
+		const range = (req.query.range as string) || 'monthly'
+		const result = await getCardPriceHistory(lang, cardId, range)
+		return res.json(result)
+	})
+
+	/**
 	 * Listing Endpoint
 	 * ex: /v2/en/cards/base1-1
 	 */
@@ -299,6 +359,10 @@ server
 			case 'cards':
 				if (subid === 'skus') {
 					result = await listSKUs(getCompiledCard(lang, id))
+				} else if (subid === 'history') {
+					// New history endpoint: /v2/en/cards/{cardId}/history?range=daily|monthly|yearly
+					const range = (req.query.range as string) || 'monthly'
+					result = await getCardPriceHistory(lang, id, range)
 				}
 				break
 			case 'sets':
@@ -312,5 +376,132 @@ server
 		}
 		return res.send(result)
 	})
+
+
+/**
+ * Get price history for a card from stored historical data
+ */
+async function getCardPriceHistory(lang: string, cardId: string, range: string = 'monthly') {
+	try {
+		// Validate range parameter
+		const validRanges = ['daily', 'monthly', 'yearly']
+		if (!validRanges.includes(range)) {
+			range = 'monthly'
+		}
+
+		// Get card data to find TCGPlayer ID
+		const card = await getCardById(lang, cardId)
+		if (!card) {
+			return {
+				error: 'Card not found',
+				cardId,
+				range
+			}
+		}
+
+		// Get TCGPlayer ID from compiled card data (before pricing transformation)
+		const compiledCard = getCompiledCard(lang, cardId)
+		if (!compiledCard || !compiledCard.thirdParty?.tcgplayer) {
+			return {
+				error: 'Card not found or no TCGPlayer data available',
+				cardId,
+				range
+			}
+		}
+
+		const productId = compiledCard.thirdParty.tcgplayer
+
+		// Try to read historical data file
+		const historyFile = path.resolve(process.cwd(), `../var/models/tcgplayer/history/${range}/${cardId}.json`)
+
+		try {
+			const fileContent = await fs.readFile(historyFile, 'utf8')
+			const historyData = JSON.parse(fileContent)
+
+			return {
+				cardId,
+				productId,
+				range,
+				...historyData
+			}
+		} catch (fileError) {
+			// If historical file doesn't exist, try to fetch real-time data
+			console.log(`Historical data not found for ${cardId}, attempting real-time fetch...`)
+
+			try {
+				// Fallback: fetch real-time data from TCGPlayer
+				const realTimeData = await fetchRealTimeHistory(productId, range)
+
+				if (realTimeData && realTimeData.history && realTimeData.history.length > 0) {
+					return {
+						cardId,
+						productId,
+						range,
+						dataPoints: realTimeData.history.length,
+						lastUpdated: new Date().toISOString(),
+						history: realTimeData.history,
+						source: 'realtime'
+					}
+				}
+			} catch (realtimeError) {
+				console.error(`Real-time fetch failed for ${cardId}:`, realtimeError)
+			}
+
+			// If all else fails, return error
+			return {
+				error: 'Historical price data not available',
+				cardId,
+				productId,
+				range,
+				message: 'No historical data found. Run the history downloader script to populate data.'
+			}
+		}
+	} catch (error) {
+		console.error(`Error getting price history for ${cardId}:`, error)
+		return {
+			error: 'Internal server error',
+			cardId,
+			range
+		}
+	}
+}
+
+/**
+ * Fetch real-time price history from TCGPlayer (fallback)
+ */
+async function fetchRealTimeHistory(productId: number, range: string) {
+	const days = range === 'daily' ? 30 : range === 'monthly' ? 90 : 365
+	const apiRange = days <= 30 ? 'week' : days <= 90 ? 'month' : 'quarter'
+
+	try {
+		const response = await fetch(`https://infinite-api.tcgplayer.com/price/history/${productId}/detailed?range=${apiRange}`, {
+			headers: {
+				'User-Agent': 'TCGdex-Server/1.0',
+				'Accept': 'application/json'
+			}
+		})
+
+		if (!response.ok) {
+			throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+		}
+
+		const data = await response.json()
+
+		// Transform to our format
+		const history = data.map((point: any) => ({
+			date: point.date,
+			price: point.avgPrice || point.marketPrice || 0,
+			low: point.loPrice,
+			high: point.hiPrice,
+			market: point.marketPrice,
+			currency: 'USD'
+		})).filter((point: any) => point.price > 0)
+
+		return { history }
+	} catch (error) {
+		console.error(`Error fetching real-time history for product ${productId}:`, error)
+		throw error
+	}
+}
 
 export default server

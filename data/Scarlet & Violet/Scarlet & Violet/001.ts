@@ -54,6 +54,7 @@ const card: Card = {
 	illustrator: "Shigenori Negishi",
 
 	thirdParty: {
+		tcgplayer: 123456, // Test TCGPlayer ID for Pineco
 		cardmarket: 702298
 	}
 }

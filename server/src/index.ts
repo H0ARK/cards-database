@@ -41,7 +41,7 @@ if (cluster.isPrimary) {
 		console.log(`Worker ${worker.id} exited with code ${code} and signal ${signal}`);
 		cluster.fork()
 	})
-	console.log('🚀 Server ready at localhost:3000');
+	console.log('🚀 Server ready at localhost:4000');
 } else {
 
 	// Current API version
@@ -152,5 +152,5 @@ if (cluster.isPrimary) {
 	})
 
 	// Start server
-	server.listen(3000)
+	server.listen(4000)
 }
