@@ -6,6 +6,96 @@ export type SupportedLanguages =
 
 export type Languages<T = string> = Partial<Record<SupportedLanguages, T>>
 
+/**
+ * Sealed Product Types
+ */
+export type SealedProductType =
+	| 'booster-box'
+	| 'booster-pack'
+	| 'elite-trainer-box'
+	| 'blister'
+	| 'collection-box'
+	| 'tin'
+	| 'bundle'
+	| 'build-battle-box'
+	| 'theme-deck'
+	| 'battle-deck'
+	| 'trainer-kit'
+	| 'starter-set'
+	| 'prerelease-kit'
+	| 'case'
+	| 'other'
+
+/**
+ * Sealed Product Interface
+ */
+export interface SealedProduct {
+	/**
+	 * Unique identifier for the sealed product
+	 */
+	id: string
+
+	/**
+	 * Product name in multiple languages
+	 */
+	name: Languages
+
+	/**
+	 * Associated set
+	 */
+	set: Set
+
+	/**
+	 * Type of sealed product
+	 */
+	productType: SealedProductType
+
+	/**
+	 * Release date
+	 */
+	releaseDate?: string
+
+	/**
+	 * MSRP in USD (if available)
+	 */
+	msrp?: number
+
+	/**
+	 * Number of packs included (for boxes, blisters, etc.)
+	 */
+	packCount?: number
+
+	/**
+	 * Number of cards per pack (if applicable)
+	 */
+	cardsPerPack?: number
+
+	/**
+	 * Description or special notes
+	 */
+	description?: Languages
+
+	/**
+	 * Image URL or path
+	 */
+	image?: string
+
+	/**
+	 * Third-party marketplace IDs
+	 */
+	thirdParty?: {
+		tcgplayer?: number
+		cardmarket?: number
+	}
+
+	/**
+	 * Additional metadata
+	 */
+	variants?: string[]
+	exclusive?: boolean
+	exclusiveRetailer?: string
+}
+
 export interface Serie {
 	id: string
 	name: Languages

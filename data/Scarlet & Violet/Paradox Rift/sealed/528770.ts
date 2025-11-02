@@ -1,0 +1,23 @@
+import { SealedProduct } from "../../../interfaces"
+import Set from "../Paradox Rift"
+
+const product: SealedProduct = {
+	id: "paradox-rift-code-card-paradox-rift-elite-trainer-box-roaring-m-528770",
+
+	name: {
+		en: "Code Card - Paradox Rift Elite Trainer Box [Roaring Moon]"
+	},
+
+	set: Set,
+
+	productType: "elite-trainer-box",
+	packCount: 9,
+	cardsPerPack: 10,
+	variants: ["Roaring Moon"],
+
+	thirdParty: {
+		tcgplayer: 528770
+	}
+}
+
+export default product
