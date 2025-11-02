@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Shin Nagasawa",
 
 	thirdParty: {
-		cardmarket: 740483
+		cardmarket: 740483,
+		tcgplayer: 523606
 	}
 }
 

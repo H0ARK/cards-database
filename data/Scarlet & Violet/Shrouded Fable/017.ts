@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Masako Tomii",
 
 	thirdParty: {
-		cardmarket: 780908
+		cardmarket: 780908,
+		tcgplayer: 560327
 	}
 }
 

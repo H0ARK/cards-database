@@ -62,7 +62,8 @@ const card: Card = {
 	illustrator: "Nakamura Ippan",
 
 	thirdParty: {
-		cardmarket: 805467
+		cardmarket: 805467,
+		tcgplayer: 610692
 	}
 }
 

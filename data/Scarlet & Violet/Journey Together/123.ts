@@ -64,7 +64,8 @@ const card: Card = {
 	illustrator: "Atsuya Uki",
 
 	thirdParty: {
-		cardmarket: 817275
+		cardmarket: 817275,
+		tcgplayer: 623550
 	},
 
 	variants: [

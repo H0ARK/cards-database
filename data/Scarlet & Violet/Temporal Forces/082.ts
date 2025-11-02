@@ -58,7 +58,8 @@ const card: Card = {
 	illustrator: "Natsumi Miyanose",
 
 	thirdParty: {
-		cardmarket: 760712
+		cardmarket: 760712,
+		tcgplayer: 542826
 	}
 }
 

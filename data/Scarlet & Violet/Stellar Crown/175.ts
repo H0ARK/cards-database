@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "Toyste Beach",
 
 	thirdParty: {
-		cardmarket: 786029
+		cardmarket: 786029,
+		tcgplayer: 567491
 	}
 }
 

@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Kazumasa Yasukuni",
 
 	thirdParty: {
-		cardmarket: 785950
+		cardmarket: 785950,
+		tcgplayer: 567322
 	}
 }
 

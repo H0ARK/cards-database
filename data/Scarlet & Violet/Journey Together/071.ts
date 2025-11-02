@@ -42,7 +42,8 @@ const card: Card = {
 	illustrator: "Haru Akasaka",
 
 	thirdParty: {
-		cardmarket: 817223
+		cardmarket: 817223,
+		tcgplayer: 623498
 	},
 
 	variants: [

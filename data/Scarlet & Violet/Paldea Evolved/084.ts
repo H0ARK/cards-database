@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Hitoshi Ariga",
 
 	thirdParty: {
-		cardmarket: 715559
+		cardmarket: 715559,
+		tcgplayer: 497498
 	}
 }
 

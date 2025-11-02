@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Miki Tanaka",
 
 	thirdParty: {
-		cardmarket: 740664
+		cardmarket: 740664,
+		tcgplayer: 523804
 	}
 }
 

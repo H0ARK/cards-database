@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "mingo",
 
 	thirdParty: {
-		cardmarket: 769261
+		cardmarket: 769261,
+		tcgplayer: 550131
 	}
 }
 

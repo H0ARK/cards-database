@@ -64,7 +64,8 @@ const card: Card = {
 	illustrator: "Shinya Komatsu",
 
 	thirdParty: {
-		cardmarket: 817242
+		cardmarket: 817242,
+		tcgplayer: 623517
 	},
 
 	variants: [

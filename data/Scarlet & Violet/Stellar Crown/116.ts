@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Yuriko Akase",
 
 	thirdParty: {
-		cardmarket: 785970
+		cardmarket: 785970,
+		tcgplayer: 567342
 	}
 }
 

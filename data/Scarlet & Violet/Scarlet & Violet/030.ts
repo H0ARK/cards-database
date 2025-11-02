@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "kawayoo",
 
 	thirdParty: {
-		cardmarket: 702326
+		cardmarket: 702326,
+		tcgplayer: 487869
 	}
 }
 

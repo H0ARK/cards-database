@@ -75,7 +75,8 @@ const card: Card = {
 	illustrator: "PLANETA Yamashita",
 
 	thirdParty: {
-		cardmarket: 751788
+		cardmarket: 751788,
+		tcgplayer: 535116
 	}
 }
 

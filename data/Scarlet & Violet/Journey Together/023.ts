@@ -42,7 +42,8 @@ const card: Card = {
 	illustrator: "Fujimoto Gold",
 
 	thirdParty: {
-		cardmarket: 817175
+		cardmarket: 817175,
+		tcgplayer: 623450
 	},
 
 	variants: [

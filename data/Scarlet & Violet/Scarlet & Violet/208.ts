@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "zig",
 
 	thirdParty: {
-		cardmarket: 702364
+		cardmarket: 702364,
+		tcgplayer: 490068
 	}
 }
 

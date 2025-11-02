@@ -32,7 +32,8 @@ const card: Card = {
 	illustrator: "MARINA Chikazawa",
 
 	thirdParty: {
-		cardmarket: 817302
+		cardmarket: 817302,
+		tcgplayer: 623577
 	},
 
 	variants: [

@@ -59,7 +59,8 @@ const card: Card = {
 	illustrator: "Whisker",
 
 	thirdParty: {
-		cardmarket: 794569
+		cardmarket: 794569,
+		tcgplayer: 589982
 	}
 }
 

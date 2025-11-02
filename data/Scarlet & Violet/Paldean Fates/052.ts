@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Sanosuke Sakuma",
 
 	thirdParty: {
-		cardmarket: 751589
+		cardmarket: 751589,
+		tcgplayer: 534414
 	}
 }
 

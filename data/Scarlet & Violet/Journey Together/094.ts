@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "PLANETA Tsuji",
 
 	thirdParty: {
-		cardmarket: 817246
+		cardmarket: 817246,
+		tcgplayer: 623521
 	},
 
 	variants: [

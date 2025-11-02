@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Shibuzoh.",
 
 	thirdParty: {
-		cardmarket: 725206
+		cardmarket: 725206,
+		tcgplayer: 509880
 	}
 }
 

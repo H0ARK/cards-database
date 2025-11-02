@@ -16,6 +16,9 @@ const card: Card = {
 	effect: {
 		en: "Search your deck for a Basic Pokémon or Evolution card (excluding Pokémon-ex), show it to your opponent, and put it into your hand. Shuffle your deck afterward."
 	}
+	thirdParty: {
+		tcgplayer: 85242
+	},
 }
 
 export default card

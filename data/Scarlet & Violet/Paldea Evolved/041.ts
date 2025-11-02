@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Oswaldo KATO",
 
 	thirdParty: {
-		cardmarket: 715501
+		cardmarket: 715501,
+		tcgplayer: 497452
 	}
 }
 

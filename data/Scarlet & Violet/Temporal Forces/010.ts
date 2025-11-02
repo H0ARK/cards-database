@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "OKACHEKE",
 
 	thirdParty: {
-		cardmarket: 760640
+		cardmarket: 760640,
+		tcgplayer: 542760
 	}
 }
 

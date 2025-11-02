@@ -75,7 +75,8 @@ const card: Card = {
 	illustrator: "KYUPIYAMA",
 
 	thirdParty: {
-		cardmarket: 725211
+		cardmarket: 725211,
+		tcgplayer: 509951
 	}
 }
 

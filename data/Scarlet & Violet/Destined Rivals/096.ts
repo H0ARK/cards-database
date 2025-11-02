@@ -90,6 +90,9 @@ const card: Card = {
 			stamp: ["set-logo", "staff"]
 		},
 	]
+	thirdParty: {
+		tcgplayer: 630822
+	},
 }
 
 export default card

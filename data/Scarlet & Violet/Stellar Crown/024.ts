@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Taiga Kasai",
 
 	thirdParty: {
-		cardmarket: 785877
+		cardmarket: 785877,
+		tcgplayer: 567250
 	}
 }
 

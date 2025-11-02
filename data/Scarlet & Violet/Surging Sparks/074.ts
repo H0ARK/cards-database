@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Orca",
 
 	thirdParty: {
-		cardmarket: 794367
+		cardmarket: 794367,
+		tcgplayer: 589872
 	}
 }
 

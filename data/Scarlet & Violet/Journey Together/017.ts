@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Felicia Chen",
 
 	thirdParty: {
-		cardmarket: 817169
+		cardmarket: 817169,
+		tcgplayer: 623444
 	},
 
 	variants: [

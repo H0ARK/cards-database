@@ -67,6 +67,9 @@ const card: Card = {
 	retreat: 0,
 	regulationMark: "H",
 	illustrator: "5ban Graphics"
+	thirdParty: {
+		tcgplayer: 488059
+	},
 }
 
 export default card

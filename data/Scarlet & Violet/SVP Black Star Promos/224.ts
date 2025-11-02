@@ -47,6 +47,9 @@ const card: Card = {
 			stamp: ["worlds-2025","finalist"]
 		},
 	]
+	thirdParty: {
+		tcgplayer: 490082
+	},
 }
 
 export default card

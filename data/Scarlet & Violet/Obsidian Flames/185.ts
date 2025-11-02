@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Hiroki Asanuma",
 
 	thirdParty: {
-		cardmarket: 725265
+		cardmarket: 725265,
+		tcgplayer: 510901
 	}
 }
 

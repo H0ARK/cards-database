@@ -157,10 +157,35 @@ export async function findOneCard(lang: SupportedLanguages, query: Query<SDKCard
 }
 
 export function toBrief(card: SDKCard): CardResume {
+	// Priority order for price: TCGPlayer (foil/holofoil/reverse/normal) > Cardmarket avg1
+	let price = null
+
+	if (card.pricing?.tcgplayer) {
+		const tcp = card.pricing.tcgplayer
+		// Try different variants in priority order
+		price = tcp.foil?.marketPrice
+			|| tcp.holofoil?.marketPrice
+			|| tcp['reverse-holofoil']?.marketPrice
+			|| tcp.holo?.marketPrice
+			|| tcp['1st-edition-holofoil']?.marketPrice
+			|| tcp.normal?.marketPrice
+			|| tcp['1st-edition-normal']?.marketPrice
+			|| null
+	}
+
+	// Fallback to Cardmarket if TCGPlayer has no data
+	if (price === null && card.pricing?.cardmarket?.avg1) {
+		price = card.pricing.cardmarket.avg1
+	}
+
 	return {
 		id: card.id,
 		localId: card.localId,
 		name: card.name,
-		image: card.image
+		image: card.image,
+		set: card.set.name,
+		rarity: card.rarity,
+		types: card.types,
+		price: price
 	}
 }

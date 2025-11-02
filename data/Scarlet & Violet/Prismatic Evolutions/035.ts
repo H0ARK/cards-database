@@ -60,7 +60,8 @@ const card: Card = {
 	illustrator: "IKEDA Saki",
 
 	thirdParty: {
-		cardmarket: 805424
+		cardmarket: 805424,
+		tcgplayer: 610659
 	}
 }
 

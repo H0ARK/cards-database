@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Nurikabe",
 
 	thirdParty: {
-		cardmarket: 785977
+		cardmarket: 785977,
+		tcgplayer: 567356
 	}
 }
 

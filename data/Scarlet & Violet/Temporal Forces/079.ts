@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "takuyoa",
 
 	thirdParty: {
-		cardmarket: 760709
+		cardmarket: 760709,
+		tcgplayer: 542823
 	}
 }
 

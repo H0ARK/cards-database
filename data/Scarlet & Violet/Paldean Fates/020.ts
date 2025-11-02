@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "yuu",
 
 	thirdParty: {
-		cardmarket: 751549
+		cardmarket: 751549,
+		tcgplayer: 534166
 	}
 }
 

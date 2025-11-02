@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Felicia Chen",
 
 	thirdParty: {
-		cardmarket: 785876
+		cardmarket: 785876,
+		tcgplayer: 567249
 	}
 }
 

@@ -58,7 +58,8 @@ const card: Card = {
 	illustrator: "Kagemaru Himeno",
 
 	thirdParty: {
-		cardmarket: 725247
+		cardmarket: 725247,
+		tcgplayer: 509690
 	}
 }
 

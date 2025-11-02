@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "PLANETA Igarashi",
 
 	thirdParty: {
-		cardmarket: 740559
+		cardmarket: 740559,
+		tcgplayer: 523903
 	}
 }
 

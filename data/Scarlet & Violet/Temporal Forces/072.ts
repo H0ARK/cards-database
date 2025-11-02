@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Gemi",
 
 	thirdParty: {
-		cardmarket: 760702
+		cardmarket: 760702,
+		tcgplayer: 542816
 	}
 }
 

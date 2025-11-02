@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Mina Nakai",
 
 	thirdParty: {
-		cardmarket: 692087
+		cardmarket: 692087,
+		tcgplayer: 488050
 	}
 }
 

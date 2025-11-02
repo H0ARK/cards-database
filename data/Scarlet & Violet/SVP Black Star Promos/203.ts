@@ -61,6 +61,9 @@ const card: Card = {
 			stamp: ["pokemon-center"]
 		}
 	]
+	thirdParty: {
+		tcgplayer: 490063
+	},
 }
 
 export default card

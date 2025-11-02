@@ -69,6 +69,9 @@ const card: Card = {
 	retreat: 1,
 	regulationMark: "H",
 	illustrator: "Souichirou Gunjima"
+	thirdParty: {
+		tcgplayer: 488038
+	},
 }
 
 export default card

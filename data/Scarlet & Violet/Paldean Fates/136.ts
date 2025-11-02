@@ -59,7 +59,8 @@ const card: Card = {
 	illustrator: "Souichirou Gunjima",
 
 	thirdParty: {
-		cardmarket: 751675
+		cardmarket: 751675,
+		tcgplayer: 534529
 	}
 }
 

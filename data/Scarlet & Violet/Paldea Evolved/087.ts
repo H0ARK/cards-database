@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Megumi Higuchi",
 
 	thirdParty: {
-		cardmarket: 715562
+		cardmarket: 715562,
+		tcgplayer: 497501
 	}
 }
 

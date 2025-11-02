@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "KEIICHIRO ITO",
 
 	thirdParty: {
-		cardmarket: 817244
+		cardmarket: 817244,
+		tcgplayer: 623519
 	},
 
 	variants: [

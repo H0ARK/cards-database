@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Hoshino KURO",
 
 	thirdParty: {
-		cardmarket: 794332
+		cardmarket: 794332,
+		tcgplayer: 589992
 	}
 }
 

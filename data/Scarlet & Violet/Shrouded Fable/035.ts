@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "SIE NANAHARA",
 
 	thirdParty: {
-		cardmarket: 780930
+		cardmarket: 780930,
+		tcgplayer: 560345
 	}
 }
 

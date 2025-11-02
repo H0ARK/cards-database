@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Scav",
 
 	thirdParty: {
-		cardmarket: 715623
+		cardmarket: 715623,
+		tcgplayer: 497561
 	}
 }
 

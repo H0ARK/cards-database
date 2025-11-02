@@ -35,7 +35,8 @@ const card: Card = {
 	illustrator: "Studio Bora Inc.",
 
 	thirdParty: {
-		cardmarket: 794541
+		cardmarket: 794541,
+		tcgplayer: 589906
 	}
 }
 

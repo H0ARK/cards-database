@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Cona Nitanda",
 
 	thirdParty: {
-		cardmarket: 740654
+		cardmarket: 740654,
+		tcgplayer: 523796
 	}
 }
 

@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "matazo",
 
 	thirdParty: {
-		cardmarket: 780916
+		cardmarket: 780916,
+		tcgplayer: 560331
 	}
 }
 

@@ -68,7 +68,8 @@ const card: Card = {
 	illustrator: "chibi",
 
 	thirdParty: {
-		cardmarket: 740565
+		cardmarket: 740565,
+		tcgplayer: 523727
 	}
 }
 

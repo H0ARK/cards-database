@@ -75,7 +75,8 @@ const card: Card = {
 	illustrator: "Po-Suzuki",
 
 	thirdParty: {
-		cardmarket: 715505
+		cardmarket: 715505,
+		tcgplayer: 497603
 	}
 }
 

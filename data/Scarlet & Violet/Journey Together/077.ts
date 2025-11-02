@@ -64,7 +64,8 @@ const card: Card = {
 	illustrator: "REND",
 
 	thirdParty: {
-		cardmarket: 817229
+		cardmarket: 817229,
+		tcgplayer: 623504
 	},
 
 	variants: [

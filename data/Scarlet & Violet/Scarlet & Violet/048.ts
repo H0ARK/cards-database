@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Shinji Kanda",
 
 	thirdParty: {
-		cardmarket: 702343
+		cardmarket: 702343,
+		tcgplayer: 487894
 	}
 }
 

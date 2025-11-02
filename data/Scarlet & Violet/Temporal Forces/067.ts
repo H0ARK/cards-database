@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Takumi Wada",
 
 	thirdParty: {
-		cardmarket: 760697
+		cardmarket: 760697,
+		tcgplayer: 542811
 	}
 }
 

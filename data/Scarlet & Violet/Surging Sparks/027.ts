@@ -58,7 +58,8 @@ const card: Card = {
 	illustrator: "Minahamu",
 
 	thirdParty: {
-		cardmarket: 794282
+		cardmarket: 794282,
+		tcgplayer: 590050
 	}
 }
 

@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "aspara",
 
 	thirdParty: {
-		cardmarket: 751551
+		cardmarket: 751551,
+		tcgplayer: 534167
 	}
 }
 

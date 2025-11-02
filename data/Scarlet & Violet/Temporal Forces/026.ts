@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "takashi shiraishi",
 
 	thirdParty: {
-		cardmarket: 760656
+		cardmarket: 760656,
+		tcgplayer: 542770
 	}
 }
 

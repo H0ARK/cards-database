@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Satoshi Shirai",
 
 	thirdParty: {
-		cardmarket: 740673
+		cardmarket: 740673,
+		tcgplayer: 523911
 	}
 }
 

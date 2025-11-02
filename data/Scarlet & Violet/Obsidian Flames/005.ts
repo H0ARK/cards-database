@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Kurata So",
 
 	thirdParty: {
-		cardmarket: 725085
+		cardmarket: 725085,
+		tcgplayer: 509657
 	}
 }
 

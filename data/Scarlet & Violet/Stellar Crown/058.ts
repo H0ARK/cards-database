@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Tetsu Kayama",
 
 	thirdParty: {
-		cardmarket: 785912
+		cardmarket: 785912,
+		tcgplayer: 567284
 	}
 }
 

@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Tika Matsuno",
 
 	thirdParty: {
-		cardmarket: 760706
+		cardmarket: 760706,
+		tcgplayer: 542820
 	}
 }
 

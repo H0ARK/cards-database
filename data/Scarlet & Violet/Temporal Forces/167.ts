@@ -55,7 +55,8 @@ const card: Card = {
 	illustrator: "Makura Tami",
 
 	thirdParty: {
-		cardmarket: 760662
+		cardmarket: 760662,
+		tcgplayer: 542888
 	}
 }
 

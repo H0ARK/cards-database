@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Eske Yoshinob",
 
 	thirdParty: {
-		cardmarket: 715625
+		cardmarket: 715625,
+		tcgplayer: 497655
 	}
 }
 

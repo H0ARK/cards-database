@@ -56,7 +56,8 @@ const card: Card = {
 	illustrator: "Mugi Hamada",
 
 	thirdParty: {
-		cardmarket: 817228
+		cardmarket: 817228,
+		tcgplayer: 623503
 	},
 
 	variants: [

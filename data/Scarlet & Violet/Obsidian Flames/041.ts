@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Yukiko Baba",
 
 	thirdParty: {
-		cardmarket: 725121
+		cardmarket: 725121,
+		tcgplayer: 509747
 	}
 }
 

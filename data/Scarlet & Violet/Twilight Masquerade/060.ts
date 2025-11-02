@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Ligton",
 
 	thirdParty: {
-		cardmarket: 769234
+		cardmarket: 769234,
+		tcgplayer: 550104
 	}
 }
 

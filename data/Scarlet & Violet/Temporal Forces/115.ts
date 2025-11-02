@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Nurikabe",
 
 	thirdParty: {
-		cardmarket: 760745
+		cardmarket: 760745,
+		tcgplayer: 542859
 	}
 }
 

@@ -47,6 +47,9 @@ const card: Card = {
 	retreat: 1,
 	regulationMark: "G",
 	illustrator: "MINAMINAMI Take"
+	thirdParty: {
+		tcgplayer: 487888
+	},
 }
 
 export default card

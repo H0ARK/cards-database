@@ -56,7 +56,8 @@ const card: Card = {
 	illustrator: "Izucch",
 
 	thirdParty: {
-		cardmarket: 817213
+		cardmarket: 817213,
+		tcgplayer: 623488
 	},
 
 	variants: [

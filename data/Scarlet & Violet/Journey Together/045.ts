@@ -56,7 +56,8 @@ const card: Card = {
 	illustrator: "HYOGONOSUKE",
 
 	thirdParty: {
-		cardmarket: 817197
+		cardmarket: 817197,
+		tcgplayer: 623472
 	},
 
 	variants: [

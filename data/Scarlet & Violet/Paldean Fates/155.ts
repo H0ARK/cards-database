@@ -68,7 +68,8 @@ const card: Card = {
 	illustrator: "Kyoko Umemoto",
 
 	thirdParty: {
-		cardmarket: 751694
+		cardmarket: 751694,
+		tcgplayer: 534662
 	}
 }
 

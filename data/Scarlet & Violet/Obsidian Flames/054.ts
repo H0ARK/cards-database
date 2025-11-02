@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Misa Tsutsui",
 
 	thirdParty: {
-		cardmarket: 725134
+		cardmarket: 725134,
+		tcgplayer: 509800
 	}
 }
 

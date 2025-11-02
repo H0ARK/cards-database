@@ -66,7 +66,8 @@ const card: Card = {
 	illustrator: "Julie Hang",
 
 	thirdParty: {
-		cardmarket: 817265
+		cardmarket: 817265,
+		tcgplayer: 623540
 	},
 
 	variants: [

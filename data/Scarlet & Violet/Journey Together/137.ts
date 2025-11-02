@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Tomomi Ozaki",
 
 	thirdParty: {
-		cardmarket: 817289
+		cardmarket: 817289,
+		tcgplayer: 623564
 	},
 
 	variants: [

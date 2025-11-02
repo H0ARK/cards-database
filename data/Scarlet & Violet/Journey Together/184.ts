@@ -72,7 +72,8 @@ const card: Card = {
 	illustrator: "Susumu Maeya",
 
 	thirdParty: {
-		cardmarket: 817208
+		cardmarket: 817208,
+		tcgplayer: 623611
 	},
 
 	variants: [

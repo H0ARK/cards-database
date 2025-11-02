@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "You Iribi",
 
 	thirdParty: {
-		cardmarket: 725089
+		cardmarket: 725089,
+		tcgplayer: 509665
 	}
 }
 

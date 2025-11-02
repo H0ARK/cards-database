@@ -49,6 +49,9 @@ const card: Card = {
 			stamp: ["winner"]
 		},
 	]
+	thirdParty: {
+		tcgplayer: 490083
+	},
 }
 
 export default card

@@ -35,7 +35,8 @@ const card: Card = {
 	illustrator: "5ban Graphics",
 
 	thirdParty: {
-		cardmarket: 780951
+		cardmarket: 780951,
+		tcgplayer: 560366
 	}
 }
 

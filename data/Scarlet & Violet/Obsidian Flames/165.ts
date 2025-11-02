@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Yuya Oka",
 
 	thirdParty: {
-		cardmarket: 725245
+		cardmarket: 725245,
+		tcgplayer: 509673
 	}
 }
 

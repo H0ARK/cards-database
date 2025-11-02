@@ -46,6 +46,9 @@ const card: Card = {
 
 	retreat: 0,
 	regulationMark: "I"
+	thirdParty: {
+		tcgplayer: 490067
+	},
 }
 
 export default card

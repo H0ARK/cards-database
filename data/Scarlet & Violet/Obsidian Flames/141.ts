@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "otumami",
 
 	thirdParty: {
-		cardmarket: 725221
+		cardmarket: 725221,
+		tcgplayer: 509919
 	}
 }
 

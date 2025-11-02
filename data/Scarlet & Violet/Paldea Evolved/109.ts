@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Jerky",
 
 	thirdParty: {
-		cardmarket: 715584
+		cardmarket: 715584,
+		tcgplayer: 497524
 	}
 }
 

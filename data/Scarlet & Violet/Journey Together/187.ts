@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Tsuyoshi Nagano",
 
 	thirdParty: {
-		cardmarket: 817266
+		cardmarket: 817266,
+		tcgplayer: 623614
 	},
 
 	variants: [

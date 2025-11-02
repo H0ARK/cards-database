@@ -14,6 +14,9 @@ const card: Card = {
 	effect: {
 		en: "Search your deck for a basic Energy card, show it to your opponent, and put it into your hand. Shuffle your deck afterward."
 	}
+	thirdParty: {
+		tcgplayer: 88339
+	},
 }
 
 export default card

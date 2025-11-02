@@ -54,6 +54,9 @@ const card: Card = {
 			subtype: "cosmos"
 		}
 	]
+	thirdParty: {
+		tcgplayer: 490293
+	},
 }
 
 export default card

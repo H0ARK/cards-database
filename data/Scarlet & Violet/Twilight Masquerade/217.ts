@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "En Morikura",
 
 	thirdParty: {
-		cardmarket: 769391
+		cardmarket: 769391,
+		tcgplayer: 550261
 	}
 }
 

@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Akino Fukuji",
 
 	thirdParty: {
-		cardmarket: 794495
+		cardmarket: 794495,
+		tcgplayer: 589855
 	}
 }
 

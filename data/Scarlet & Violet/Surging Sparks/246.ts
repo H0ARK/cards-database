@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "Nobusawa/Mochipuyo",
 
 	thirdParty: {
-		cardmarket: 794619
+		cardmarket: 794619,
+		tcgplayer: 589990
 	}
 }
 

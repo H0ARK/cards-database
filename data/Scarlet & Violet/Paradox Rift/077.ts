@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "saino misaki",
 
 	thirdParty: {
-		cardmarket: 740569
+		cardmarket: 740569,
+		tcgplayer: 523743
 	}
 }
 

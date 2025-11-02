@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "nagimiso",
 
 	thirdParty: {
-		cardmarket: 751540
+		cardmarket: 751540,
+		tcgplayer: 534155
 	}
 }
 

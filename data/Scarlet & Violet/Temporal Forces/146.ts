@@ -35,7 +35,8 @@ const card: Card = {
 	illustrator: "GOSSAN",
 
 	thirdParty: {
-		cardmarket: 760776
+		cardmarket: 760776,
+		tcgplayer: 542661
 	}
 }
 

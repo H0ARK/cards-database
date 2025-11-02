@@ -66,7 +66,8 @@ const card: Card = {
 	illustrator: "Saboteri",
 
 	thirdParty: {
-		cardmarket: 786002
+		cardmarket: 786002,
+		tcgplayer: 567429
 	}
 }
 

@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Mousho",
 
 	thirdParty: {
-		cardmarket: 817188
+		cardmarket: 817188,
+		tcgplayer: 623463
 	},
 
 	variants: [

@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Wintr Wandr",
 
 	thirdParty: {
-		cardmarket: 794277
+		cardmarket: 794277,
+		tcgplayer: 590020
 	}
 }
 

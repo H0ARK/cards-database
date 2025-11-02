@@ -28,6 +28,9 @@ const card: Card = {
 	trainerType: "Supporter",
 	regulationMark: "G",
 	illustrator: "yuu"
+	thirdParty: {
+		tcgplayer: 488013
+	},
 }
 
 export default card

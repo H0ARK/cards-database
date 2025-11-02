@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "miki kudo",
 
 	thirdParty: {
-		cardmarket: 715547
+		cardmarket: 715547,
+		tcgplayer: 497484
 	}
 }
 

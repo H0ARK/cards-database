@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Kamome Shirahama",
 
 	thirdParty: {
-		cardmarket: 794272
+		cardmarket: 794272,
+		tcgplayer: 590010
 	}
 }
 

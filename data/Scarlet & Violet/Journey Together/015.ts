@@ -66,7 +66,8 @@ const card: Card = {
 	illustrator: "Anesaki Dynamic",
 
 	thirdParty: {
-		cardmarket: 817167
+		cardmarket: 817167,
+		tcgplayer: 623442
 	},
 
 	variants: [

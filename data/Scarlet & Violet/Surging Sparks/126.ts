@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Nabatame Kazutaka",
 
 	thirdParty: {
-		cardmarket: 794499
+		cardmarket: 794499,
+		tcgplayer: 589882
 	}
 }
 

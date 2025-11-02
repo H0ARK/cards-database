@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Narumi Sato",
 
 	thirdParty: {
-		cardmarket: 715613
+		cardmarket: 715613,
+		tcgplayer: 497638
 	}
 }
 

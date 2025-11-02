@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Rianti Hidayat",
 
 	thirdParty: {
-		cardmarket: 794510
+		cardmarket: 794510,
+		tcgplayer: 590082
 	}
 }
 

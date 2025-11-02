@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Ryuta Fuse",
 
 	thirdParty: {
-		cardmarket: 715483
+		cardmarket: 715483,
+		tcgplayer: 497422
 	}
 }
 

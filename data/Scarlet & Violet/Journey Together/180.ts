@@ -32,7 +32,8 @@ const card: Card = {
 	illustrator: "yuu",
 
 	thirdParty: {
-		cardmarket: 817301
+		cardmarket: 817301,
+		tcgplayer: 623607
 	},
 
 	variants: [

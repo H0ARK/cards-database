@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "N-DESIGN Inc.",
 
 	thirdParty: {
-		cardmarket: 817231
+		cardmarket: 817231,
+		tcgplayer: 623601
 	},
 
 	variants: [

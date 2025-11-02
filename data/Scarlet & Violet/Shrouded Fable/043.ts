@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "HAGIYA Kaoru",
 
 	thirdParty: {
-		cardmarket: 780939
+		cardmarket: 780939,
+		tcgplayer: 560353
 	}
 }
 

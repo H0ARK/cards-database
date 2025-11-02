@@ -43,6 +43,9 @@ const card: Card = {
 	retreat: 0,
 	regulationMark: "G",
 	illustrator: "Mina Nakai"
+	thirdParty: {
+		tcgplayer: 487877
+	},
 }
 
 export default card

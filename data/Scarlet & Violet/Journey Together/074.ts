@@ -42,7 +42,8 @@ const card: Card = {
 	illustrator: "Shibuzoh.",
 
 	thirdParty: {
-		cardmarket: 817226
+		cardmarket: 817226,
+		tcgplayer: 623501
 	},
 
 	variants: [

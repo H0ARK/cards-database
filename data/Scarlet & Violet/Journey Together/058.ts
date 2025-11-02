@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "GOTO minori",
 
 	thirdParty: {
-		cardmarket: 817210
+		cardmarket: 817210,
+		tcgplayer: 623485
 	},
 
 	variants: [

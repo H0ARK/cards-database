@@ -60,7 +60,8 @@ const card: Card = {
 	illustrator: "Ryota Murayama",
 
 	thirdParty: {
-		cardmarket: 805431
+		cardmarket: 805431,
+		tcgplayer: 610665
 	}
 }
 

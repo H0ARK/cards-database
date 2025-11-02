@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Aliya Chen",
 
 	thirdParty: {
-		cardmarket: 780918
+		cardmarket: 780918,
+		tcgplayer: 560333
 	}
 }
 

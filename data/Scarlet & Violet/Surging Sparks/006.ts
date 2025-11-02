@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "tono",
 
 	thirdParty: {
-		cardmarket: 794261
+		cardmarket: 794261,
+		tcgplayer: 590061
 	}
 }
 

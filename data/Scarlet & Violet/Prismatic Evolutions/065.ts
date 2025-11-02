@@ -68,7 +68,8 @@ const card: Card = {
 	illustrator: "hncl",
 
 	thirdParty: {
-		cardmarket: 805454
+		cardmarket: 805454,
+		tcgplayer: 610683
 	}
 }
 

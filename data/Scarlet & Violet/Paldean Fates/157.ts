@@ -51,7 +51,8 @@ const card: Card = {
 	illustrator: "Saya Tsuruta",
 
 	thirdParty: {
-		cardmarket: 751566
+		cardmarket: 751566,
+		tcgplayer: 534671
 	}
 }
 

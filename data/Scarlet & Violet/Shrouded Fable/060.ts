@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "imoniii",
 
 	thirdParty: {
-		cardmarket: 780956
+		cardmarket: 780956,
+		tcgplayer: 560371
 	}
 }
 

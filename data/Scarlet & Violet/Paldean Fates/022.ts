@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "AKIRA EGAWA",
 
 	thirdParty: {
-		cardmarket: 751552
+		cardmarket: 751552,
+		tcgplayer: 534168
 	}
 }
 

@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "Naoki Saito",
 
 	thirdParty: {
-		cardmarket: 751624
+		cardmarket: 751624,
+		tcgplayer: 534758
 	}
 }
 

@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "DOM",
 
 	thirdParty: {
-		cardmarket: 751593
+		cardmarket: 751593,
+		tcgplayer: 534418
 	}
 }
 

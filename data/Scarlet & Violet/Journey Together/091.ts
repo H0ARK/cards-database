@@ -56,7 +56,8 @@ const card: Card = {
 	illustrator: "Rond",
 
 	thirdParty: {
-		cardmarket: 817243
+		cardmarket: 817243,
+		tcgplayer: 623518
 	},
 
 	variants: [

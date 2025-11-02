@@ -30,6 +30,9 @@ const card: Card = {
 		type: "Fighting",
 		value: "-20"
 	}]
+	thirdParty: {
+		tcgplayer: 97988
+	},
 }
 
 export default card

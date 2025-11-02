@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "5ban Graphics",
 
 	thirdParty: {
-		cardmarket: 805447
+		cardmarket: 805447,
+		tcgplayer: 610413
 	}
 }
 

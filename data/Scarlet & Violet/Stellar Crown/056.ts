@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Natsumi Yoshida",
 
 	thirdParty: {
-		cardmarket: 785910
+		cardmarket: 785910,
+		tcgplayer: 567282
 	}
 }
 

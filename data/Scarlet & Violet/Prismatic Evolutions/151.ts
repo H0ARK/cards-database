@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Tetsuo Hara",
 
 	thirdParty: {
-		cardmarket: 805545
+		cardmarket: 805545,
+		tcgplayer: 610506
 	}
 }
 

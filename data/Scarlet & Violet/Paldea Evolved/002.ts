@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Yoriyuki Ikegami",
 
 	thirdParty: {
-		cardmarket: 715474
+		cardmarket: 715474,
+		tcgplayer: 497413
 	}
 }
 

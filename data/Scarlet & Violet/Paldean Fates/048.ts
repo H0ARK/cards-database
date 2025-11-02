@@ -58,7 +58,8 @@ const card: Card = {
 	illustrator: "Atsuko Nishida",
 
 	thirdParty: {
-		cardmarket: 751585
+		cardmarket: 751585,
+		tcgplayer: 534198
 	}
 }
 

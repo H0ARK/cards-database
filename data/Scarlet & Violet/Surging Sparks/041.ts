@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Kedamahadaitai Yawarakai",
 
 	thirdParty: {
-		cardmarket: 794307
+		cardmarket: 794307,
+		tcgplayer: 589943
 	}
 }
 

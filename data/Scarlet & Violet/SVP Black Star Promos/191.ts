@@ -50,6 +50,9 @@ const card: Card = {
 			stamp: ["horizons"]
 		}
 	]
+	thirdParty: {
+		tcgplayer: 488098
+	},
 }
 
 export default card

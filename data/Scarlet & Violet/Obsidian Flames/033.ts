@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Saki Hayashiro",
 
 	thirdParty: {
-		cardmarket: 725113
+		cardmarket: 725113,
+		tcgplayer: 509731
 	}
 }
 

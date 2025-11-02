@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Dsuke",
 
 	thirdParty: {
-		cardmarket: 817160
+		cardmarket: 817160,
+		tcgplayer: 623435
 	},
 
 	variants: [

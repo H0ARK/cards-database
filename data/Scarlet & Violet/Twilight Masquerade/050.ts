@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Taira Akitsu",
 
 	thirdParty: {
-		cardmarket: 769224
+		cardmarket: 769224,
+		tcgplayer: 550094
 	}
 }
 

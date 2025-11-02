@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "MAHOU",
 
 	thirdParty: {
-		cardmarket: 751697
+		cardmarket: 751697,
+		tcgplayer: 534680
 	}
 }
 

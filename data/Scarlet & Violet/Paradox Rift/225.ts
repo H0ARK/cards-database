@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "aky CG Works",
 
 	thirdParty: {
-		cardmarket: 740582
+		cardmarket: 740582,
+		tcgplayer: 523906
 	}
 }
 

@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "Tomowaka",
 
 	thirdParty: {
-		cardmarket: 805499
+		cardmarket: 805499,
+		tcgplayer: 610526
 	}
 }
 

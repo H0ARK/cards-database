@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Ebila",
 
 	thirdParty: {
-		cardmarket: 794407
+		cardmarket: 794407,
+		tcgplayer: 589949
 	}
 }
 

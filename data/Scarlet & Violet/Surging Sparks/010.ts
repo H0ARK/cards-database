@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Mori Yuu",
 
 	thirdParty: {
-		cardmarket: 794265
+		cardmarket: 794265,
+		tcgplayer: 589917
 	}
 }
 

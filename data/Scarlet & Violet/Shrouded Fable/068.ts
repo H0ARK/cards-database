@@ -66,7 +66,8 @@ const card: Card = {
 	illustrator: "James Turner",
 
 	thirdParty: {
-		cardmarket: 780910
+		cardmarket: 780910,
+		tcgplayer: 560379
 	}
 }
 

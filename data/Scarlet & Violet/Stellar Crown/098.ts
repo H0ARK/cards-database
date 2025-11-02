@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Kuroimori",
 
 	thirdParty: {
-		cardmarket: 785952
+		cardmarket: 785952,
+		tcgplayer: 567324
 	}
 }
 

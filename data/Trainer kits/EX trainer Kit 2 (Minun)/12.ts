@@ -13,6 +13,9 @@ const card: Card = {
 	set: Set,
 	stage: "Basic",
 	energyType: "Normal",
+	thirdParty: {
+		tcgplayer: 88420
+	},
 }
 
 export default card

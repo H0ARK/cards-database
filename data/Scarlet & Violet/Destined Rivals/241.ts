@@ -80,6 +80,9 @@ const card: Card = {
 			foil: 'gold'
 		},
 	]
+	thirdParty: {
+		tcgplayer: 633041
+	},
 }
 
 export default card

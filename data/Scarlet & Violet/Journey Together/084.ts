@@ -64,7 +64,8 @@ const card: Card = {
 	illustrator: "Yoshimi Miyoshi",
 
 	thirdParty: {
-		cardmarket: 817236
+		cardmarket: 817236,
+		tcgplayer: 623511
 	},
 
 	variants: [

@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Haru Akasaka",
 
 	thirdParty: {
-		cardmarket: 725082
+		cardmarket: 725082,
+		tcgplayer: 509653
 	}
 }
 

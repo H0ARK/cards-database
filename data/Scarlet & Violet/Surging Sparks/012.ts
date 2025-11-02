@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Julie Hang",
 
 	thirdParty: {
-		cardmarket: 794267
+		cardmarket: 794267,
+		tcgplayer: 589886
 	}
 }
 

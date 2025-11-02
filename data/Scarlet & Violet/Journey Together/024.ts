@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "takuyoa",
 
 	thirdParty: {
-		cardmarket: 817176
+		cardmarket: 817176,
+		tcgplayer: 623451
 	},
 
 	variants: [

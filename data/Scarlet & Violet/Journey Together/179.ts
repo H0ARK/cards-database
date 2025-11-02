@@ -32,7 +32,8 @@ const card: Card = {
 	illustrator: "Teeziro",
 
 	thirdParty: {
-		cardmarket: 817298
+		cardmarket: 817298,
+		tcgplayer: 623606
 	},
 
 	variants: [

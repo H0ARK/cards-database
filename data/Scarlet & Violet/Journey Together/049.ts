@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Iori Suzuki",
 
 	thirdParty: {
-		cardmarket: 817201
+		cardmarket: 817201,
+		tcgplayer: 623476
 	},
 
 	variants: [

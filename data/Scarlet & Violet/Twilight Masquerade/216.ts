@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "MINAMINAMI Take",
 
 	thirdParty: {
-		cardmarket: 769390
+		cardmarket: 769390,
+		tcgplayer: 550260
 	}
 }
 

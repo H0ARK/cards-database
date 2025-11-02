@@ -46,7 +46,8 @@ const card: Card = {
 	illustrator: "Taiga Kayama",
 
 	thirdParty: {
-		cardmarket: 740521
+		cardmarket: 740521,
+		tcgplayer: 523871
 	}
 }
 

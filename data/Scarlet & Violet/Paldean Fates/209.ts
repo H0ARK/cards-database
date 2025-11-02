@@ -66,7 +66,8 @@ const card: Card = {
 	illustrator: "Lee HyunJung",
 
 	thirdParty: {
-		cardmarket: 751611
+		cardmarket: 751611,
+		tcgplayer: 535214
 	}
 }
 

@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Ounishi",
 
 	thirdParty: {
-		cardmarket: 785858
+		cardmarket: 785858,
+		tcgplayer: 567231
 	}
 }
 

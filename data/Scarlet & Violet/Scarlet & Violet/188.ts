@@ -35,7 +35,8 @@ const card: Card = {
 	illustrator: "Ayaka Yoshida",
 
 	thirdParty: {
-		cardmarket: 702484
+		cardmarket: 702484,
+		tcgplayer: 488094
 	}
 }
 

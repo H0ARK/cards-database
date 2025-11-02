@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Yoshioka",
 
 	thirdParty: {
-		cardmarket: 725109
+		cardmarket: 725109,
+		tcgplayer: 509724
 	}
 }
 

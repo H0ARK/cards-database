@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Tika Matsuno",
 
 	thirdParty: {
-		cardmarket: 715578
+		cardmarket: 715578,
+		tcgplayer: 497620
 	}
 }
 

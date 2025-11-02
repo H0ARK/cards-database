@@ -30,7 +30,8 @@ const card: Card = {
 	illustrator: "inose yukie",
 
 	thirdParty: {
-		cardmarket: 805524
+		cardmarket: 805524,
+		tcgplayer: 610636
 	}
 }
 

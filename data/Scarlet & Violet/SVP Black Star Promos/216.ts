@@ -68,6 +68,9 @@ const card: Card = {
 			size: "jumbo"
 		}
 	]
+	thirdParty: {
+		tcgplayer: 489631
+	},
 }
 
 export default card

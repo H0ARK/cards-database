@@ -81,7 +81,8 @@ const card: Card = {
 	illustrator: "KIYOTAKA OSHIYAMA",
 
 	thirdParty: {
-		cardmarket: 702432
+		cardmarket: 702432,
+		tcgplayer: 485871
 	}
 }
 

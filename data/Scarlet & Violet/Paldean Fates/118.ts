@@ -55,7 +55,8 @@ const card: Card = {
 	illustrator: "Nisota Niso",
 
 	thirdParty: {
-		cardmarket: 751657
+		cardmarket: 751657,
+		tcgplayer: 534508
 	}
 }
 

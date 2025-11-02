@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "YASHIRO Nanaco",
 
 	thirdParty: {
-		cardmarket: 794457
+		cardmarket: 794457,
+		tcgplayer: 589916
 	}
 }
 

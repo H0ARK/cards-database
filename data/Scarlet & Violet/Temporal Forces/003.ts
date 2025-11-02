@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Asako Ito",
 
 	thirdParty: {
-		cardmarket: 760633
+		cardmarket: 760633,
+		tcgplayer: 542648
 	}
 }
 

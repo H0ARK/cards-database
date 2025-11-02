@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Nobuhiro Imagawa",
 
 	thirdParty: {
-		cardmarket: 725225
+		cardmarket: 725225,
+		tcgplayer: 509929
 	}
 }
 

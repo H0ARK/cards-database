@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Shigenori Negishi",
 
 	thirdParty: {
-		cardmarket: 715635
+		cardmarket: 715635,
+		tcgplayer: 497578
 	}
 }
 

@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "rika",
 
 	thirdParty: {
-		cardmarket: 817259
+		cardmarket: 817259,
+		tcgplayer: 623534
 	},
 
 	variants: [

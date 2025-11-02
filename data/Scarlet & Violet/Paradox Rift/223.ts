@@ -68,7 +68,8 @@ const card: Card = {
 	illustrator: "PLANETA Mochizuki",
 
 	thirdParty: {
-		cardmarket: 740562
+		cardmarket: 740562,
+		tcgplayer: 523904
 	}
 }
 

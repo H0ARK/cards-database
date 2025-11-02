@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "kodama",
 
 	thirdParty: {
-		cardmarket: 769246
+		cardmarket: 769246,
+		tcgplayer: 550116
 	}
 }
 

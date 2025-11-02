@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "Shimaris Yukichi",
 
 	thirdParty: {
-		cardmarket: 794445
+		cardmarket: 794445,
+		tcgplayer: 589903
 	}
 }
 

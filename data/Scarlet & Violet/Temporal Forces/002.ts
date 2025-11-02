@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Midori Harada",
 
 	thirdParty: {
-		cardmarket: 760632
+		cardmarket: 760632,
+		tcgplayer: 542647
 	}
 }
 

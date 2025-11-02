@@ -42,7 +42,8 @@ const card: Card = {
 	illustrator: "kodama",
 
 	thirdParty: {
-		cardmarket: 817261
+		cardmarket: 817261,
+		tcgplayer: 623536
 	},
 
 	variants: [

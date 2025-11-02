@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "kurumitsu",
 
 	thirdParty: {
-		cardmarket: 760688
+		cardmarket: 760688,
+		tcgplayer: 542802
 	}
 }
 

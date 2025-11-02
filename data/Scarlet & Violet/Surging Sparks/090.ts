@@ -45,7 +45,8 @@ const card: Card = {
 	illustrator: "Koji Nakata",
 
 	thirdParty: {
-		cardmarket: 794399
+		cardmarket: 794399,
+		tcgplayer: 590038
 	}
 }
 

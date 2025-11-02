@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Sumiyoshi Kizuki",
 
 	thirdParty: {
-		cardmarket: 740628
+		cardmarket: 740628,
+		tcgplayer: 523783
 	}
 }
 

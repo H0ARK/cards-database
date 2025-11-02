@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "NC Empire",
 
 	thirdParty: {
-		cardmarket: 794465
+		cardmarket: 794465,
+		tcgplayer: 589959
 	}
 }
 

@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Yukihiro Tada",
 
 	thirdParty: {
-		cardmarket: 805447
+		cardmarket: 805447,
+		tcgplayer: 610515
 	}
 }
 

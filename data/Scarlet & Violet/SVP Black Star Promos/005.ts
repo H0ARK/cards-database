@@ -60,6 +60,9 @@ const card: Card = {
 	retreat: 2,
 	regulationMark: "G",
 	illustrator: "kodama"
+	thirdParty: {
+		tcgplayer: 487834
+	},
 }
 
 export default card

@@ -28,6 +28,9 @@ const card: Card = {
 	trainerType: "Stadium",
 	regulationMark: "G",
 	illustrator: "Naoki Saito"
+	thirdParty: {
+		tcgplayer: 487889
+	},
 }
 
 export default card

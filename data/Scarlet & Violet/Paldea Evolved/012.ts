@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Megumi Mizutani",
 
 	thirdParty: {
-		cardmarket: 715484
+		cardmarket: 715484,
+		tcgplayer: 497423
 	}
 }
 

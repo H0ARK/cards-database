@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "satoma",
 
 	thirdParty: {
-		cardmarket: 751538
+		cardmarket: 751538,
+		tcgplayer: 534153
 	}
 }
 

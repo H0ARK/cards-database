@@ -77,7 +77,8 @@ const card: Card = {
 	illustrator: "Yano Keiji",
 
 	thirdParty: {
-		cardmarket: 805562
+		cardmarket: 805562,
+		tcgplayer: 610523
 	}
 }
 

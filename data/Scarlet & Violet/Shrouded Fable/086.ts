@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "Atsushi Furusawa",
 
 	thirdParty: {
-		cardmarket: 780952
+		cardmarket: 780952,
+		tcgplayer: 560397
 	}
 }
 

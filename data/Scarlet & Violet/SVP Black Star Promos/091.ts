@@ -69,6 +69,9 @@ const card: Card = {
 	retreat: 2,
 	regulationMark: "H",
 	illustrator: "Anesaki Dynamic"
+	thirdParty: {
+		tcgplayer: 487958
+	},
 }
 
 export default card

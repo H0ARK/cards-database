@@ -52,7 +52,8 @@ const card: Card = {
 	illustrator: "Keisin",
 
 	thirdParty: {
-		cardmarket: 817248
+		cardmarket: 817248,
+		tcgplayer: 623523
 	},
 
 	variants: [

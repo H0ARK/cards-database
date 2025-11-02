@@ -53,7 +53,8 @@ const card: Card = {
 	illustrator: "Mékayu",
 
 	thirdParty: {
-		cardmarket: 794585
+		cardmarket: 794585,
+		tcgplayer: 590057
 	}
 }
 

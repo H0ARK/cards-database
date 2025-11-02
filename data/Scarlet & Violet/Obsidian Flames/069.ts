@@ -65,7 +65,8 @@ const card: Card = {
 	illustrator: "Masakazu Fukuda",
 
 	thirdParty: {
-		cardmarket: 725149
+		cardmarket: 725149,
+		tcgplayer: 509835
 	}
 }
 

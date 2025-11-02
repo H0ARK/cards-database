@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "SATOSHI NAKAI",
 
 	thirdParty: {
-		cardmarket: 740665
+		cardmarket: 740665,
+		tcgplayer: 523805
 	}
 }
 

@@ -54,7 +54,8 @@ const card: Card = {
 	illustrator: "ryoma uratsuka",
 
 	thirdParty: {
-		cardmarket: 760756
+		cardmarket: 760756,
+		tcgplayer: 542870
 	}
 }
 

@@ -46,6 +46,9 @@ const card: Card = {
 			stamp: ["illustration-contest-2024"]
 		},
 	]
+	thirdParty: {
+		tcgplayer: 490074
+	},
 }
 
 export default card

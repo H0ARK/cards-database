@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Shiburingaru",
 
 	thirdParty: {
-		cardmarket: 785907
+		cardmarket: 785907,
+		tcgplayer: 567279
 	}
 }
 

@@ -68,7 +68,8 @@ const card: Card = {
 	illustrator: "N-DESIGN Inc.",
 
 	thirdParty: {
-		cardmarket: 805466
+		cardmarket: 805466,
+		tcgplayer: 610431
 	}
 }
 

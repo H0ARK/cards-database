@@ -74,7 +74,8 @@ const card: Card = {
 	illustrator: "Akira Komayama",
 
 	thirdParty: {
-		cardmarket: 751610
+		cardmarket: 751610,
+		tcgplayer: 534434
 	}
 }
 

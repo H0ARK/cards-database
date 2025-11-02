@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Naoyo Kimura",
 
 	thirdParty: {
-		cardmarket: 794516
+		cardmarket: 794516,
+		tcgplayer: 589932
 	}
 }
 

@@ -35,7 +35,8 @@ const card: Card = {
 	illustrator: "AYUMI ODASHIMA",
 
 	thirdParty: {
-		cardmarket: 794545
+		cardmarket: 794545,
+		tcgplayer: 589920
 	}
 }
 

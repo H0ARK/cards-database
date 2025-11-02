@@ -36,7 +36,8 @@ const card: Card = {
 	illustrator: "GIDORA",
 
 	thirdParty: {
-		cardmarket: 760785
+		cardmarket: 760785,
+		tcgplayer: 542922
 	}
 }
 

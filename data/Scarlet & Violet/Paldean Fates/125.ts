@@ -68,7 +68,8 @@ const card: Card = {
 	illustrator: "Nelnal",
 
 	thirdParty: {
-		cardmarket: 751664
+		cardmarket: 751664,
+		tcgplayer: 534516
 	}
 }
 

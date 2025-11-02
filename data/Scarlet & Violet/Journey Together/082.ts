@@ -76,7 +76,8 @@ const card: Card = {
 	illustrator: "Uta",
 
 	thirdParty: {
-		cardmarket: 817234
+		cardmarket: 817234,
+		tcgplayer: 623509
 	},
 
 	variants: [

@@ -67,7 +67,8 @@ const card: Card = {
 	illustrator: "Bun Toujo",
 
 	thirdParty: {
-		cardmarket: 760716
+		cardmarket: 760716,
+		tcgplayer: 542830
 	}
 }
 
