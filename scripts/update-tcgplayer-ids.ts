@@ -45,10 +45,14 @@ function getCardNumber(product: Product): string | null {
 	const numberData = product.extendedData.find(d => d.name === 'Number')
 	if (!numberData?.value) return null
 
-	// Extract the first part of the card number (e.g., "001" from "001/197")
+	// Extract the card number - handles both "001/197" and "032" formats
 	// Keep leading zeros to match file names
-	const match = numberData.value.match(/^(\d+)\//)
-	return match ? match[1] : null
+	const slashMatch = numberData.value.match(/^(\d+)\//)
+	if (slashMatch) return slashMatch[1]
+
+	// For promos and special sets without slash (e.g., "032")
+	const numberMatch = numberData.value.match(/^(\d+)$/)
+	return numberMatch ? numberMatch[1] : null
 }
 
 /**
