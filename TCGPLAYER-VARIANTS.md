@@ -160,11 +160,16 @@ Cards Not Found:             8,094
 
 ### Sets with Multiple Variants
 
-Pattern variants are primarily found in newer Scarlet & Violet sets:
+Pattern variants (Pokéball/Master Ball) are found in these Scarlet & Violet sets:
 
-- Black Bolt: 79 cards with multiple variants
-- White Flare: 79 cards with multiple variants
-- Prismatic Evolutions: ~102 cards with multiple variants
+| Set Name              | Group ID | Cards with Variants |
+|-----------------------|----------|---------------------|
+| Black Bolt            | 24325    | 79                  |
+| White Flare           | 24326    | 80                  |
+| Prismatic Evolutions  | 23821    | 100                 |
+| **Total**             |          | **259**             |
+
+All three sets feature both Poké Ball Pattern and Master Ball Pattern variants for select cards.
 
 ## Development Guide
 
