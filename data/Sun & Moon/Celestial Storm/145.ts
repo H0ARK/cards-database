@@ -36,6 +36,9 @@ const card: Card = {
 	},
 	trainerType: "Supporter",
 
+	thirdParty: {
+		tcgplayer: 171006
+	},
 }
 
 export default card

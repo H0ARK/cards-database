@@ -36,6 +36,9 @@ const card: Card = {
 			en: "Flip a coin. If heads, during your opponent’s next turn, prevent all effects of attacks, including damage, done to Rocket’s Scizor."
 		}
 	}]
+	thirdParty: {
+		tcgplayer: 167081
+	},
 }
 
 export default card

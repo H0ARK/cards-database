@@ -76,6 +76,9 @@ const card: Card = {
 
 
 
+	thirdParty: {
+		tcgplayer: 89982
+	},
 }
 
 export default card

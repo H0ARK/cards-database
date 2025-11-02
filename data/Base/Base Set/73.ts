@@ -17,6 +17,9 @@ const card: Card = {
 		fr: "Votre adversaire mélange sa main avec son deck, puis pioche 7 cartes.",
 		de: "Dein Gegner mischt die Karten seiner Hand in seinen Stapel und zieht sieben neue Karten"
 	}
+	thirdParty: {
+		tcgplayer: 86271
+	},
 }
 
 export default card

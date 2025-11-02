@@ -36,6 +36,9 @@ const card: Card = {
 	},
 
 energyType: "Special",
+	thirdParty: {
+		tcgplayer: 157754
+	},
 }
 
 export default card

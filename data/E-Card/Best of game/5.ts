@@ -36,6 +36,9 @@ const card: Card = {
 			en: "Flip 4 coins. This attack does 10 damage times the number of heads."
 		}
 	}]
+	thirdParty: {
+		tcgplayer: 107877
+	},
 }
 
 export default card

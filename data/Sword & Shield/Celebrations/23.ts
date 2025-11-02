@@ -35,6 +35,9 @@ const card: Card = {
 	trainerType: "Supporter",
 	illustrator: "KIYOTAKA OSHIYAMA",
 	regulationMark: "D"
+	thirdParty: {
+		tcgplayer: 250318
+	},
 }
 
 export default card

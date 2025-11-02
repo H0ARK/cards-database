@@ -23,6 +23,9 @@ const card: Card = {
 		holo: false,
 		firstEdition: false
 	}
+	thirdParty: {
+		tcgplayer: 88816
+	},
 }
 
 export default card

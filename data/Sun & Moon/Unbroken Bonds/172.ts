@@ -36,6 +36,9 @@ const card: Card = {
 	},
 	trainerType: "Tool",
 
+	thirdParty: {
+		tcgplayer: 189273
+	},
 }
 
 export default card

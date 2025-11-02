@@ -73,11 +73,7 @@ async function loadSetData(setFilePath: string): Promise<Set | null> {
 	try {
 		const content = await fs.readFile(setFilePath, 'utf-8')
 
-		// Extract the set object using regex (simple approach)
-		const setMatch = content.match(/const set: Set = ({[\s\S]+?})\s*export default set/)
-		if (!setMatch) return null
-
-		// Extract tcgplayer ID
+		// Extract tcgplayer ID directly (works with any variable name)
 		const tcgplayerMatch = content.match(/tcgplayer:\s*(\d+)/)
 		if (!tcgplayerMatch) return null
 
@@ -189,8 +185,9 @@ async function processSet(setPath: string, dryRun: boolean): Promise<void> {
 
 	for (const cardPath of cardFiles) {
 		const filename = path.basename(cardPath, '.ts')
-		// Keep the filename as-is (e.g., "001") to match product card numbers
-		const cardNumber = filename
+		// Pad card number with leading zeros to match product card numbers
+		// e.g., "1" -> "001", "12" -> "012"
+		const cardNumber = filename.padStart(3, '0')
 
 		const productId = cardMap.get(cardNumber)
 
