@@ -49,13 +49,18 @@ async function downloadTCGPlayerHistory() {
 			try {
 				const cardData: Card = extractFile(cardFile)
 
+				// Skip if not a card (e.g., set files)
+				if (!cardData.set) {
+					continue
+				}
+
 				// Skip if no TCGPlayer ID
 				if (!cardData.thirdParty?.tcgplayer) {
 					continue
 				}
 
 				const productId = cardData.thirdParty.tcgplayer
-				const cardId = `${cardData.set.id}-${cardData.localId}`
+				const cardId = `${path.basename(path.dirname(cardFile))}-${path.basename(cardFile, '.ts')}`
 
 				console.log(`📊 Processing ${cardId} (TCGPlayer ID: ${productId})`)
 
@@ -219,4 +224,3 @@ async function createHistoryIndex(baseFolder: string) {
 if (import.meta.main) {
 	downloadTCGPlayerHistory()
 }
-

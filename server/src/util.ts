@@ -24,7 +24,7 @@ export const languages = [
 ] as const
 
 export function checkLanguage(str: string): str is SupportedLanguages {
-	return languages.includes(str as 'en')
+	return languages.includes(str as SupportedLanguages)
 }
 
 export function unique(arr: Array<string>): Array<string> {

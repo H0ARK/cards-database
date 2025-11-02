@@ -48,6 +48,7 @@ COPY --chown=bun:bun --from=build /usr/src/app/server/node_modules ./node_module
 COPY --chown=bun:bun --from=build /usr/src/app/server/src ./src
 COPY --chown=bun:bun --from=build /usr/src/app/server/public ./public
 COPY --chown=bun:bun --from=build /usr/src/app/server/package.json ./package.json
+COPY --chown=bun:bun --from=build /usr/src/app/var ./var
 
 # Expose port
 EXPOSE 3000
