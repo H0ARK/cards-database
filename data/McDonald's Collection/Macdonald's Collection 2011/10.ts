@@ -46,7 +46,9 @@ const card: Card = {
 	types: ["Metal"],
 
 	thirdParty: {
-		tcgplayer: 86480
+		tcgplayer: {
+			normal: 86480
+		}
 	}
 }
 

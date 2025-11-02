@@ -48,7 +48,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "MINAMINAMI Take"
 	thirdParty: {
-		tcgplayer: 487888
+		tcgplayer: {
+			normal: 487888
+		}
 	},
 }
 

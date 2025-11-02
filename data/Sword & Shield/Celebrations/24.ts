@@ -36,7 +36,9 @@ const card: Card = {
 	illustrator: "Ken Sugimori",
 	regulationMark: "D"
 	thirdParty: {
-		tcgplayer: 250293
+		tcgplayer: {
+			normal: 250293
+		}
 	},
 }
 

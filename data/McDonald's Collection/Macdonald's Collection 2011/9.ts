@@ -46,7 +46,9 @@ const card: Card = {
 	types: ["Darkness"],
 
 	thirdParty: {
-		tcgplayer: 90758
+		tcgplayer: {
+			normal: 90758
+		}
 	}
 }
 

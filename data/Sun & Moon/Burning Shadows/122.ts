@@ -37,7 +37,9 @@ const card: Card = {
 	trainerType: "Item",
 
 	thirdParty: {
-		tcgplayer: 138626
+		tcgplayer: {
+			normal: 138626
+		}
 	},
 }
 

@@ -46,7 +46,9 @@ const card: Card = {
 	types: ["Grass"],
 
 	thirdParty: {
-		tcgplayer: 89081
+		tcgplayer: {
+			normal: 89081
+		}
 	}
 }
 

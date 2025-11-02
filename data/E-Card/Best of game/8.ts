@@ -45,7 +45,9 @@ const card: Card = {
 		damage: 60
 	}]
 	thirdParty: {
-		tcgplayer: 167080
+		tcgplayer: {
+			normal: 167080
+		}
 	},
 }
 

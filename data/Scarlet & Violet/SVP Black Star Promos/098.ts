@@ -61,7 +61,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Tonji Matsuno"
 	thirdParty: {
-		tcgplayer: 487969
+		tcgplayer: {
+			normal: 487969
+		}
 	},
 }
 

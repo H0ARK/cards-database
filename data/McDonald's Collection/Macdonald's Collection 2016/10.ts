@@ -39,7 +39,9 @@ const card: Card = {
 	rarity: "None",
 
 	thirdParty: {
-		tcgplayer: 275066
+		tcgplayer: {
+			normal: 275066
+		}
 	}
 }
 

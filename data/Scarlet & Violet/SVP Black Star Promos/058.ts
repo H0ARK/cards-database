@@ -70,7 +70,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Lee HyunJung"
 	thirdParty: {
-		tcgplayer: 487908
+		tcgplayer: {
+			normal: 487908
+		}
 	},
 }
 

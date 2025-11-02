@@ -39,7 +39,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Po-Suzuki"
 	thirdParty: {
-		tcgplayer: 488011
+		tcgplayer: {
+			normal: 488011
+		}
 	},
 }
 

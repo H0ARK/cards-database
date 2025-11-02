@@ -56,7 +56,9 @@ const card: Card = {
 		fr: "Son ouïe très fine l'avertit du danger. Plus ses cornes sont grandes, plus son poison est mortel."
 	}
 	thirdParty: {
-		tcgplayer: 42399
+		tcgplayer: {
+			normal: 42399
+		}
 	},
 }
 

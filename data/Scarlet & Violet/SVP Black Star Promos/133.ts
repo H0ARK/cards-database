@@ -70,7 +70,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Natsumi Yoshida"
 	thirdParty: {
-		tcgplayer: 488023
+		tcgplayer: {
+			normal: 488023
+		}
 	},
 }
 

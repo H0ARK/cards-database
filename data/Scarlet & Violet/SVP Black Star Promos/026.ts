@@ -46,7 +46,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Mina Nakai"
 	thirdParty: {
-		tcgplayer: 487864
+		tcgplayer: {
+			normal: 487864
+		}
 	},
 }
 

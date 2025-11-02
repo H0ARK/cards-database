@@ -48,7 +48,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "PLANETA Tsuji"
 	thirdParty: {
-		tcgplayer: 487981
+		tcgplayer: {
+			normal: 487981
+		}
 	},
 }
 

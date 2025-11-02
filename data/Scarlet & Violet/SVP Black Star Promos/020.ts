@@ -70,7 +70,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Anesaki Dynamic"
 	thirdParty: {
-		tcgplayer: 487857
+		tcgplayer: {
+			normal: 487857
+		}
 	},
 }
 

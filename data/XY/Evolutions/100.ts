@@ -77,7 +77,9 @@ const card: Card = {
 	suffix: "EX",
 
 	thirdParty: {
-		tcgplayer: 124113
+		tcgplayer: {
+			normal: 124113
+		}
 	}
 }
 

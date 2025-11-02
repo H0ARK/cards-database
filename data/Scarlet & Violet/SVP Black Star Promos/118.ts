@@ -61,7 +61,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Shimaris Yukichi"
 	thirdParty: {
-		tcgplayer: 488007
+		tcgplayer: {
+			normal: 488007
+		}
 	},
 }
 

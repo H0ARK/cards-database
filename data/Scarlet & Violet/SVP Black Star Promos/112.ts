@@ -39,7 +39,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "AKIRA EGAWA"
 	thirdParty: {
-		tcgplayer: 488001
+		tcgplayer: {
+			normal: 488001
+		}
 	},
 }
 

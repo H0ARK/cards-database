@@ -73,7 +73,9 @@ const card: Card = {
 	retreat: 1,
 	regulationMark: "I"
 	thirdParty: {
-		tcgplayer: 488104
+		tcgplayer: {
+			normal: 488104
+		}
 	},
 }
 

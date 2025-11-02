@@ -35,7 +35,26 @@ const stats = {
 	cardsUpdated: 0,
 	cardsSkipped: 0,
 	cardsNotFound: 0,
+	cardsWithMultipleVariants: 0,
+	totalVariants: 0,
 	errors: 0
+}
+
+/**
+ * Detect variant type from product name
+ */
+function detectVariant(productName: string): string {
+	const lower = productName.toLowerCase()
+
+	if (lower.includes('master ball pattern')) return 'masterball'
+	if (lower.includes('poke ball pattern') || lower.includes('pokéball pattern')) return 'pokeball'
+	if (lower.includes('reverse holo')) return 'reverse'
+	if (lower.includes('holofoil') || lower.includes(' holo')) return 'holo'
+	if (lower.includes('etched')) return 'etched'
+	if (lower.includes('galaxy')) return 'galaxy'
+	if (lower.includes('cosmos')) return 'cosmos'
+
+	return 'normal'
 }
 
 /**
@@ -65,7 +84,11 @@ function isCard(product: Product): boolean {
 		product.name.toLowerCase().includes('blister') ||
 		product.name.toLowerCase().includes('bundle') ||
 		product.name.toLowerCase().includes('case') ||
-		product.name.toLowerCase().includes('pack')
+		product.name.toLowerCase().includes('pack') ||
+		product.name.toLowerCase().includes('elite trainer') ||
+		product.name.toLowerCase().includes('collection') ||
+		product.name.toLowerCase().includes('tin') ||
+		product.name.toLowerCase().includes('deck')
 
 	return hasCardNumber && !isSealed
 }
@@ -94,41 +117,69 @@ async function loadSetData(setFilePath: string): Promise<Set | null> {
 }
 
 /**
- * Update a card file with TCGPlayer productId
+ * Update a card file with TCGPlayer productId(s)
  */
-async function updateCardFile(cardPath: string, productId: number, dryRun: boolean): Promise<boolean> {
+async function updateCardFile(
+	cardPath: string,
+	variants: Record<string, number>,
+	dryRun: boolean
+): Promise<boolean> {
 	try {
 		let content = await fs.readFile(cardPath, 'utf-8')
 
+		// Get variant keys for logging
+		const variantKeys = Object.keys(variants)
+
+		// Always use object format for consistency across all cards
+		const variantLines = Object.entries(variants)
+			.sort(([a], [b]) => {
+				// Sort: normal first, then alphabetically
+				if (a === 'normal') return -1
+				if (b === 'normal') return 1
+				return a.localeCompare(b)
+			})
+			.map(([variant, productId]) => `\t\t\t${variant}: ${productId}`)
+			.join(',\n')
+
+		const newTcgplayerValue = `{\n${variantLines}\n\t\t}`
+
 		// Check if already has tcgplayer field
 		if (content.includes('tcgplayer:')) {
-			console.log(`   [SKIP] ${path.basename(cardPath)} - already has tcgplayer`)
-			stats.cardsSkipped++
-			return false
-		}
-
-		// Find the thirdParty block
-		if (content.includes('thirdParty:')) {
-			// Add tcgplayer to existing thirdParty block
-			// Need to add comma after cardmarket and then add tcgplayer
+			// Replace existing value (supports both number and object formats)
 			content = content.replace(
-				/(cardmarket:\s*\d+)(\s*\n\s*\})/,
-				`$1,\n\t\ttcgplayer: ${productId}$2`
+				/tcgplayer:\s*(\d+|{[^}]*})/s,
+				`tcgplayer: ${newTcgplayerValue}`
 			)
+			console.log(`   [UPDATE] ${path.basename(cardPath)} -> ${variantKeys.length} variant(s)`)
 		} else {
-			// Add new thirdParty block before the closing brace of card object
-			content = content.replace(
-				/(\n)(})\n\n(export default card)/,
-				`$1\tthirdParty: {\n\t\ttcgplayer: ${productId}\n\t},\n$2\n\n$3`
-			)
+			// Add new tcgplayer field
+			if (content.includes('thirdParty:')) {
+				// Add to existing thirdParty block
+				content = content.replace(
+					/(cardmarket:\s*\d+)(\s*\n\s*\})/,
+					`$1,\n\t\ttcgplayer: ${newTcgplayerValue}$2`
+				)
+			} else {
+				// Add new thirdParty block
+				content = content.replace(
+					/(\n)(})\n\n(export default card)/,
+					`$1\tthirdParty: {\n\t\ttcgplayer: ${newTcgplayerValue}\n\t},\n$2\n\n$3`
+				)
+			}
+			console.log(`   [ADD] ${path.basename(cardPath)} -> ${variantKeys.length} variant(s)`)
 		}
 
 		if (!dryRun) {
 			await fs.writeFile(cardPath, content, 'utf-8')
 		}
 
-		console.log(`   [UPDATE] ${path.basename(cardPath)} -> productId ${productId}`)
 		stats.cardsUpdated++
+		if (variantKeys.length > 1) {
+			stats.cardsWithMultipleVariants++
+			console.log(`         Variants: ${variantKeys.join(', ')}`)
+		}
+		stats.totalVariants += variantKeys.length
+
 		return true
 	} catch (error) {
 		console.error(`Error updating ${cardPath}:`, error)
@@ -164,22 +215,42 @@ async function processSet(setPath: string, dryRun: boolean): Promise<void> {
 	// Load products
 	const productsData: ProductsFile = JSON.parse(await fs.readFile(productsPath, 'utf-8'))
 
-	// Build card number to productId map
-	const cardMap = new Map<string, number>()
+	// Build card number to variants map (supports multiple product IDs per card)
+	const cardVariantsMap = new Map<string, Record<string, number>>()
+
 	for (const product of productsData.results) {
 		if (!isCard(product)) continue
 
 		const cardNumber = getCardNumber(product)
-		if (cardNumber) {
-			cardMap.set(cardNumber, product.productId)
+		if (!cardNumber) continue
+
+		const variant = detectVariant(product.name)
+
+		if (!cardVariantsMap.has(cardNumber)) {
+			cardVariantsMap.set(cardNumber, {})
 		}
+
+		cardVariantsMap.get(cardNumber)![variant] = product.productId
 	}
 
 	console.log(`\n📦 Processing ${setName} (groupId: ${groupId})`)
-	console.log(`   Found ${cardMap.size} card products`)
+	console.log(`   Found ${cardVariantsMap.size} unique cards`)
+
+	// Count total variants
+	let totalVariantsInSet = 0
+	let cardsWithMultipleVariantsInSet = 0
+	cardVariantsMap.forEach(variants => {
+		totalVariantsInSet += Object.keys(variants).length
+		if (Object.keys(variants).length > 1) {
+			cardsWithMultipleVariantsInSet++
+		}
+	})
+	console.log(`   Total product variants: ${totalVariantsInSet}`)
+	if (cardsWithMultipleVariantsInSet > 0) {
+		console.log(`   Cards with multiple variants: ${cardsWithMultipleVariantsInSet}`)
+	}
 
 	// Find all card files in this set
-	// Cards are in a directory with the same name as the set file
 	const cardsDir = path.join(setDir, setName)
 	const cardFiles = await glob(`${cardsDir}/[0-9]*.ts`)
 
@@ -190,19 +261,18 @@ async function processSet(setPath: string, dryRun: boolean): Promise<void> {
 	for (const cardPath of cardFiles) {
 		const filename = path.basename(cardPath, '.ts')
 		// Pad card number with leading zeros to match product card numbers
-		// e.g., "1" -> "001", "12" -> "012"
 		const cardNumber = filename.padStart(3, '0')
 
-		const productId = cardMap.get(cardNumber)
+		const variants = cardVariantsMap.get(cardNumber)
 
-		if (!productId) {
+		if (!variants || Object.keys(variants).length === 0) {
 			console.log(`   [NOT FOUND] ${filename} - no product in TCGPlayer`)
 			setNotFound++
 			stats.cardsNotFound++
 			continue
 		}
 
-		const updated = await updateCardFile(cardPath, productId, dryRun)
+		const updated = await updateCardFile(cardPath, variants, dryRun)
 		if (updated) {
 			setUpdated++
 		} else {
@@ -222,7 +292,7 @@ async function main() {
 	const dryRun = args.includes('--dry')
 	const setPattern = args.find(arg => !arg.startsWith('--')) || 'data/**/*.ts'
 
-	console.log('🚀 TCGPlayer ID Updater')
+	console.log('🚀 TCGPlayer ID Updater (Multi-Variant Support)')
 	console.log(`Mode: ${dryRun ? 'DRY RUN (no changes)' : 'LIVE (files will be modified)'}`)
 	console.log(`Pattern: ${setPattern}\n`)
 
@@ -240,12 +310,25 @@ async function main() {
 	console.log('\n' + '='.repeat(60))
 	console.log('📊 Summary:')
 	console.log('='.repeat(60))
-	console.log(`Sets Processed:    ${stats.setsProcessed}`)
-	console.log(`Cards Updated:     ${stats.cardsUpdated}`)
-	console.log(`Cards Skipped:     ${stats.cardsSkipped} (already have TCGPlayer ID)`)
-	console.log(`Cards Not Found:   ${stats.cardsNotFound} (no matching product)`)
-	console.log(`Errors:            ${stats.errors}`)
+	console.log(`Sets Processed:              ${stats.setsProcessed}`)
+	console.log(`Cards Updated:               ${stats.cardsUpdated}`)
+	console.log(`Cards with Multiple Variants: ${stats.cardsWithMultipleVariants}`)
+	console.log(`Total Variants Added:        ${stats.totalVariants}`)
+	console.log(`Cards Skipped:               ${stats.cardsSkipped}`)
+	console.log(`Cards Not Found:             ${stats.cardsNotFound}`)
+	console.log(`Errors:                      ${stats.errors}`)
 	console.log('='.repeat(60))
+
+	if (stats.cardsWithMultipleVariants > 0) {
+		console.log('\n💡 Multi-Variant Format Example:')
+		console.log('   thirdParty: {')
+		console.log('     tcgplayer: {')
+		console.log('       normal: 642180,')
+		console.log('       pokeball: 642421,')
+		console.log('       masterball: 642349')
+		console.log('     }')
+		console.log('   }')
+	}
 
 	if (dryRun) {
 		console.log('\n⚠️  This was a DRY RUN. Run without --dry to apply changes.')

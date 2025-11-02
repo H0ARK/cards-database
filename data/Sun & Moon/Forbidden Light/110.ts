@@ -26,7 +26,9 @@ const card: Card = {
 		de: "Lege für jedes deiner Fire-Pokémon im Spiel 1 Karte aus dem Ablagestapel deines Gegners ins Nirgendwo."
 	}
 	thirdParty: {
-		tcgplayer: 165773
+		tcgplayer: {
+			normal: 165773
+		}
 	},
 }
 

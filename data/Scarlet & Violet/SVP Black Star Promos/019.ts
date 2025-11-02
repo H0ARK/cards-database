@@ -61,7 +61,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Oswaldo KATO"
 	thirdParty: {
-		tcgplayer: 487856
+		tcgplayer: {
+			normal: 487856
+		}
 	},
 }
 

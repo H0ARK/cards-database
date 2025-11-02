@@ -42,7 +42,9 @@ const card: Card = {
 	types: ["Water"],
 
 	thirdParty: {
-		tcgplayer: 83507
+		tcgplayer: {
+			normal: 83507
+		}
 	}
 }
 

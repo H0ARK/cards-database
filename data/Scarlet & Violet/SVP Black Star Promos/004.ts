@@ -70,7 +70,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "PLANETA Yamashita"
 	thirdParty: {
-		tcgplayer: 487833
+		tcgplayer: {
+			normal: 487833
+		}
 	},
 }
 

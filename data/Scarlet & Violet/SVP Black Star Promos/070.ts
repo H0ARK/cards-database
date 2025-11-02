@@ -48,7 +48,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Nisota Niso"
 	thirdParty: {
-		tcgplayer: 487924
+		tcgplayer: {
+			normal: 487924
+		}
 	},
 }
 

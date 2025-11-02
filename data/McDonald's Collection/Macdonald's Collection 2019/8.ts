@@ -40,7 +40,9 @@ const card: Card = {
 	types: ["Fighting"],
 
 	thirdParty: {
-		tcgplayer: 200971
+		tcgplayer: {
+			normal: 200971
+		}
 	}
 }
 

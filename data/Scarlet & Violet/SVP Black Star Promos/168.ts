@@ -73,7 +73,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Taira Akitsu"
 	thirdParty: {
-		tcgplayer: 488073
+		tcgplayer: {
+			normal: 488073
+		}
 	},
 }
 

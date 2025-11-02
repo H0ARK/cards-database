@@ -68,7 +68,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "PLANETA Igarashi"
 	thirdParty: {
-		tcgplayer: 487980
+		tcgplayer: {
+			normal: 487980
+		}
 	},
 }
 

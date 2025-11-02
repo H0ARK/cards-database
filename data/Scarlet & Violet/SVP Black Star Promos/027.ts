@@ -48,7 +48,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Atsushi Furusawa"
 	thirdParty: {
-		tcgplayer: 487866
+		tcgplayer: {
+			normal: 487866
+		}
 	},
 }
 

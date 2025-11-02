@@ -36,7 +36,9 @@ const card: Card = {
 	illustrator: "KIYOTAKA OSHIYAMA",
 	regulationMark: "D"
 	thirdParty: {
-		tcgplayer: 250318
+		tcgplayer: {
+			normal: 250318
+		}
 	},
 }
 

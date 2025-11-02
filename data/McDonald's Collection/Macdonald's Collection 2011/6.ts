@@ -40,7 +40,9 @@ const card: Card = {
 	types: ["Lightning"],
 
 	thirdParty: {
-		tcgplayer: 83929
+		tcgplayer: {
+			normal: 83929
+		}
 	}
 }
 

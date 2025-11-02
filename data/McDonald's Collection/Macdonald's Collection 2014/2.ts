@@ -23,7 +23,9 @@ const card: Card = {
 	stage: "Basic",
 
 	thirdParty: {
-		tcgplayer: 110407
+		tcgplayer: {
+			normal: 110407
+		}
 	}
 }
 

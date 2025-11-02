@@ -44,7 +44,9 @@ const card: Card = {
 	types: ["Fire"],
 
 	thirdParty: {
-		tcgplayer: 88064
+		tcgplayer: {
+			normal: 88064
+		}
 	}
 }
 

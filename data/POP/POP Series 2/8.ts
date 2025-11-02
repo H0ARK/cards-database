@@ -25,7 +25,9 @@ const card: Card = {
 		firstEdition: false
 	}
 	thirdParty: {
-		tcgplayer: 87586
+		tcgplayer: {
+			normal: 87586
+		}
 	},
 }
 

@@ -68,7 +68,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "PLANETA Mochizuki"
 	thirdParty: {
-		tcgplayer: 488033
+		tcgplayer: {
+			normal: 488033
+		}
 	},
 }
 

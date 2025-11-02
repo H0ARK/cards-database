@@ -61,7 +61,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Uta"
 	thirdParty: {
-		tcgplayer: 487956
+		tcgplayer: {
+			normal: 487956
+		}
 	},
 }
 

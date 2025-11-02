@@ -18,7 +18,9 @@ const card: Card = {
 		de: "Dein Gegner mischt die Karten seiner Hand in seinen Stapel und zieht sieben neue Karten"
 	}
 	thirdParty: {
-		tcgplayer: 86271
+		tcgplayer: {
+			normal: 86271
+		}
 	},
 }
 

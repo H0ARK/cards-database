@@ -72,7 +72,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Makura Tami"
 	thirdParty: {
-		tcgplayer: 488078
+		tcgplayer: {
+			normal: 488078
+		}
 	},
 }
 

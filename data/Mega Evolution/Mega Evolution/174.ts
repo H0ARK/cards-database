@@ -32,7 +32,9 @@ const card: Card = {
 	regulationMark: "I",
 
 	thirdParty: {
-		tcgplayer: 654513,
+		tcgplayer: {
+			normal: 654513
+		},
 		cardmarket: 851245
 	}
 }

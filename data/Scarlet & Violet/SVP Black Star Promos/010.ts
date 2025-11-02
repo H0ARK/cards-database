@@ -61,7 +61,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "Sanosuke Sakuma"
 	thirdParty: {
-		tcgplayer: 487842
+		tcgplayer: {
+			normal: 487842
+		}
 	},
 }
 

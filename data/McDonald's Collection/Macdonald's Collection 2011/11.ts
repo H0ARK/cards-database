@@ -44,7 +44,9 @@ const card: Card = {
 	types: ["Colorless"],
 
 	thirdParty: {
-		tcgplayer: 88055
+		tcgplayer: {
+			normal: 88055
+		}
 	}
 }
 

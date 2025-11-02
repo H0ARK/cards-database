@@ -59,7 +59,9 @@ const card: Card = {
 	regulationMark: "H",
 	illustrator: "Saboteri"
 	thirdParty: {
-		tcgplayer: 485108
+		tcgplayer: {
+			normal: 485108
+		}
 	},
 }
 

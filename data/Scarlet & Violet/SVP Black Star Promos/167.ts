@@ -73,7 +73,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "SIE NANAHARA"
 	thirdParty: {
-		tcgplayer: 488072
+		tcgplayer: {
+			normal: 488072
+		}
 	},
 }
 

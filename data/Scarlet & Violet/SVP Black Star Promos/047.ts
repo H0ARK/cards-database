@@ -48,7 +48,9 @@ const card: Card = {
 	regulationMark: "G",
 	illustrator: "NC Empire"
 	thirdParty: {
-		tcgplayer: 487893
+		tcgplayer: {
+			normal: 487893
+		}
 	},
 }
 
