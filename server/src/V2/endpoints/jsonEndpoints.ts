@@ -67,14 +67,20 @@ server
 		)
 	)
 
-	// .get('/cache/performance', (req, res) => {
-	// 	res.json(apicache.getPerformance())
-	// })
+	.get('/cache/performance', (req, res) => {
+		res.json(apicache.getPerformance())
+	})
 
-	// // add route to display cache index
-	// .get('/cache/index', (req, res) => {
-	// 	res.json(apicache.getIndex())
-	// })
+	// add route to display cache index
+	.get('/cache/index', (req, res) => {
+		res.json(apicache.getIndex())
+	})
+
+	// add route to clear cache
+	.get('/cache/clear', (req, res) => {
+		apicache.clear()
+		res.json({ message: 'Cache cleared successfully' })
+	})
 
 	// Midleware that handle url transformation
 	.use((req: CustomRequest, _, next) => {
@@ -287,7 +293,8 @@ server
 			}
 
 			if (action === "history") {
-				const range = (req.query.range as string) || "monthly";
+				const range = (req.query.range as string) || "yearly";
+				const variant = (req.query.variant as string) || "normal";
 				const productId = req.query.productId
 					? parseInt(req.query.productId as string, 10)
 					: undefined;
@@ -297,7 +304,8 @@ server
 					lang,
 					cardId,
 					range,
-					productId
+					productId,
+					variant
 				);
 				return res.json(result);
 			}
@@ -317,7 +325,8 @@ server
 			return sendError(Errors.LANGUAGE_INVALID, res, { lang });
 		}
 
-		const range = (req.query.range as string) || "monthly";
+		const range = (req.query.range as string) || "yearly";
+		const variant = (req.query.variant as string) || "normal";
 		const productId = req.query.productId
 			? parseInt(req.query.productId as string, 10)
 			: undefined;
@@ -325,7 +334,8 @@ server
 			lang,
 			cardId,
 			range,
-			productId
+			productId,
+			variant
 		);
 		return res.json(result);
 	})
@@ -430,7 +440,7 @@ server
 					result = await listSKUs(getCompiledCard(lang, id));
 				} else if (subid === "history") {
 					// New history endpoint: /v2/en/cards/{cardId}/history?range=daily|monthly|yearly
-					const range = (req.query.range as string) || "monthly";
+					const range = (req.query.range as string) || "yearly";
 					const productId = req.query.productId
 						? parseInt(req.query.productId as string, 10)
 						: undefined;
@@ -465,16 +475,36 @@ const productLocationCache = new Map<
 	{ category: string; setDir: string }
 >();
 
+/**
+ * Map variant parameter to tcgcsv subTypeName format
+ */
+function variantToSubTypeName(variant: string): string {
+	const mapping: Record<string, string> = {
+		'normal': 'Normal',
+		'holo': 'Holofoil',
+		'holofoil': 'Holofoil',
+		'reverse': 'Reverse Holofoil',
+		'reverse-holofoil': 'Reverse Holofoil',
+		'1st-edition-normal': '1st Edition Normal',
+		'1st-edition-holofoil': '1st Edition Holofoil',
+		'pokeball': 'Pokeball',
+		'masterball': 'Master Ball',
+	}
+
+	return mapping[variant.toLowerCase()] || variant
+}
+
 async function getCardPriceHistory(
 	lang: string,
 	cardId: string,
-	range: string = "monthly",
-	productId?: number
+	range: string = "yearly",
+	productId?: number,
+	variant: string = "normal"
 ) {
 	try {
 		const validRanges = ["daily", "monthly", "yearly"];
 		if (!validRanges.includes(range)) {
-			range = "monthly";
+			range = "yearly";
 		}
 
 		const daysBack = range === "daily" ? 30 : range === "yearly" ? 365 : 90;
@@ -489,22 +519,38 @@ async function getCardPriceHistory(
 		}
 
 		if (!productId) {
-			const compiledCard = getCompiledCard(lang, cardId);
+			const compiledCard = await getCompiledCard(lang, cardId);
 			if (compiledCard?.thirdParty?.tcgplayer) {
-				productId = compiledCard.thirdParty.tcgplayer;
-			} else {
+				const tcgplayerData = compiledCard.thirdParty.tcgplayer;
+
+				// Handle new structure: object with variant keys
+				if (typeof tcgplayerData === 'object' && !Array.isArray(tcgplayerData)) {
+					// Try the requested variant first, then fall back to normal, then any available
+					productId = tcgplayerData[variant] || tcgplayerData.normal || Object.values(tcgplayerData)[0];
+				}
+				// Handle old structure: single number
+				else if (typeof tcgplayerData === 'number') {
+					productId = tcgplayerData;
+				}
+			}
+
+			if (!productId) {
 				return {
 					error: "Product ID required. Pass ?productId=<id> or ensure card has TCGPlayer mapping",
 					cardId,
 					range,
+					availableVariants: compiledCard?.thirdParty?.tcgplayer && typeof compiledCard.thirdParty.tcgplayer === 'object'
+						? Object.keys(compiledCard.thirdParty.tcgplayer)
+						: undefined
 				};
 			}
 		}
 
 		const resolvedProductId = productId as number;
 
-		const tcgcsvPath = path.resolve(process.cwd(), "../tcgcsv");
-		const dateFolders = (await fs.readdir(tcgcsvPath))
+		const tcgcsvBasePath = process.env.TCGCSV_PATH || path.resolve(process.cwd(), "../tcgcsv");
+		const priceHistoryPath = path.join(tcgcsvBasePath, "price-history");
+		const dateFolders = (await fs.readdir(priceHistoryPath))
 			.filter((folder) => /^\d{4}-\d{2}-\d{2}$/.test(folder))
 			.sort()
 			.reverse();
@@ -521,7 +567,7 @@ async function getCardPriceHistory(
 		const location = await findProductLocation(
 			resolvedProductId,
 			dateFolders,
-			tcgcsvPath
+			priceHistoryPath
 		);
 
 		if (!location) {
@@ -546,7 +592,7 @@ async function getCardPriceHistory(
 
 		for (const dateFolder of datesToLoad) {
 			const pricesFile = path.join(
-				tcgcsvPath,
+				priceHistoryPath,
 				dateFolder,
 				location.category,
 				location.setDir,
@@ -557,9 +603,25 @@ async function getCardPriceHistory(
 				const fileContent = await fs.readFile(pricesFile, "utf8");
 				const data = JSON.parse(fileContent);
 				if (data?.results && Array.isArray(data.results)) {
-					const productEntry = data.results.find(
-						(entry: any) => entry.productId === resolvedProductId
+					// For old structure cards, the same product ID can have multiple entries
+					// with different subTypeName values (Normal, Reverse Holofoil, etc.)
+					// So we need to filter by both productId AND subTypeName
+					const expectedSubTypeName = variantToSubTypeName(variant);
+
+					// First try to find exact match by productId and subTypeName
+					let productEntry = data.results.find(
+						(entry: any) =>
+							entry.productId === resolvedProductId &&
+							entry.subTypeName === expectedSubTypeName
 					);
+
+					// Fallback: if no exact match, try just productId (for new structure or single variant cards)
+					if (!productEntry) {
+						productEntry = data.results.find(
+							(entry: any) => entry.productId === resolvedProductId
+						);
+					}
+
 					if (productEntry) {
 						history.push({
 							date: dateFolder,

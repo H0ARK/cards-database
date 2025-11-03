@@ -19,3 +19,15 @@ dist/
 
 # production
 /server/dist
+
+# Large data directories (mounted as volumes)
+tcgcsv/
+data/
+var/
+migrations/
+scripts/
+.git/
+.github/
+*.log
+*.md
+MIGRATION_*.md

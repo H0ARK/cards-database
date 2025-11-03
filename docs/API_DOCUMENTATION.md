@@ -178,7 +178,7 @@ curl "http://135.148.148.65/en/cards/base1/1"
 **Parameters:**
 - `lang` (required): Language code
 - `cardId` (required): Card ID
-- `range` (optional): Time range - `daily` (30 days), `monthly` (90 days), `yearly` (365 days). Default: `monthly`
+- `range` (optional): Time range - `daily` (30 days), `monthly` (90 days), `yearly` (365 days). Default: `yearly`
 - `productId` (optional): TCGPlayer product ID. If not provided, uses card's TCGPlayer mapping
 
 **Response:** Price history object with data points

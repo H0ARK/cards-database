@@ -7,8 +7,20 @@ services:
             # You can downgrade the max number of workers by changing this value
             - MAX_WORKERS=2
             - TCGCSV_PATH=/usr/src/tcgcsv
+            # Database connection
+            - DB_HOST=card-db-postgres
+            - DB_PORT=5432
+            - DB_NAME=carddb
+            - DB_USER=cardadmin
+            - DB_PASSWORD=zTUriQtdN70spWI5RBfyEl76Vb5/NFHAz8E2w5bD1Ss=
         ports:
             - 3000:4000 # You can choose any port you want
         volumes:
             - ./server/src:/usr/src/app/src
             - ./tcgcsv:/usr/src/tcgcsv:ro
+        networks:
+            - card-db_card-net
+
+networks:
+    card-db_card-net:
+        external: true

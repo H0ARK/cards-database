@@ -9,6 +9,7 @@ import status from './status'
 import * as Sentry from "@sentry/node"
 import { updateDatas } from './libs/providers/cardmarket'
 import { updateTCGPlayerDatas } from './libs/providers/tcgplayer'
+import { testConnection } from './libs/db'
 
 // Glitchtip will only start if the DSN is set :D
 Sentry.init({
@@ -46,6 +47,14 @@ if (cluster.isPrimary) {
 
 	// Current API version
 	const VERSION = 2
+
+	// Test database connection
+	void testConnection()
+		.then(() => console.log('✅ PostgreSQL database ready'))
+		.catch((err) => {
+			console.error('❌ Database connection failed:', err)
+			console.log('Server will continue with limited functionality')
+		})
 
 	// fetch cardmarket data
 	void updateDatas()

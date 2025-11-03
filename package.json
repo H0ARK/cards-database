@@ -17,5 +17,9 @@
 		"jscodeshift": "^17.3.0",
 		"ts-node": "^10.0.0",
 		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"@types/pg": "^8.15.6",
+		"pg": "^8.16.3"
 	}
 }

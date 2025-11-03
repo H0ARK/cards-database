@@ -1,5 +1,4 @@
 import { objectOmit } from '@dzeio/object-util'
-import { sets } from '../../../V2/Components/Set'
 import TCGPlayer from './TCGPlayer'
 import * as fs from 'fs/promises'
 import * as path from 'path'
@@ -62,13 +61,14 @@ let lastUpdate: Date | undefined = undefined
 // Path to local tcgcsv data
 // In Docker, the volume is mounted at /usr/src/tcgcsv
 const TCGCSV_BASE_PATH = process.env.TCGCSV_PATH || path.join(process.cwd(), 'tcgcsv')
+const TCGCSV_PRICE_HISTORY_PATH = path.join(TCGCSV_BASE_PATH, 'price-history')
 
 /**
  * Get the most recent date folder from tcgcsv directory
  */
 async function getMostRecentTcgcsvDate(): Promise<string | null> {
 	try {
-		const entries = await fs.readdir(TCGCSV_BASE_PATH, { withFileTypes: true })
+		const entries = await fs.readdir(TCGCSV_PRICE_HISTORY_PATH, { withFileTypes: true })
 		const dateFolders = entries
 			.filter(entry => entry.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(entry.name))
 			.map(entry => entry.name)
@@ -89,7 +89,7 @@ async function getMostRecentTcgcsvDate(): Promise<string | null> {
 async function readLocalPriceData(dateFolder: string, setProductId: number): Promise<Root | null> {
 	// TCGPlayer Pokemon category is 3
 	const categoryId = 3
-	const filePath = path.join(TCGCSV_BASE_PATH, dateFolder, String(categoryId), String(setProductId), 'prices')
+	const filePath = path.join(TCGCSV_PRICE_HISTORY_PATH, dateFolder, String(categoryId), String(setProductId), 'prices')
 
 	try {
 		const fileContent = await fs.readFile(filePath, 'utf-8')
@@ -176,65 +176,76 @@ export async function updateTCGPlayerDatas(): Promise<boolean> {
 	console.log(`Using tcgcsv data from: ${dateFolder}`)
 	lastUpdate = new Date(dateFolder)
 
-	// Get all SET group IDs from the sets
-	const setGroupIds = sets.en
-		.filter((it) => it?.thirdParty?.tcgplayer)
-		.map((it) => it!.thirdParty!.tcgplayer)
-
-	let successCount = 0
-	let failCount = 0
-	let totalCards = 0
-
-	// Step 1: Build product mappings for all sets
-	console.log('Fetching product mappings from tcgcsv API...')
-	let productMappingCount = 0
-	for (const setGroupId of setGroupIds) {
-		await buildProductMapping(setGroupId)
-		if (productMap[setGroupId]) {
-			productMappingCount++
-		}
-	}
-	console.log(`Built product mappings for ${productMappingCount} sets`)
-
-	// Step 2: Load price data for all sets
-	console.log('Loading price data from local files...')
-	for (const setGroupId of setGroupIds) {
-		const data = await readLocalPriceData(dateFolder, setGroupId)
-
-		if (!data || !data.success) {
-			failCount++
-			continue
-		}
-
-		// Each result in the data is a CARD with its own product ID
-		// We cache by CARD product ID, not SET group ID
-		for (const item of data.results) {
-			const cardProductId = item.productId
-			const cacheItem = cache[cardProductId] ?? {}
-
-			// Store variants by type (normalized subTypeName)
-			const type = item.subTypeName.toLowerCase().replaceAll(' ', '-')
-			if (!(type in cacheItem)) {
-				cacheItem[type] = objectOmit(item, 'productId', 'subTypeName')
-			}
-
-			cache[cardProductId] = cacheItem
-			totalCards++
-		}
-		successCount++
-	}
+	// Note: We no longer pre-load all set pricing data
+	// Instead, we load pricing on-demand when a card is requested
+	// This is because sets table doesn't have third_party data in the current schema
+	console.log('TCGPlayer provider ready - will load pricing on-demand')
 
 	lastFetch = new Date()
-
-	console.log(`Loaded TCGPlayer data: ${successCount} sets successfully (${totalCards} individual cards cached), ${failCount} sets not found`)
+	console.log('TCGPlayer pricing provider initialized (on-demand loading mode)')
 
 	return true
 }
 
+/**
+ * Load pricing for cards from a SET's price file
+ * Returns a map of productId -> variants
+ */
+async function loadPricingForSet(setGroupId: number): Promise<Record<number, Record<string, Result>> | null> {
+	if (!lastUpdate) {
+		return null;
+	}
+
+	const dateFolder = lastUpdate.toISOString().split('T')[0]
+
+	// The structure is: price-history/YYYY-MM-DD/3/SET_GROUP_ID/prices
+	const categoryId = 3 // Pokemon
+	const filePath = path.join(TCGCSV_PRICE_HISTORY_PATH, dateFolder, String(categoryId), String(setGroupId), 'prices')
+
+	try {
+		const fileContent = await fs.readFile(filePath, 'utf-8')
+		const data = JSON.parse(fileContent) as Root
+
+		if (!data || !data.success || !data.results || data.results.length === 0) {
+			return null
+		}
+
+		// Group results by product ID
+		const productMap: Record<number, Record<string, Result>> = {}
+		for (const item of data.results) {
+			const productId = item.productId
+			if (!productMap[productId]) {
+				productMap[productId] = {}
+			}
+			const type = item.subTypeName.toLowerCase().replaceAll(' ', '-')
+			productMap[productId][type] = objectOmit(item, 'productId', 'subTypeName')
+		}
+
+		return productMap
+	} catch (error) {
+		// File doesn't exist or can't be read
+		return null
+	}
+}
+
 export async function getTCGPlayerPrice(card: {
 	localId: string
-	set: { id: string }
-	thirdParty?: { tcgplayer?: number }
+	set: {
+		id: string
+		metadata?: {
+			third_party?: {
+				tcgplayer?: number
+			}
+		}
+	}
+	thirdParty?: { tcgplayer?: number | Record<string, number> }
+	variants?: {
+		normal?: boolean
+		reverse?: boolean
+		holo?: boolean
+		firstEdition?: boolean
+		wPromo?: boolean
+	}
 }): Promise<{
 	unit: 'USD',
 	updated: string
@@ -251,38 +262,89 @@ export async function getTCGPlayerPrice(card: {
 		return null
 	}
 
-	// Get the set's group ID from thirdParty data
-	const setGroupId = card.thirdParty?.tcgplayer
-	if (typeof setGroupId !== 'number') {
-		return null
+	// Check if thirdParty.tcgplayer is an object with variant product IDs
+	// This is the new database structure: { normal: 219333, reverse: 219334, ... }
+	if (card.thirdParty?.tcgplayer && typeof card.thirdParty.tcgplayer === 'object') {
+		const variantProductIds = card.thirdParty.tcgplayer as Record<string, number>
+		const result: NonNullable<Awaited<ReturnType<typeof getTCGPlayerPrice>>> = {
+			updated: (lastUpdate ?? lastFetch).toISOString(),
+			unit: 'USD',
+		}
+
+		// Get the set group ID to load the entire set's pricing file
+		const setGroupId = card.set?.metadata?.third_party?.tcgplayer
+		if (!setGroupId || typeof setGroupId !== 'number') {
+			return null
+		}
+
+		// Load all pricing for this set
+		const setProductMap = await loadPricingForSet(setGroupId)
+		if (!setProductMap) {
+			return null
+		}
+
+		// Match each variant's product ID to pricing data
+		for (const [variantKey, productId] of Object.entries(variantProductIds)) {
+			const productPricing = setProductMap[productId]
+			if (productPricing) {
+				// Get the first variant data (there should only be one per product ID for cards)
+				const variantData = Object.values(productPricing)[0]
+				if (variantData) {
+					const normalizedKey = variantKey.toLowerCase().replaceAll(' ', '-')
+					result[normalizedKey as keyof typeof result] = variantData
+				}
+			}
+		}
+
+		// Return null if no pricing data was found
+		if (Object.keys(result).length <= 2) { // Only has 'updated' and 'unit'
+			return null
+		}
+
+		return result
 	}
 
-	// Get the card number (localId)
-	const cardNumber = card.localId
+	// FALLBACK: Old structure - single product ID number
+	// This is for cards that haven't been migrated to the new variant-based structure
+	if (card.thirdParty?.tcgplayer && typeof card.thirdParty.tcgplayer === 'number') {
+		const productId = card.thirdParty.tcgplayer as number
+		const setGroupId = card.set?.metadata?.third_party?.tcgplayer
 
-	// Look up the card's individual product ID using set group ID + card number
-	const setProductMapping = productMap[setGroupId]
-	if (!setProductMapping) {
-		// No product mapping for this set
-		return null
+		if (!setGroupId || typeof setGroupId !== 'number') {
+			return null
+		}
+
+		// Load all pricing for this set
+		const setProductMap = await loadPricingForSet(setGroupId)
+		if (!setProductMap) {
+			return null
+		}
+
+		// Find pricing for this specific product ID
+		const productPricing = setProductMap[productId]
+		if (!productPricing) {
+			return null
+		}
+
+		const result: NonNullable<Awaited<ReturnType<typeof getTCGPlayerPrice>>> = {
+			updated: (lastUpdate ?? lastFetch).toISOString(),
+			unit: 'USD',
+		}
+
+		// Map all variant types from the product pricing to the result
+		for (const [variantType, priceData] of Object.entries(productPricing)) {
+			const normalizedKey = variantType.toLowerCase().replaceAll(' ', '-')
+			result[normalizedKey as keyof typeof result] = priceData
+		}
+
+		// Return null if no pricing data was found
+		if (Object.keys(result).length <= 2) { // Only has 'updated' and 'unit'
+			return null
+		}
+
+		return result
 	}
 
-	const cardProductId = setProductMapping[cardNumber]
-	if (!cardProductId) {
-		// No product ID found for this card number
-		return null
-	}
-
-	// Now look up the price variants using the card's product ID
-	const variants = cache[cardProductId]
-	if (!variants) {
-		return null
-	}
-
-	const res: NonNullable<Awaited<ReturnType<typeof getTCGPlayerPrice>>> = {
-		updated: (lastUpdate ?? lastFetch).toISOString(),
-		unit: 'USD',
-		...variants
-	}
-	return res
+	// No valid TCGPlayer data found
+	return null
 }
