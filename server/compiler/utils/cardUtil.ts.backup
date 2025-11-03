@@ -181,13 +181,8 @@ export async function cardToCardSingle(localId: string, card: Card, lang: Suppor
 export async function getCard(set: Set, id: string, lang: SupportedLanguages): Promise<Card> {
 	try {
 		return (await import(`../../${DB_PATH}/${getDataFolder(lang)}/${set.serie.name.en ?? set.serie.name[lang]}/${set.name.en ?? set.name[lang]}/${id}.ts`)).default
-	} catch (e1) {
-		try {
-			return (await import(`../../${DB_PATH}/${getDataFolder(lang)}/${set.serie.id}/${set.id}/${id}.ts`)).default
-		} catch (e2) {
-			console.warn(`⚠️  Could not load card ${set.id}-${id} for ${lang}, skipping...`)
-			throw e2
-		}
+	} catch {
+		return (await import(`../../${DB_PATH}/${getDataFolder(lang)}/${set.serie.id}/${set.id}/${id}.ts`)).default
 	}
 }
 
@@ -224,17 +219,11 @@ export async function getCards(lang: SupportedLanguages, set?: Set): Promise<Arr
 		}
 
 		// console.log(path, id, set, lang)
-		try {
-			const c = await getCard(set, id, lang)
-			if (!c.name[lang]) {
-				continue
-			}
-			list.push([id, c])
-		} catch (error) {
-			// Skip cards that fail to load
-			console.warn(`⚠️  Skipping card ${set.id}-${id} (load failed)`)
+		const c = await getCard(set, id, lang)
+		if (!c.name[lang]) {
 			continue
 		}
+		list.push([id, c])
 	}
 
 	// Sort by id when possible
