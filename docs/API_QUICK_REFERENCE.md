@@ -253,8 +253,11 @@ curl -X GET "https://api.tcgdex.net/v2/en/random/card" \
 ```
 
 ### Get Price History
+
+Get comprehensive price history including TCGPlayer data and automatic PriceCharting eBay sales scraping.
+
 ```bash
-curl -X GET "https://api.tcgdex.net/v2/en/cards/base1-1/history?range=monthly" \
+curl -X GET "https://api.tcgdex.net/v2/en/cards/base1-1/history?range=yearly" \
   -H "Accept: application/json"
 ```
 
@@ -302,4 +305,3 @@ For issues or questions:
 ---
 
 **Last Updated:** November 2, 2025
-

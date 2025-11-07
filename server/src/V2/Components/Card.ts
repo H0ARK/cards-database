@@ -314,6 +314,10 @@ export async function findCards(lang: SupportedLanguages, query: Query<SDKCard>)
 		`
 
 		const { sql, params } = qb.build(baseQuery)
+		console.log('=== SQL DEBUG ===')
+		console.log('SQL:', sql)
+		console.log('Params:', params)
+		console.log('=================')
 		const result = await pool.query(sql, params)
 
 		// Transform and enrich with pricing
@@ -324,6 +328,7 @@ export async function findCards(lang: SupportedLanguages, query: Query<SDKCard>)
 		return cards.filter(card => card !== null) as Array<SDKCard>
 	} catch (error) {
 		console.error('Error finding cards:', error)
+		console.error('Error details:', error instanceof Error ? error.message : String(error))
 		return []
 	}
 }

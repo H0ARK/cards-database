@@ -18,10 +18,12 @@
 		"@tcgdex/sdk": "^2.6.1",
 		"@types/pg": "^8.15.6",
 		"apicache": "^1.6.3",
+		"cheerio": "^1.1.2",
 		"express": "^4.21.2",
 		"graphql": "^15.10.1",
 		"graphql-http": "^1.22.4",
 		"pg": "^8.16.3",
+		"puppeteer": "^24.28.0",
 		"ruru": "^2.0.0-beta.22",
 		"swagger-ui-express": "^5.0.1",
 		"yaml": "^2.7.1"

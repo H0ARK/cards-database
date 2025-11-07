@@ -57,6 +57,225 @@ export class CardQueryBuilder {
   }
 
   /**
+   * Add a full-text search condition across multiple JSONB fields
+   * Searches all language variants in a JSONB field
+   * Example: whereJsonFullTextSearch('name', 'Pikachu')
+   */
+  whereJsonFullTextSearch(field: string, searchTerm: any): this {
+    // Search across all common language codes
+    const langs = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ja', 'ko', 'zh', 'ru'];
+    const conditions = langs.map((currentLang) => {
+      const paramNum = this.paramCounter++;
+      this.params.push(`%${searchTerm}%`);
+      return `${field}->>'${currentLang}' ILIKE $${paramNum}`;
+    });
+    this.conditions.push(`(${conditions.join(' OR ')})`);
+    return this;
+  }
+
+  /**
+   * Add a comprehensive search across card metadata
+   * Searches: name, illustrator, types, abilities, attacks, effects, item names, etc.
+   */
+  whereCardMetadataSearch(searchTerm: string, lang: string = 'en'): this {
+    const searchConditions: string[] = [];
+    
+    // Name search (all languages)
+    const langs = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ja', 'ko', 'zh'];
+    langs.forEach((currentLang) => {
+      const paramNum = this.paramCounter++;
+      this.params.push(`%${searchTerm}%`);
+      searchConditions.push(`c.name->>'${currentLang}' ILIKE $${paramNum}`);
+    });
+
+    // Illustrator search
+    const illustratorParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.illustrator ILIKE $${illustratorParam}`);
+
+    // Rarity search
+    const rarityParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.rarity ILIKE $${rarityParam}`);
+
+    // Category search
+    const categoryParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.category ILIKE $${categoryParam}`);
+
+    // Types search (JSONB array)
+    const typesParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`(c.attributes->>'types')::text ILIKE $${typesParam}`);
+
+    // Stage search
+    const stageParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes->>'stage' ILIKE $${stageParam}`);
+
+    // EvolveFrom search (all languages in JSONB)
+    const evolveParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes->'evolveFrom'->>'${lang}' ILIKE $${evolveParam}`);
+
+    // Description search (all languages in JSONB)
+    const descParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes->'description'->>'${lang}' ILIKE $${descParam}`);
+
+    // Abilities search (names and effects)
+    const abilityParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes::text ILIKE $${abilityParam} AND c.attributes::text LIKE '%abilities%'`);
+
+    // Attacks search (names, effects, and damage)
+    const attackParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes::text ILIKE $${attackParam} AND c.attributes::text LIKE '%attacks%'`);
+
+    // Item search (name and effect)
+    const itemParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`(c.attributes->'item')::text ILIKE $${itemParam}`);
+
+    // Effect search (trainer/energy cards)
+    const effectParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes->'effect'->>'${lang}' ILIKE $${effectParam}`);
+
+    // Trainer type search
+    const trainerTypeParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes->>'trainerType' ILIKE $${trainerTypeParam}`);
+
+    // Energy type search
+    const energyTypeParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.attributes->>'energyType' ILIKE $${energyTypeParam}`);
+
+    // Regulation mark search
+    const regParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`c.regulation_mark ILIKE $${regParam}`);
+
+    // Set name search
+    const setParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`s.name->>'${lang}' ILIKE $${setParam}`);
+
+    // Combine all conditions with OR
+    this.conditions.push(`(${searchConditions.join(' OR ')})`);
+    return this;
+  }
+
+  /**
+   * Add a raw WHERE condition (use with caution)
+   */
+  whereRaw(condition: string, ...params: any[]): this {
+    this.conditions.push(condition);
+    this.params.push(...params);
+    this.paramCounter += params.length;
+    return this;
+  }
+
+  /**
+   * Add a comprehensive search across serie metadata
+   * Searches: name, ID
+   */
+  whereSerieMetadataSearch(searchTerm: string, lang: string = 'en'): this {
+    const searchConditions: string[] = [];
+    
+    // Serie name search (all languages)
+    const langs = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ja', 'ko', 'zh'];
+    langs.forEach((currentLang) => {
+      const paramNum = this.paramCounter++;
+      this.params.push(`%${searchTerm}%`);
+      searchConditions.push(`sr.name->>'${currentLang}' ILIKE $${paramNum}`);
+    });
+
+    // Serie ID search
+    const idParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`sr.id ILIKE $${idParam}`);
+
+    // Combine all conditions with OR
+    this.conditions.push(`(${searchConditions.join(' OR ')})`);
+    return this;
+  }
+
+  /**
+   * Add a comprehensive search across set metadata
+   * Searches: name, series name
+   */
+  whereSetMetadataSearch(searchTerm: string, lang: string = 'en'): this {
+    const searchConditions: string[] = [];
+    
+    // Set name search (all languages)
+    const langs = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ja', 'ko', 'zh'];
+    langs.forEach((currentLang) => {
+      const paramNum = this.paramCounter++;
+      this.params.push(`%${searchTerm}%`);
+      searchConditions.push(`s.name->>'${currentLang}' ILIKE $${paramNum}`);
+    });
+
+    // Series name search
+    langs.forEach((currentLang) => {
+      const paramNum = this.paramCounter++;
+      this.params.push(`%${searchTerm}%`);
+      searchConditions.push(`sr.name->>'${currentLang}' ILIKE $${paramNum}`);
+    });
+
+    // Set ID search
+    const idParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`s.id ILIKE $${idParam}`);
+
+    // Combine all conditions with OR
+    this.conditions.push(`(${searchConditions.join(' OR ')})`);
+    return this;
+  }
+
+  /**
+   * Add a comprehensive search across sealed product metadata
+   * Searches: name, product type, exclusive retailer, set name
+   */
+  whereSealedProductMetadataSearch(searchTerm: string, lang: string = 'en'): this {
+    const searchConditions: string[] = [];
+    
+    // Product name search (all languages)
+    const langs = ['en', 'fr', 'es', 'de', 'it', 'pt', 'ja', 'ko', 'zh'];
+    langs.forEach((currentLang) => {
+      const paramNum = this.paramCounter++;
+      this.params.push(`%${searchTerm}%`);
+      searchConditions.push(`sp.name->>'${currentLang}' ILIKE $${paramNum}`);
+    });
+
+    // Product type search
+    const typeParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`sp.product_type ILIKE $${typeParam}`);
+
+    // Exclusive retailer search
+    const retailerParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`sp.exclusive_retailer ILIKE $${retailerParam}`);
+
+    // Set name search (if joined)
+    const setParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`s.name->>'${lang}' ILIKE $${setParam}`);
+
+    // Product ID search
+    const idParam = this.paramCounter++;
+    this.params.push(`%${searchTerm}%`);
+    searchConditions.push(`sp.id ILIKE $${idParam}`);
+
+    // Combine all conditions with OR
+    this.conditions.push(`(${searchConditions.join(' OR ')})`);
+    return this;
+  }
+
+  /**
    * Add a JSONB exact match condition
    */
   whereJsonEquals(field: string, key: string, value: any): this {
@@ -225,15 +444,27 @@ export function buildCardQuery(lang: SupportedLanguages, filters: QueryFilter = 
     qb.where('c.illustrator', 'ILIKE', `%${filters.illustrator}%`);
   }
 
-  // Handle name search
+  // Handle name search - search both card names AND set names
   if (filters.name) {
-    // Handle object with $inc operator (from query parser)
-    if (typeof filters.name === 'object' && filters.name.$inc) {
-      qb.whereJsonContains('c.name', lang, filters.name.$inc);
-    } else if (typeof filters.name === 'string') {
-      qb.whereJsonContains('c.name', lang, filters.name);
-    } else if (typeof filters.name === 'object' && filters.name.$eq) {
-      qb.whereJsonEquals('c.name', lang, filters.name.$eq);
+    const searchTerm = typeof filters.name === 'object' && filters.name.$inc
+      ? filters.name.$inc
+      : typeof filters.name === 'string'
+        ? filters.name
+        : typeof filters.name === 'object' && filters.name.$eq
+          ? filters.name.$eq
+          : null;
+
+    if (searchTerm) {
+      // Use whereCardMetadataSearch which includes set name searching
+      qb.whereCardMetadataSearch(searchTerm as string, lang);
+    }
+  }
+
+  // Handle comprehensive search across all metadata
+  if (filters.q || filters.search) {
+    const searchTerm = filters.q || filters.search;
+    if (typeof searchTerm === 'string') {
+      qb.whereCardMetadataSearch(searchTerm, lang);
     }
   }
 
@@ -293,6 +524,76 @@ export function buildSetQuery(lang: SupportedLanguages, filters: QueryFilter = {
     if (orConditions.length > 0) {
       qb.whereOr(orConditions);
     }
+  }
+
+  // Handle comprehensive search across set metadata
+  if (filters.q || filters.search) {
+    const searchTerm = filters.q || filters.search;
+    if (typeof searchTerm === 'string') {
+      qb.whereSetMetadataSearch(searchTerm, lang);
+    }
+  }
+
+  return qb;
+}
+
+/**
+ * Helper to build serie queries
+ */
+export function buildSerieQuery(lang: SupportedLanguages, filters: QueryFilter = {}): CardQueryBuilder {
+  const qb = new CardQueryBuilder();
+
+  // Handle ID filter
+  if (filters.id) {
+    qb.whereEquals('sr.id', filters.id);
+  }
+
+  // Handle comprehensive search across serie metadata
+  if (filters.q || filters.search) {
+    const searchTerm = filters.q || filters.search;
+    if (typeof searchTerm === 'string') {
+      qb.whereSerieMetadataSearch(searchTerm, lang);
+    }
+  }
+
+  return qb;
+}
+
+/**
+ * Helper to build sealed product queries
+ */
+export function buildSealedProductQuery(lang: SupportedLanguages, filters: QueryFilter = {}): CardQueryBuilder {
+  const qb = new CardQueryBuilder();
+
+  // Handle set filter
+  if (filters.set) {
+    qb.whereOr([
+      { field: 'sp.set_id', value: filters.set },
+    ]);
+  }
+
+  // Handle product type filter
+  if (filters.productType || filters.product_type) {
+    const type = filters.productType || filters.product_type;
+    qb.whereEquals('sp.product_type', type);
+  }
+
+  // Handle comprehensive search
+  if (filters.q || filters.search) {
+    const searchTerm = filters.q || filters.search;
+    if (typeof searchTerm === 'string') {
+      qb.whereSealedProductMetadataSearch(searchTerm, lang);
+    }
+  }
+
+  // Handle pagination
+  if (filters.$limit) {
+    qb.limit(filters.$limit);
+  }
+
+  if (filters.$page && filters.$limit) {
+    const offset = (filters.$page - 1) * filters.$limit;
+    qb.offset(offset);
   }
 
   return qb;

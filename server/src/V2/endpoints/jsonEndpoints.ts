@@ -20,7 +20,15 @@ import {
 } from "../Components/Card";
 import { findOneSet, findSets, setToBrief } from "../Components/Set";
 import { findOneSerie, findSeries, serieToBrief } from "../Components/Serie";
+import {
+	findSealedProducts,
+	findOneSealedProduct,
+	getSealedProductById,
+	sealedProductToBrief,
+	type SealedProduct,
+} from "../Components/SealedProduct";
 import { listSKUs } from "../../libs/providers/tcgplayer";
+import { getRecentEBaySales } from "../../libs/providers/pricecharting";
 import fs from "fs/promises";
 import path from "path";
 
@@ -147,6 +155,65 @@ server
 	)
 
 	/**
+	 * Unified Search Endpoint
+	 * ex: /v2/en/search?q=pikachu
+	 * Searches across cards, sets, series, and sealed products
+	 */
+	.get("/:lang/search", async (req: CustomRequest, res): Promise<void> => {
+		const { lang } = req.params;
+		const query: Query = req.advQuery ?? {};
+
+		if (!checkLanguage(lang)) {
+			sendError(Errors.LANGUAGE_INVALID, res, { lang });
+			return;
+		}
+
+		const searchTerm = query.q || query.search || req.query.q || req.query.search;
+
+		if (!searchTerm || typeof searchTerm !== 'string') {
+			sendError(Errors.GENERAL, res, {
+				message: "Search term required. Use ?q=<search_term> or ?search=<search_term>",
+			});
+			return;
+		}
+
+		try {
+			// Search all categories in parallel
+			const [cards, sets, series, sealedProducts] = await Promise.all([
+				findCards(lang, { q: searchTerm, $limit: query.$limit || 50 }),
+				findSets(lang, { q: searchTerm, $limit: 20 }),
+				findSeries(lang, { q: searchTerm, $limit: 10 }),
+				findSealedProducts(lang, { q: searchTerm, $limit: 20 }),
+			]);
+
+			const results = {
+				query: searchTerm,
+				results: {
+					cards: cards.map(toBrief),
+					sets: sets.map(setToBrief),
+					series: series.map(serieToBrief),
+					sealedProducts: sealedProducts.map(sealedProductToBrief),
+				},
+				counts: {
+					cards: cards.length,
+					sets: sets.length,
+					series: series.length,
+					sealedProducts: sealedProducts.length,
+					total: cards.length + sets.length + series.length + sealedProducts.length,
+				},
+			};
+
+			res.json(results);
+		} catch (error) {
+			console.error("Search error:", error);
+			sendError(Errors.GENERAL, res, {
+				message: "Search failed",
+				error: error instanceof Error ? error.message : "Unknown error",
+			});
+		}
+	})
+
+	/**
 	 * Listing Endpoint
 	 * ex: /v2/en/cards
 	 */
@@ -202,6 +269,11 @@ server
 			}
 			case "series":
 				result = (await findSeries(lang, query)).map(serieToBrief);
+				break;
+			case "sealed-products":
+			case "sealed":
+			case "products":
+				result = (await findSealedProducts(lang, query)).map(sealedProductToBrief);
 				break;
 			case "categories":
 			case "energy-types":
@@ -393,6 +465,15 @@ server
 				};
 				break;
 			}
+			case "sealed-products":
+			case "sealed":
+			case "products": {
+				result = await getSealedProductById(lang, id);
+				if (!result) {
+					result = await findOneSealedProduct(lang, { id });
+				}
+				break;
+			}
 			default:
 				if (!endpointToField[endpoint]) {
 					break;
@@ -465,6 +546,81 @@ server
 			return sendError(Errors.NOT_FOUND, res);
 		}
 		return res.send(result);
+	})
+
+	/**
+	 * PriceCharting scraping endpoint
+	 * Scrapes live eBay sales data from PriceCharting
+	 */
+	.get("/api/pricing/pricecharting/scrape", async (req: CustomRequest, res) => {
+		try {
+			const url = req.query.url as string;
+			const cardId = req.query.cardId as string;
+			const variantId = req.query.variantId as string;
+			const forceRefresh = req.query.forceRefresh === 'true';
+
+			if (!url) {
+				return sendError(Errors.GENERAL, res, {
+					message: "URL parameter is required",
+					example: "/api/pricing/pricecharting/scrape?url=https://www.pricecharting.com/game/pokemon-base-set/charizard-holographic-rare"
+				});
+			}
+
+			// Validate URL is from PriceCharting
+			if (!url.includes('pricecharting.com')) {
+				return sendError(Errors.GENERAL, res, {
+					message: "URL must be from pricecharting.com",
+					provided: url
+				});
+			}
+
+			req.DO_NOT_CACHE = true; // Don't cache scraping results
+
+			const result = await scrapePriceCharting({
+				url,
+				cardId,
+				variantId,
+				forceRefresh
+			});
+
+			res.json({
+				success: true,
+				data: result,
+				scrapedAt: new Date().toISOString()
+			});
+
+		} catch (error) {
+			console.error('PriceCharting scraping error:', error);
+			sendError(Errors.GENERAL, res, {
+				message: "Failed to scrape PriceCharting data",
+				error: error instanceof Error ? error.message : 'Unknown error'
+			});
+		}
+	})
+
+	/**
+	 * Get recent eBay sales from PriceCharting data
+	 */
+	.get("/api/pricing/pricecharting/recent-sales", async (req: CustomRequest, res) => {
+		try {
+			const limit = parseInt(req.query.limit as string) || 50;
+
+			const sales = await getRecentEBaySales(limit);
+
+			res.json({
+				success: true,
+				data: sales,
+				count: sales.length,
+				limit
+			});
+
+		} catch (error) {
+			console.error('Error fetching recent eBay sales:', error);
+			sendError(Errors.GENERAL, res, {
+				message: "Failed to fetch recent eBay sales",
+				error: error instanceof Error ? error.message : 'Unknown error'
+			});
+		}
 	});
 
 /**
@@ -509,13 +665,108 @@ async function getCardPriceHistory(
 
 		const daysBack = range === "daily" ? 30 : range === "yearly" ? 365 : 90;
 
-		const card = await getCardById(lang, cardId);
+		let card = await getCardById(lang, cardId);
 		if (!card) {
-			return {
-				error: "Card not found",
-				cardId,
-				range,
-			};
+			const parts = cardId.split("-");
+			const setId = (parts[0] || "unknown").toLowerCase();
+			const localId = parts[1] || "";
+			card = {
+				id: cardId,
+				localId,
+				name: cardId,
+				set: { id: setId, name: setId },
+			} as any;
+		}
+
+		// Automatically scrape PriceCharting data for this card
+		let priceChartingData = null;
+		try {
+			const { default: urlMapper } = await import("../services/priceChartingMapper");
+
+			// Generate PriceCharting URL for this card
+			const urlMapping = urlMapper.generateUrl(card);
+
+			if (urlMapping.confidence !== "low") {
+				console.log(`🔍 Fetching PriceCharting HTML for ${cardId} (${urlMapping.confidence} confidence)`);
+				const res = await fetch(urlMapping.url, {
+					headers: { "User-Agent": "Mozilla/5.0 (compatible; TCGdex/1.0)" }
+				});
+				if (res.ok) {
+					const html = await res.text();
+					const cheerio = await import("cheerio");
+					const $ = cheerio.load(html);
+
+					// Parse eBay recent sold listings (best-effort)
+					const eBaySales: Array<any> = [];
+					$('tr, .recent-sale, .ebay-sale').each((_, el) => {
+						const $el = $(el);
+						const title = $el.find('.title, .item-title').text().trim();
+						const priceText = $el.find('.price, .sale-price, .market, .value').first().text().trim();
+						const dateText = $el.find('.date, .sold-date').text().trim();
+						const ebayUrl = $el.find('a').attr('href') || '';
+
+						if (title && priceText) {
+							const priceMatch = priceText.replace(/[$,]/g, '').match(/(\d+\.?\d*)/);
+							const price = priceMatch ? parseFloat(priceMatch[1]) : undefined;
+
+							if (price) {
+								const gradeMatch = `${title}`.match(/\b(PSA|BGS|CGC)\s*(\d+(?:\.\d)?)\b/i);
+								const grade = gradeMatch ? gradeMatch[2] : undefined;
+								const gradingCompany = gradeMatch ? gradeMatch[1].toUpperCase() : undefined;
+
+								eBaySales.push({
+									ebayCode: Buffer.from(`${ebayUrl}${dateText}${price}`).toString('base64').replace(/[^a-zA-Z0-9]/g, '').substring(0, 16),
+									ebayUrl,
+									title,
+									condition: '',
+									grade,
+									gradingCompany,
+									price,
+									currency: 'USD',
+									soldDate: (() => {
+										const d = new Date(dateText);
+										return isNaN(d.getTime()) ? undefined : d.toISOString();
+									})(),
+								});
+							}
+						}
+					});
+
+					// Parse graded market table (best-effort)
+					const gradedMarket: Array<any> = [];
+					$('.graded-market tr, .psa-prices tr').each((_, row) => {
+						const $row = $(row);
+						const grade = $row.find('.grade').text().trim();
+						const gradingCompany = $row.find('.company').text().trim() || 'PSA';
+						const priceText = $row.find('.market, .price, .value').first().text().trim();
+						const priceMatch = priceText.replace(/[$,]/g, '').match(/(\d+\.?\d*)/);
+						const marketPrice = priceMatch ? parseFloat(priceMatch[1]) : undefined;
+
+						if (grade) {
+							gradedMarket.push({
+								grade,
+								gradingCompany,
+								marketPrice,
+								lowPrice: undefined,
+								highPrice: undefined,
+								salesCount: 0,
+							});
+						}
+					});
+
+					priceChartingData = {
+						pcCode: urlMapping.url.split('/').pop() || '',
+						pcUrl: urlMapping.url,
+						cardName: typeof card.name === 'string' ? card.name : (card.name['en'] || Object.values(card.name)[0] || 'Unknown Card'),
+						eBaySales,
+						gradedMarket,
+						lastUpdated: new Date().toISOString(),
+					};
+				}
+			}
+		} catch (error) {
+			console.warn(`⚠️ Failed to scrape PriceCharting for ${cardId}:`, error);
+			// Continue with TCGPlayer data only
 		}
 
 		if (!productId) {
@@ -623,17 +874,20 @@ async function getCardPriceHistory(
 					}
 
 					if (productEntry) {
-						history.push({
-							date: dateFolder,
-							price:
-								productEntry.marketPrice ||
-								productEntry.midPrice ||
-								0,
-							low: productEntry.lowPrice || 0,
-							high: productEntry.highPrice || 0,
-							market: productEntry.marketPrice || 0,
-							currency: "USD",
-						});
+						const price =
+							productEntry.marketPrice ||
+							productEntry.midPrice ||
+							0;
+						if (price > 0) {
+							history.push({
+								date: dateFolder,
+								price,
+								low: productEntry.lowPrice || price,
+								high: productEntry.highPrice || price,
+								market: productEntry.marketPrice || price,
+								currency: "USD",
+							});
+						}
 					}
 				}
 			} catch (err) {
@@ -642,6 +896,57 @@ async function getCardPriceHistory(
 		}
 
 		if (history.length === 0) {
+			// Try to use PriceCharting eBay sales as history fallback
+			if (priceChartingData && priceChartingData.eBaySales.length > 0) {
+				const ebayHistory = priceChartingData.eBaySales
+					.filter(sale => sale.soldDate)
+					.map(sale => ({
+						date: sale.soldDate.split('T')[0], // YYYY-MM-DD
+						price: sale.price,
+						low: sale.price,
+						high: sale.price,
+						market: sale.price,
+						currency: sale.currency,
+					}))
+					.sort((a, b) => a.date.localeCompare(b.date));
+
+				if (ebayHistory.length > 0) {
+					return {
+						cardId,
+						productId: resolvedProductId,
+						range,
+						dataPoints: ebayHistory.length,
+						lastUpdated: new Date().toISOString(),
+						history: ebayHistory,
+						source: "pricecharting",
+						set: {
+							id: card.set.id,
+							name: typeof card.set.name === 'string' ? card.set.name : (card.set.name[lang] || card.set.name.en || Object.values(card.set.name)[0] || 'Unknown'),
+						},
+						priceCharting: {
+							url: priceChartingData.pcUrl,
+							lastScraped: priceChartingData.lastUpdated,
+							gradedMarket: priceChartingData.gradedMarket,
+							recentSales: priceChartingData.eBaySales.slice(0, 10),
+						},
+						sold_listings: (() => {
+							const out: Record<string, any[]> = { ungraded: [] };
+							if (priceChartingData && Array.isArray(priceChartingData.eBaySales)) {
+								for (const sale of priceChartingData.eBaySales) {
+									if (sale?.grade && sale?.gradingCompany) {
+										const key = `${String(sale.gradingCompany).toLowerCase()} ${String(sale.grade)}`;
+										(out[key] ||= []).push(sale);
+									} else {
+										out.ungraded.push(sale);
+									}
+								}
+							}
+							return out;
+						})(),
+					};
+				}
+			}
+
 			try {
 				const realTimeData = await fetchRealTimeHistory(
 					resolvedProductId,
@@ -660,6 +965,10 @@ async function getCardPriceHistory(
 						lastUpdated: new Date().toISOString(),
 						history: realTimeData.history,
 						source: "realtime",
+						set: {
+							id: card.set.id,
+							name: typeof card.set.name === 'string' ? card.set.name : (card.set.name[lang] || card.set.name.en || Object.values(card.set.name)[0] || 'Unknown'),
+						},
 					};
 				}
 			} catch (error) {
@@ -677,7 +986,7 @@ async function getCardPriceHistory(
 			};
 		}
 
-		return {
+		const result: any = {
 			cardId,
 			productId: resolvedProductId,
 			range,
@@ -685,7 +994,37 @@ async function getCardPriceHistory(
 			lastUpdated: new Date().toISOString(),
 			history: history.sort((a, b) => a.date.localeCompare(b.date)),
 			source: "tcgcsv",
+			set: {
+				id: card.set.id,
+				name: typeof card.set.name === 'string' ? card.set.name : (card.set.name[lang] || card.set.name.en || Object.values(card.set.name)[0] || 'Unknown'),
+			},
+			sold_listings: (() => {
+				const out: Record<string, any[]> = { ungraded: [] };
+				if (priceChartingData && Array.isArray(priceChartingData.eBaySales)) {
+					for (const sale of priceChartingData.eBaySales) {
+						if (sale?.grade && sale?.gradingCompany) {
+							const key = `${String(sale.gradingCompany).toLowerCase()} ${String(sale.grade)}`;
+							(out[key] ||= []).push(sale);
+						} else {
+							out.ungraded.push(sale);
+						}
+					}
+				}
+				return out;
+			})(),
 		};
+
+		// Include PriceCharting data if available
+		if (priceChartingData) {
+			result.priceCharting = {
+				url: priceChartingData.pcUrl,
+				lastScraped: priceChartingData.lastUpdated,
+				gradedMarket: priceChartingData.gradedMarket,
+				recentSales: priceChartingData.eBaySales.slice(0, 10), // Include last 10 sales
+			};
+		}
+
+		return result;
 	} catch (error) {
 		console.error(`Error getting price history for ${cardId}:`, error);
 		return {
@@ -700,7 +1039,7 @@ async function getCardPriceHistory(
  * Fetch real-time price history from TCGPlayer (fallback)
  */
 async function fetchRealTimeHistory(productId: number, range: string) {
-	const days = range === "daily" ? 30 : range === "monthly" ? 90 : 365;
+	const days = range === "daily" ? 30 : range === "yearly" ? 365 : 90;
 	const apiRange = days <= 30 ? "week" : days <= 90 ? "month" : "quarter";
 
 	try {
@@ -803,5 +1142,6 @@ async function findProductLocation(
 
 	return null;
 }
+
 
 export default server;

@@ -10,6 +10,9 @@ import * as Sentry from "@sentry/node"
 import { updateDatas } from './libs/providers/cardmarket'
 import { updateTCGPlayerDatas } from './libs/providers/tcgplayer'
 import { testConnection } from './libs/db'
+import fs from 'node:fs'
+import path from 'node:path'
+import os from 'node:os'
 
 // Glitchtip will only start if the DSN is set :D
 Sentry.init({
@@ -17,7 +20,63 @@ Sentry.init({
 	environment: process.env.NODE_ENV
 })
 
+// Single instance lock to prevent multiple servers
+const LOCK_FILE = path.join(os.tmpdir(), 'cards-database-server.lock')
+
+function acquireLock() {
+	try {
+		// Check if lock file exists and if the process is still running
+		if (fs.existsSync(LOCK_FILE)) {
+			const pid = fs.readFileSync(LOCK_FILE, 'utf-8').trim()
+			try {
+				// Check if process is still running by sending signal 0 (no-op)
+				process.kill(parseInt(pid), 0)
+				// Process is still running
+				console.error('❌ Another instance of the server is already running (PID:', pid + ')')
+				console.error('To start a new instance, first kill the existing one:')
+				console.error(`  kill ${pid}`)
+				process.exit(1)
+			} catch {
+				// Process is not running, remove stale lock
+				fs.unlinkSync(LOCK_FILE)
+			}
+		}
+		
+		// Create lock file with current PID
+		fs.writeFileSync(LOCK_FILE, process.pid.toString())
+		
+		// Clean up lock file on exit
+		const cleanup = () => {
+			try {
+				if (fs.existsSync(LOCK_FILE) && fs.readFileSync(LOCK_FILE, 'utf-8').trim() === process.pid.toString()) {
+					fs.unlinkSync(LOCK_FILE)
+				}
+			} catch (e) {
+				// Ignore errors during cleanup
+			}
+		}
+		
+		process.on('exit', cleanup)
+		process.on('SIGINT', () => {
+			cleanup()
+			process.exit(0)
+		})
+		process.on('SIGTERM', () => {
+			cleanup()
+			process.exit(0)
+		})
+		
+		return true
+	} catch (err) {
+		console.error('Failed to acquire lock:', err)
+		process.exit(1)
+	}
+}
+
 if (cluster.isPrimary) {
+	// Acquire lock to prevent multiple instances
+	acquireLock()
+	
 	console.log(`Primary ${process.pid} is running`)
 
 	// get maximum number of workers available for the software

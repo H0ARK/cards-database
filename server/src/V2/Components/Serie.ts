@@ -7,6 +7,7 @@
 
 import type { Serie as SDKSerie, SerieResume, SupportedLanguages } from '@tcgdex/sdk'
 import { pool } from '../../libs/db'
+import { buildSerieQuery } from '../../libs/QueryBuilder'
 import type { Query } from '../../libs/QueryEngine/filter'
 
 export type Serie = SDKSerie
@@ -46,13 +47,16 @@ export async function getAllSeries(lang: SupportedLanguages): Promise<Array<SDKS
  */
 export async function findSeries(lang: SupportedLanguages, query: Query<SDKSerie> = {}): Promise<Array<SDKSerie>> {
 	try {
-		// For now, simple implementation - can be extended with QueryBuilder if needed
-		const result = await pool.query(`
+		const qb = buildSerieQuery(lang, query as any)
+
+		const baseQuery = `
 			SELECT *
-			FROM series
-			WHERE game_id = 'pokemon'
-			ORDER BY id
-		`)
+			FROM series sr
+			WHERE sr.game_id = 'pokemon'
+		`
+
+		const { sql, params } = qb.build(baseQuery)
+		const result = await pool.query(sql, params)
 
 		return result.rows.map(row => dbRowToSerie(row, lang))
 	} catch (error) {

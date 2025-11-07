@@ -173,7 +173,7 @@ curl "http://135.148.148.65/en/cards/base1/1"
 
 **Endpoint:** `GET /{lang}/cards/{cardId}/history`
 
-**Description:** Retrieve price history for a card from TCGPlayer data.
+**Description:** Retrieve comprehensive price history for a card from TCGPlayer data, automatically enhanced with live eBay sales data from PriceCharting.com.
 
 **Parameters:**
 - `lang` (required): Language code
@@ -181,16 +181,149 @@ curl "http://135.148.148.65/en/cards/base1/1"
 - `range` (optional): Time range - `daily` (30 days), `monthly` (90 days), `yearly` (365 days). Default: `yearly`
 - `productId` (optional): TCGPlayer product ID. If not provided, uses card's TCGPlayer mapping
 
-**Response:** Price history object with data points
+**Response:** Price history object with TCGPlayer data and PriceCharting eBay sales data
 
 **Example:**
 ```bash
-curl "http://135.148.148.65/en/cards/base1-1/history?range=monthly"
+curl "http://135.148.148.65/en/cards/base1-1/history?range=yearly"
+```
+
+**Enhanced Response:**
+```json
+{
+  "cardId": "base1-1",
+  "productId": 12345,
+  "range": "yearly",
+  "dataPoints": 365,
+  "lastUpdated": "2025-11-03T12:00:00.000Z",
+  "history": [...], // TCGPlayer historical data
+  "source": "tcgcsv",
+  "priceCharting": {
+    "url": "https://www.pricecharting.com/game/pokemon-base-set/charizard-holographic-rare",
+    "lastScraped": "2025-11-03T12:00:00.000Z",
+    "stats": {
+      "overall": { "count": 150, "min": 50.00, "max": 250.00, "avg": 125.00, "median": 120.00 },
+      "byCondition": { "PSA 10": {...}, "Ungraded": {...} }
+    },
+    "recentSales": [...], // Last 10 eBay sales
+    "totalListings": 150
+  }
+}
 ```
 
 ---
 
-### 5. List All Sets
+### 5. Scrape PriceCharting Data
+
+**Endpoint:** `GET /api/pricing/pricecharting/scrape`
+
+**Description:** Scrape live eBay sales data and graded market information from PriceCharting.com for a specific card.
+
+**Parameters:**
+- `url` (required): Full PriceCharting URL for the card
+- `cardId` (optional): TCGdex card ID to associate the data with
+- `variantId` (optional): Variant ID if applicable
+- `forceRefresh` (optional): Force fresh scraping instead of using cached data (default: false)
+
+**Response:** Scraped PriceCharting data including eBay sales and graded market information
+
+**Example:**
+```bash
+curl "http://135.148.148.65/api/pricing/pricecharting/scrape?url=https://www.pricecharting.com/game/pokemon-base-set/charizard-holographic-rare&cardId=base1-4"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": {
+    "pcCode": "12345",
+    "pcUrl": "https://www.pricecharting.com/game/pokemon-base-set/charizard-holographic-rare",
+    "cardName": "Charizard",
+    "eBaySales": [
+      {
+        "ebayCode": "ebay_abc123",
+        "ebayUrl": "https://www.ebay.com/itm/...",
+        "title": "1st Edition Charizard PSA 10",
+        "condition": "Graded",
+        "grade": "10",
+        "gradingCompany": "PSA",
+        "price": 2500.00,
+        "currency": "USD",
+        "soldDate": "2025-11-01T10:30:00.000Z",
+        "seller": "TopSeller",
+        "location": "USA"
+      }
+    ],
+    "gradedMarket": [
+      {
+        "grade": "10",
+        "gradingCompany": "PSA",
+        "marketPrice": 2400.00,
+        "lowPrice": 2200.00,
+        "highPrice": 2600.00,
+        "salesCount": 15
+      }
+    ],
+    "lastUpdated": "2025-11-03T12:00:00.000Z"
+  },
+  "scrapedAt": "2025-11-03T12:00:00.000Z"
+}
+```
+
+---
+
+### 6. Get Recent eBay Sales
+
+**Endpoint:** `GET /api/pricing/pricecharting/recent-sales`
+
+**Description:** Retrieve recent eBay sales data from all scraped PriceCharting cards.
+
+**Parameters:**
+- `limit` (optional): Maximum number of sales to return (default: 50, max: 500)
+
+**Response:** Array of recent eBay sales with card information
+
+**Example:**
+```bash
+curl "http://135.148.148.65/api/pricing/pricecharting/recent-sales?limit=10"
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "uuid-123",
+      "pc_data_id": "uuid-456",
+      "ebay_code": "ebay_xyz789",
+      "ebay_url": "https://www.ebay.com/itm/...",
+      "title": "Charizard Base Set 1st Edition",
+      "condition": "Near Mint",
+      "grade": null,
+      "grading_company": null,
+      "price": 150.00,
+      "currency": "USD",
+      "sold_date": "2025-11-02T15:45:00.000Z",
+      "seller": "CardTrader99",
+      "location": "Canada",
+      "scraped_at": "2025-11-03T10:30:00.000Z",
+      "pc_code": "12345",
+      "card_name": "Charizard",
+      "card_id": "base1-4",
+      "set_name": "Base Set",
+      "variant_type": null
+    }
+  ],
+  "count": 10,
+  "limit": 10
+}
+```
+
+---
+
+### 7. List All Sets
 
 **Endpoint:** `GET /{lang}/sets`
 
@@ -515,13 +648,27 @@ curl "http://135.148.148.65/en/cards?name=Charizard&set=base1"
 
 ### 4. Tracking Price History
 
-Monitor card prices over time:
+Monitor card prices over time with automatic PriceCharting eBay sales data integration:
 
 ```bash
 curl "http://135.148.148.65/en/cards/base1-1/history?range=yearly"
 ```
 
-### 5. Building a Set Browser
+The history endpoint automatically scrapes live eBay sales data from PriceCharting.com and includes it in the response, providing comprehensive market analysis alongside TCGPlayer historical data.
+
+### 5. Scraping Live Market Data
+
+Get real-time eBay sales and graded market data from PriceCharting:
+
+```bash
+# Scrape specific card data
+curl "http://135.148.148.65/api/pricing/pricecharting/scrape?url=https://www.pricecharting.com/game/pokemon-base-set/charizard-holographic-rare"
+
+# Get recent eBay sales across all cards
+curl "http://135.148.148.65/api/pricing/pricecharting/recent-sales?limit=20"
+```
+
+### 6. Building a Set Browser
 
 List all sets and their card counts:
 
