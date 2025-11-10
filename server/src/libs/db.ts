@@ -59,15 +59,20 @@ export async function testConnection(): Promise<boolean> {
 
 /**
  * Get database statistics
+ * NOW SHOWS PRODUCTS TABLE DATA! 🚀
  */
 export async function getStats() {
   const result = await pool.query(`
     SELECT
-      (SELECT COUNT(*) FROM cards) as total_cards,
+      (SELECT COUNT(*) FROM products) as total_products,
+      (SELECT COUNT(*) FROM products WHERE category_id = 3) as pokemon_products,
+      (SELECT COUNT(*) FROM current_prices) as total_prices,
+      (SELECT COUNT(*) FROM price_history) as total_price_history,
+      (SELECT COUNT(*) FROM cards) as legacy_cards,
       (SELECT COUNT(*) FROM sets) as total_sets,
       (SELECT COUNT(*) FROM series) as total_series,
-      (SELECT COUNT(*) FROM card_variants) as total_variants,
-      (SELECT COUNT(*) FROM sealed_products) as total_sealed_products
+      (SELECT COUNT(*) FROM groups) as total_groups,
+      (SELECT COUNT(*) FROM categories) as total_categories
   `);
   return result.rows[0];
 }

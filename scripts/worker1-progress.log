@@ -1,0 +1,3337 @@
+[2025-11-08T19:06:02.145Z] 🚀 [Worker 1] Starting price history migration (normalized schema)...
+[2025-11-08T19:06:02.145Z] Source: /home/ubuntu/cards-database/tcgcsv/price-history
+[2025-11-08T19:06:02.168Z] Date range: 2024-02-08 to 2024-07-10
+[2025-11-08T19:06:02.300Z] ✅ Database connected: Sat Nov 08 2025 19:06:02 GMT+0000 (Coordinated Universal Time)
+[2025-11-08T19:06:02.318Z] ✅ Loaded 30 variants into cache
+[2025-11-08T19:06:02.326Z] 📁 Found 9 date folders
+[2025-11-08T19:06:02.327Z] 📅 Range: 2024-07-02 to 2024-07-10
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:02.371Z] 📅 [Worker 1] Processing date: 2024-07-02
+[2025-11-08T19:06:08.301Z] 
+📊 Progress:
+   Dates: 0
+   Files: 100
+   Records: 10,779
+   Deleted: 100
+   Skipped (no product): 0
+   High-value: 182
+   Errors: 0
+   Elapsed: 6s
+   Rate: 16.35 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:13.459Z] 
+📊 Progress:
+   Dates: 0
+   Files: 200
+   Records: 21,292
+   Deleted: 200
+   Skipped (no product): 0
+   High-value: 365
+   Errors: 0
+   Elapsed: 11s
+   Rate: 17.67 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:16.107Z] 
+📊 Progress:
+   Dates: 0
+   Files: 300
+   Records: 29,568
+   Deleted: 300
+   Skipped (no product): 0
+   High-value: 485
+   Errors: 0
+   Elapsed: 13s
+   Rate: 21.48 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:19.001Z] 
+📊 Progress:
+   Dates: 0
+   Files: 400
+   Records: 37,336
+   Deleted: 400
+   Skipped (no product): 0
+   High-value: 559
+   Errors: 0
+   Elapsed: 16s
+   Rate: 23.72 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:21.152Z] 📅 [Worker 1] Processing date: 2024-07-03
+[2025-11-08T19:06:21.409Z] 
+📊 Progress:
+   Dates: 1
+   Files: 500
+   Records: 43,718
+   Deleted: 500
+   Skipped (no product): 0
+   High-value: 603
+   Errors: 0
+   Elapsed: 19s
+   Rate: 25.95 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:21.669Z] 
+📊 Progress:
+   Dates: 1
+   Files: 600
+   Records: 44,226
+   Deleted: 600
+   Skipped (no product): 0
+   High-value: 603
+   Errors: 0
+   Elapsed: 19s
+   Rate: 30.73 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:21.761Z] 
+📊 Progress:
+   Dates: 1
+   Files: 700
+   Records: 44,226
+   Deleted: 700
+   Skipped (no product): 0
+   High-value: 603
+   Errors: 0
+   Elapsed: 19s
+   Rate: 35.68 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:22.192Z] 
+📊 Progress:
+   Dates: 1
+   Files: 800
+   Records: 44,724
+   Deleted: 800
+   Skipped (no product): 0
+   High-value: 604
+   Errors: 0
+   Elapsed: 20s
+   Rate: 39.90 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:25.412Z] 
+📊 Progress:
+   Dates: 1
+   Files: 900
+   Records: 53,135
+   Deleted: 900
+   Skipped (no product): 90
+   High-value: 634
+   Errors: 0
+   Elapsed: 23s
+   Rate: 38.67 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:28.433Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1000
+   Records: 62,117
+   Deleted: 1000
+   Skipped (no product): 90
+   High-value: 651
+   Errors: 0
+   Elapsed: 26s
+   Rate: 38.03 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:33.888Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1100
+   Records: 80,466
+   Deleted: 1100
+   Skipped (no product): 559
+   High-value: 960
+   Errors: 0
+   Elapsed: 31s
+   Rate: 34.65 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:37.598Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1200
+   Records: 85,085
+   Deleted: 1200
+   Skipped (no product): 559
+   High-value: 1122
+   Errors: 0
+   Elapsed: 35s
+   Rate: 33.84 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:43.948Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1300
+   Records: 100,269
+   Deleted: 1300
+   Skipped (no product): 777
+   High-value: 1411
+   Errors: 0
+   Elapsed: 41s
+   Rate: 31.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:48.503Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1400
+   Records: 113,808
+   Deleted: 1400
+   Skipped (no product): 781
+   High-value: 1868
+   Errors: 0
+   Elapsed: 46s
+   Rate: 30.20 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:51.288Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1500
+   Records: 121,390
+   Deleted: 1500
+   Skipped (no product): 951
+   High-value: 1978
+   Errors: 0
+   Elapsed: 49s
+   Rate: 30.52 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:06:58.296Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1600
+   Records: 147,858
+   Deleted: 1600
+   Skipped (no product): 2984
+   High-value: 2724
+   Errors: 0
+   Elapsed: 56s
+   Rate: 28.49 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:05.352Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1700
+   Records: 182,100
+   Deleted: 1700
+   Skipped (no product): 9217
+   High-value: 3930
+   Errors: 0
+   Elapsed: 63s
+   Rate: 26.89 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:12.836Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1800
+   Records: 216,423
+   Deleted: 1800
+   Skipped (no product): 11981
+   High-value: 5276
+   Errors: 0
+   Elapsed: 70s
+   Rate: 25.46 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:19.384Z] 
+📊 Progress:
+   Dates: 1
+   Files: 1900
+   Records: 247,181
+   Deleted: 1900
+   Skipped (no product): 16504
+   High-value: 6176
+   Errors: 0
+   Elapsed: 77s
+   Rate: 24.60 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:23.066Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2000
+   Records: 261,369
+   Deleted: 2000
+   Skipped (no product): 17463
+   High-value: 6330
+   Errors: 0
+   Elapsed: 80s
+   Rate: 24.71 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:23.857Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2100
+   Records: 263,111
+   Deleted: 2100
+   Skipped (no product): 17463
+   High-value: 6410
+   Errors: 0
+   Elapsed: 81s
+   Rate: 25.70 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:24.954Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2200
+   Records: 264,803
+   Deleted: 2200
+   Skipped (no product): 17463
+   High-value: 6482
+   Errors: 0
+   Elapsed: 82s
+   Rate: 26.57 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:29.504Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2300
+   Records: 282,884
+   Deleted: 2300
+   Skipped (no product): 18067
+   High-value: 7139
+   Errors: 0
+   Elapsed: 87s
+   Rate: 26.33 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:33.998Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2400
+   Records: 302,408
+   Deleted: 2400
+   Skipped (no product): 20193
+   High-value: 7483
+   Errors: 0
+   Elapsed: 91s
+   Rate: 26.13 files/sec
+💾 Disk space: /dev/sda1        96G   59G   37G  62% /
+[2025-11-08T19:07:36.776Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2500
+   Records: 312,797
+   Deleted: 2500
+   Skipped (no product): 21181
+   High-value: 7563
+   Errors: 0
+   Elapsed: 94s
+   Rate: 26.42 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:39.401Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2600
+   Records: 323,019
+   Deleted: 2600
+   Skipped (no product): 21181
+   High-value: 7576
+   Errors: 0
+   Elapsed: 97s
+   Rate: 26.73 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:42.114Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2700
+   Records: 334,380
+   Deleted: 2700
+   Skipped (no product): 21181
+   High-value: 7696
+   Errors: 0
+   Elapsed: 99s
+   Rate: 27.01 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:43.500Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2800
+   Records: 338,013
+   Deleted: 2800
+   Skipped (no product): 21451
+   High-value: 7730
+   Errors: 0
+   Elapsed: 101s
+   Rate: 27.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:45.954Z] 
+📊 Progress:
+   Dates: 1
+   Files: 2900
+   Records: 347,317
+   Deleted: 2900
+   Skipped (no product): 21451
+   High-value: 7821
+   Errors: 0
+   Elapsed: 103s
+   Rate: 27.93 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:48.895Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3000
+   Records: 359,664
+   Deleted: 3000
+   Skipped (no product): 21582
+   High-value: 8034
+   Errors: 0
+   Elapsed: 106s
+   Rate: 28.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:50.886Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3100
+   Records: 367,431
+   Deleted: 3100
+   Skipped (no product): 22307
+   High-value: 8130
+   Errors: 0
+   Elapsed: 108s
+   Rate: 28.51 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:52.900Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3200
+   Records: 374,763
+   Deleted: 3200
+   Skipped (no product): 22307
+   High-value: 8373
+   Errors: 0
+   Elapsed: 110s
+   Rate: 28.89 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:54.725Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3300
+   Records: 381,707
+   Deleted: 3300
+   Skipped (no product): 22307
+   High-value: 8532
+   Errors: 0
+   Elapsed: 112s
+   Rate: 29.31 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:56.867Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3400
+   Records: 390,331
+   Deleted: 3400
+   Skipped (no product): 22307
+   High-value: 8673
+   Errors: 0
+   Elapsed: 114s
+   Rate: 29.64 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:07:59.278Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3500
+   Records: 400,621
+   Deleted: 3500
+   Skipped (no product): 22307
+   High-value: 8837
+   Errors: 0
+   Elapsed: 117s
+   Rate: 29.88 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:02.164Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3600
+   Records: 410,360
+   Deleted: 3600
+   Skipped (no product): 22307
+   High-value: 9016
+   Errors: 0
+   Elapsed: 120s
+   Rate: 29.99 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:04.639Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3700
+   Records: 419,791
+   Deleted: 3700
+   Skipped (no product): 22307
+   High-value: 9115
+   Errors: 0
+   Elapsed: 122s
+   Rate: 30.20 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:06.673Z] 
+📊 Progress:
+   Dates: 1
+   Files: 3800
+   Records: 426,911
+   Deleted: 3800
+   Skipped (no product): 22307
+   High-value: 9153
+   Errors: 0
+   Elapsed: 124s
+   Rate: 30.51 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:07.306Z] 📅 [Worker 1] Processing date: 2024-07-04
+[2025-11-08T19:08:07.749Z] 
+📊 Progress:
+   Dates: 2
+   Files: 3900
+   Records: 430,181
+   Deleted: 3900
+   Skipped (no product): 22307
+   High-value: 9180
+   Errors: 0
+   Elapsed: 125s
+   Rate: 31.05 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:07.845Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4000
+   Records: 430,181
+   Deleted: 4000
+   Skipped (no product): 22307
+   High-value: 9180
+   Errors: 0
+   Elapsed: 125s
+   Rate: 31.82 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:07.942Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4100
+   Records: 430,181
+   Deleted: 4100
+   Skipped (no product): 22307
+   High-value: 9180
+   Errors: 0
+   Elapsed: 125s
+   Rate: 32.59 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:09.050Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4200
+   Records: 433,269
+   Deleted: 4200
+   Skipped (no product): 22397
+   High-value: 9200
+   Errors: 0
+   Elapsed: 126s
+   Rate: 33.09 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:12.172Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4300
+   Records: 445,814
+   Deleted: 4300
+   Skipped (no product): 22397
+   High-value: 9228
+   Errors: 0
+   Elapsed: 130s
+   Rate: 33.07 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:15.063Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4400
+   Records: 458,234
+   Deleted: 4400
+   Skipped (no product): 22866
+   High-value: 9465
+   Errors: 0
+   Elapsed: 132s
+   Rate: 33.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:17.968Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4500
+   Records: 468,515
+   Deleted: 4500
+   Skipped (no product): 22866
+   High-value: 9583
+   Errors: 0
+   Elapsed: 135s
+   Rate: 33.13 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:20.446Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4600
+   Records: 478,252
+   Deleted: 4600
+   Skipped (no product): 23084
+   High-value: 9807
+   Errors: 0
+   Elapsed: 138s
+   Rate: 33.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:23.987Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4700
+   Records: 492,917
+   Deleted: 4700
+   Skipped (no product): 23088
+   High-value: 10124
+   Errors: 0
+   Elapsed: 141s
+   Rate: 33.13 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:26.942Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4800
+   Records: 504,042
+   Deleted: 4800
+   Skipped (no product): 23258
+   High-value: 10499
+   Errors: 0
+   Elapsed: 144s
+   Rate: 33.15 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:29.602Z] 
+📊 Progress:
+   Dates: 2
+   Files: 4900
+   Records: 514,619
+   Deleted: 4900
+   Skipped (no product): 24482
+   High-value: 10652
+   Errors: 0
+   Elapsed: 147s
+   Rate: 33.23 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:37.167Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5000
+   Records: 548,370
+   Deleted: 5000
+   Skipped (no product): 28295
+   High-value: 11767
+   Errors: 0
+   Elapsed: 155s
+   Rate: 32.25 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:45.072Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5100
+   Records: 584,297
+   Deleted: 5100
+   Skipped (no product): 34266
+   High-value: 12797
+   Errors: 0
+   Elapsed: 162s
+   Rate: 31.30 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:51.344Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5200
+   Records: 613,884
+   Deleted: 5200
+   Skipped (no product): 34288
+   High-value: 13911
+   Errors: 0
+   Elapsed: 169s
+   Rate: 30.73 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:57.548Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5300
+   Records: 642,906
+   Deleted: 5300
+   Skipped (no product): 39646
+   High-value: 14583
+   Errors: 0
+   Elapsed: 175s
+   Rate: 30.22 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:59.016Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5400
+   Records: 648,177
+   Deleted: 5400
+   Skipped (no product): 39770
+   High-value: 14629
+   Errors: 0
+   Elapsed: 176s
+   Rate: 30.53 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:08:59.802Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5500
+   Records: 650,056
+   Deleted: 5500
+   Skipped (no product): 39770
+   High-value: 14695
+   Errors: 0
+   Elapsed: 177s
+   Rate: 30.96 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:02.256Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5600
+   Records: 658,259
+   Deleted: 5600
+   Skipped (no product): 39893
+   High-value: 15016
+   Errors: 0
+   Elapsed: 180s
+   Rate: 31.09 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:07.063Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5700
+   Records: 677,303
+   Deleted: 5700
+   Skipped (no product): 40618
+   High-value: 15564
+   Errors: 0
+   Elapsed: 184s
+   Rate: 30.82 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:10.551Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5800
+   Records: 692,585
+   Deleted: 5800
+   Skipped (no product): 42501
+   High-value: 15770
+   Errors: 0
+   Elapsed: 188s
+   Rate: 30.78 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:13.014Z] 
+📊 Progress:
+   Dates: 2
+   Files: 5900
+   Records: 703,375
+   Deleted: 5900
+   Skipped (no product): 43489
+   High-value: 15818
+   Errors: 0
+   Elapsed: 190s
+   Rate: 30.91 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:15.165Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6000
+   Records: 711,818
+   Deleted: 6000
+   Skipped (no product): 43489
+   High-value: 15842
+   Errors: 0
+   Elapsed: 193s
+   Rate: 31.08 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:17.957Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6100
+   Records: 723,349
+   Deleted: 6100
+   Skipped (no product): 43759
+   High-value: 15971
+   Errors: 0
+   Elapsed: 195s
+   Rate: 31.15 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:19.771Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6200
+   Records: 729,480
+   Deleted: 6200
+   Skipped (no product): 43759
+   High-value: 16041
+   Errors: 0
+   Elapsed: 197s
+   Rate: 31.37 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:22.708Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6300
+   Records: 740,871
+   Deleted: 6300
+   Skipped (no product): 43890
+   High-value: 16118
+   Errors: 0
+   Elapsed: 200s
+   Rate: 31.41 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:25.035Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6400
+   Records: 749,472
+   Deleted: 6400
+   Skipped (no product): 43890
+   High-value: 16325
+   Errors: 0
+   Elapsed: 202s
+   Rate: 31.54 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:26.828Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6500
+   Records: 756,103
+   Deleted: 6500
+   Skipped (no product): 44616
+   High-value: 16456
+   Errors: 0
+   Elapsed: 204s
+   Rate: 31.76 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:28.951Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6600
+   Records: 764,382
+   Deleted: 6600
+   Skipped (no product): 44616
+   High-value: 16723
+   Errors: 0
+   Elapsed: 206s
+   Rate: 31.91 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:30.777Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6700
+   Records: 771,115
+   Deleted: 6700
+   Skipped (no product): 44616
+   High-value: 16815
+   Errors: 0
+   Elapsed: 208s
+   Rate: 32.11 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:33.349Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6800
+   Records: 781,595
+   Deleted: 6800
+   Skipped (no product): 44616
+   High-value: 16991
+   Errors: 0
+   Elapsed: 211s
+   Rate: 32.20 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:36.029Z] 
+📊 Progress:
+   Dates: 2
+   Files: 6900
+   Records: 792,520
+   Deleted: 6900
+   Skipped (no product): 44616
+   High-value: 17170
+   Errors: 0
+   Elapsed: 213s
+   Rate: 32.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:38.309Z] 
+📊 Progress:
+   Dates: 2
+   Files: 7000
+   Records: 800,660
+   Deleted: 7000
+   Skipped (no product): 44616
+   High-value: 17301
+   Errors: 0
+   Elapsed: 216s
+   Rate: 32.38 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:40.877Z] 
+📊 Progress:
+   Dates: 2
+   Files: 7100
+   Records: 808,661
+   Deleted: 7100
+   Skipped (no product): 44616
+   High-value: 17378
+   Errors: 0
+   Elapsed: 218s
+   Rate: 32.46 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:42.663Z] 📅 [Worker 1] Processing date: 2024-07-05
+[2025-11-08T19:09:42.841Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7200
+   Records: 815,491
+   Deleted: 7200
+   Skipped (no product): 44616
+   High-value: 17425
+   Errors: 0
+   Elapsed: 220s
+   Rate: 32.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:43.208Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7300
+   Records: 816,128
+   Deleted: 7300
+   Skipped (no product): 44616
+   High-value: 17426
+   Errors: 0
+   Elapsed: 221s
+   Rate: 33.02 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:43.277Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7400
+   Records: 816,128
+   Deleted: 7400
+   Skipped (no product): 44616
+   High-value: 17426
+   Errors: 0
+   Elapsed: 221s
+   Rate: 33.46 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:43.347Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7500
+   Records: 816,128
+   Deleted: 7500
+   Skipped (no product): 44616
+   High-value: 17426
+   Errors: 0
+   Elapsed: 221s
+   Rate: 33.91 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:45.442Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7600
+   Records: 823,931
+   Deleted: 7600
+   Skipped (no product): 44706
+   High-value: 17457
+   Errors: 0
+   Elapsed: 223s
+   Rate: 34.03 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:48.011Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7700
+   Records: 833,823
+   Deleted: 7700
+   Skipped (no product): 44706
+   High-value: 17475
+   Errors: 0
+   Elapsed: 225s
+   Rate: 34.09 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:51.872Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7800
+   Records: 852,167
+   Deleted: 7800
+   Skipped (no product): 45175
+   High-value: 17781
+   Errors: 0
+   Elapsed: 229s
+   Rate: 33.95 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:53.410Z] 
+📊 Progress:
+   Dates: 3
+   Files: 7900
+   Records: 856,932
+   Deleted: 7900
+   Skipped (no product): 45175
+   High-value: 17941
+   Errors: 0
+   Elapsed: 231s
+   Rate: 34.16 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:09:57.026Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8000
+   Records: 870,964
+   Deleted: 8000
+   Skipped (no product): 45393
+   High-value: 18214
+   Errors: 0
+   Elapsed: 234s
+   Rate: 34.06 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:00.511Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8100
+   Records: 884,689
+   Deleted: 8100
+   Skipped (no product): 45397
+   High-value: 18686
+   Errors: 0
+   Elapsed: 238s
+   Rate: 33.98 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:02.886Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8200
+   Records: 892,845
+   Deleted: 8200
+   Skipped (no product): 45567
+   High-value: 18788
+   Errors: 0
+   Elapsed: 240s
+   Rate: 34.06 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:08.206Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8300
+   Records: 917,061
+   Deleted: 8300
+   Skipped (no product): 47600
+   High-value: 19683
+   Errors: 0
+   Elapsed: 246s
+   Rate: 33.73 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:15.915Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8400
+   Records: 951,975
+   Deleted: 8400
+   Skipped (no product): 53836
+   High-value: 21467
+   Errors: 0
+   Elapsed: 253s
+   Rate: 33.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:22.975Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8500
+   Records: 985,988
+   Deleted: 8500
+   Skipped (no product): 56572
+   High-value: 23423
+   Errors: 0
+   Elapsed: 260s
+   Rate: 32.59 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:29.255Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8600
+   Records: 1,015,999
+   Deleted: 8600
+   Skipped (no product): 60245
+   High-value: 24649
+   Errors: 0
+   Elapsed: 267s
+   Rate: 32.20 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:33.256Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8700
+   Records: 1,032,914
+   Deleted: 8700
+   Skipped (no product): 62077
+   High-value: 25232
+   Errors: 0
+   Elapsed: 271s
+   Rate: 32.09 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:33.976Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8800
+   Records: 1,034,771
+   Deleted: 8800
+   Skipped (no product): 62077
+   High-value: 25302
+   Errors: 0
+   Elapsed: 271s
+   Rate: 32.37 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:34.590Z] 
+📊 Progress:
+   Dates: 3
+   Files: 8900
+   Records: 1,036,428
+   Deleted: 8900
+   Skipped (no product): 62077
+   High-value: 25367
+   Errors: 0
+   Elapsed: 272s
+   Rate: 32.67 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:39.146Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9000
+   Records: 1,053,251
+   Deleted: 9000
+   Skipped (no product): 62683
+   High-value: 25992
+   Errors: 0
+   Elapsed: 277s
+   Rate: 32.49 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:43.618Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9100
+   Records: 1,071,970
+   Deleted: 9100
+   Skipped (no product): 63964
+   High-value: 26354
+   Errors: 0
+   Elapsed: 281s
+   Rate: 32.33 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:46.487Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9200
+   Records: 1,084,412
+   Deleted: 9200
+   Skipped (no product): 65797
+   High-value: 26463
+   Errors: 0
+   Elapsed: 284s
+   Rate: 32.35 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:48.821Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9300
+   Records: 1,093,702
+   Deleted: 9300
+   Skipped (no product): 65797
+   High-value: 26476
+   Errors: 0
+   Elapsed: 286s
+   Rate: 32.44 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:51.302Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9400
+   Records: 1,104,097
+   Deleted: 9400
+   Skipped (no product): 65797
+   High-value: 26569
+   Errors: 0
+   Elapsed: 289s
+   Rate: 32.51 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:52.715Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9500
+   Records: 1,109,287
+   Deleted: 9500
+   Skipped (no product): 66067
+   High-value: 26626
+   Errors: 0
+   Elapsed: 290s
+   Rate: 32.69 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:55.196Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9600
+   Records: 1,118,405
+   Deleted: 9600
+   Skipped (no product): 66067
+   High-value: 26716
+   Errors: 0
+   Elapsed: 293s
+   Rate: 32.76 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:10:57.974Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9700
+   Records: 1,130,437
+   Deleted: 9700
+   Skipped (no product): 66198
+   High-value: 26920
+   Errors: 0
+   Elapsed: 295s
+   Rate: 32.79 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:00.367Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9800
+   Records: 1,138,758
+   Deleted: 9800
+   Skipped (no product): 66923
+   High-value: 27022
+   Errors: 0
+   Elapsed: 298s
+   Rate: 32.86 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:02.411Z] 
+📊 Progress:
+   Dates: 3
+   Files: 9900
+   Records: 1,146,039
+   Deleted: 9900
+   Skipped (no product): 66923
+   High-value: 27270
+   Errors: 0
+   Elapsed: 300s
+   Rate: 32.97 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:04.326Z] 
+📊 Progress:
+   Dates: 3
+   Files: 10000
+   Records: 1,152,840
+   Deleted: 10000
+   Skipped (no product): 66923
+   High-value: 27424
+   Errors: 0
+   Elapsed: 302s
+   Rate: 33.09 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:06.492Z] 
+📊 Progress:
+   Dates: 3
+   Files: 10100
+   Records: 1,160,798
+   Deleted: 10100
+   Skipped (no product): 66923
+   High-value: 27572
+   Errors: 0
+   Elapsed: 304s
+   Rate: 33.19 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:09.173Z] 
+📊 Progress:
+   Dates: 3
+   Files: 10200
+   Records: 1,171,846
+   Deleted: 10200
+   Skipped (no product): 66923
+   High-value: 27734
+   Errors: 0
+   Elapsed: 307s
+   Rate: 33.22 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:11.586Z] 
+📊 Progress:
+   Dates: 3
+   Files: 10300
+   Records: 1,181,418
+   Deleted: 10300
+   Skipped (no product): 66923
+   High-value: 27916
+   Errors: 0
+   Elapsed: 309s
+   Rate: 33.29 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:13.747Z] 
+📊 Progress:
+   Dates: 3
+   Files: 10400
+   Records: 1,190,176
+   Deleted: 10400
+   Skipped (no product): 66923
+   High-value: 28001
+   Errors: 0
+   Elapsed: 311s
+   Rate: 33.38 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:15.842Z] 
+📊 Progress:
+   Dates: 3
+   Files: 10500
+   Records: 1,197,803
+   Deleted: 10500
+   Skipped (no product): 66923
+   High-value: 28053
+   Errors: 0
+   Elapsed: 313s
+   Rate: 33.47 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:16.675Z] 📅 [Worker 1] Processing date: 2024-07-06
+[2025-11-08T19:11:17.061Z] 
+📊 Progress:
+   Dates: 4
+   Files: 10600
+   Records: 1,201,812
+   Deleted: 10600
+   Skipped (no product): 66923
+   High-value: 28082
+   Errors: 0
+   Elapsed: 314s
+   Rate: 33.66 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:17.260Z] 
+📊 Progress:
+   Dates: 4
+   Files: 10700
+   Records: 1,201,812
+   Deleted: 10700
+   Skipped (no product): 66923
+   High-value: 28082
+   Errors: 0
+   Elapsed: 315s
+   Rate: 33.96 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:17.477Z] 
+📊 Progress:
+   Dates: 4
+   Files: 10800
+   Records: 1,201,812
+   Deleted: 10800
+   Skipped (no product): 66923
+   High-value: 28082
+   Errors: 0
+   Elapsed: 315s
+   Rate: 34.25 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:18.406Z] 
+📊 Progress:
+   Dates: 4
+   Files: 10900
+   Records: 1,204,277
+   Deleted: 10900
+   Skipped (no product): 66923
+   High-value: 28093
+   Errors: 0
+   Elapsed: 316s
+   Rate: 34.46 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:21.447Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11000
+   Records: 1,215,976
+   Deleted: 11000
+   Skipped (no product): 67013
+   High-value: 28130
+   Errors: 0
+   Elapsed: 319s
+   Rate: 34.45 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:24.220Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11100
+   Records: 1,228,352
+   Deleted: 11100
+   Skipped (no product): 67482
+   High-value: 28336
+   Errors: 0
+   Elapsed: 322s
+   Rate: 34.46 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:26.789Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11200
+   Records: 1,239,901
+   Deleted: 11200
+   Skipped (no product): 67482
+   High-value: 28484
+   Errors: 0
+   Elapsed: 324s
+   Rate: 34.50 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:28.940Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11300
+   Records: 1,248,125
+   Deleted: 11300
+   Skipped (no product): 67482
+   High-value: 28662
+   Errors: 0
+   Elapsed: 326s
+   Rate: 34.58 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:32.683Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11400
+   Records: 1,263,267
+   Deleted: 11400
+   Skipped (no product): 67704
+   High-value: 28970
+   Errors: 0
+   Elapsed: 330s
+   Rate: 34.49 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:35.788Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11500
+   Records: 1,275,083
+   Deleted: 11500
+   Skipped (no product): 67874
+   High-value: 29370
+   Errors: 0
+   Elapsed: 333s
+   Rate: 34.47 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:38.132Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11600
+   Records: 1,284,004
+   Deleted: 11600
+   Skipped (no product): 69098
+   High-value: 29532
+   Errors: 0
+   Elapsed: 335s
+   Rate: 34.52 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:45.783Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11700
+   Records: 1,317,293
+   Deleted: 11700
+   Skipped (no product): 72911
+   High-value: 31182
+   Errors: 0
+   Elapsed: 343s
+   Rate: 34.05 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:53.134Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11800
+   Records: 1,351,369
+   Deleted: 11800
+   Skipped (no product): 76142
+   High-value: 32765
+   Errors: 0
+   Elapsed: 350s
+   Rate: 33.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:11:59.889Z] 
+📊 Progress:
+   Dates: 4
+   Files: 11900
+   Records: 1,383,436
+   Deleted: 11900
+   Skipped (no product): 78898
+   High-value: 34427
+   Errors: 0
+   Elapsed: 357s
+   Rate: 33.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:06.651Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12000
+   Records: 1,414,416
+   Deleted: 12000
+   Skipped (no product): 84257
+   High-value: 35806
+   Errors: 0
+   Elapsed: 364s
+   Rate: 32.92 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:08.239Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12100
+   Records: 1,419,667
+   Deleted: 12100
+   Skipped (no product): 84378
+   High-value: 35847
+   Errors: 0
+   Elapsed: 366s
+   Rate: 33.05 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:08.936Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12200
+   Records: 1,421,259
+   Deleted: 12200
+   Skipped (no product): 84378
+   High-value: 35910
+   Errors: 0
+   Elapsed: 366s
+   Rate: 33.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:11.074Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12300
+   Records: 1,428,567
+   Deleted: 12300
+   Skipped (no product): 84501
+   High-value: 36215
+   Errors: 0
+   Elapsed: 368s
+   Rate: 33.34 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:15.182Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12400
+   Records: 1,446,693
+   Deleted: 12400
+   Skipped (no product): 85228
+   High-value: 36760
+   Errors: 0
+   Elapsed: 373s
+   Rate: 33.24 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:19.040Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12500
+   Records: 1,463,132
+   Deleted: 12500
+   Skipped (no product): 87108
+   High-value: 36987
+   Errors: 0
+   Elapsed: 376s
+   Rate: 33.17 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:21.648Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12600
+   Records: 1,474,096
+   Deleted: 12600
+   Skipped (no product): 88096
+   High-value: 37041
+   Errors: 0
+   Elapsed: 379s
+   Rate: 33.20 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:23.733Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12700
+   Records: 1,482,322
+   Deleted: 12700
+   Skipped (no product): 88096
+   High-value: 37055
+   Errors: 0
+   Elapsed: 381s
+   Rate: 33.28 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:26.761Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12800
+   Records: 1,494,735
+   Deleted: 12800
+   Skipped (no product): 88366
+   High-value: 37196
+   Errors: 0
+   Elapsed: 384s
+   Rate: 33.28 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:28.205Z] 
+📊 Progress:
+   Dates: 4
+   Files: 12900
+   Records: 1,499,864
+   Deleted: 12900
+   Skipped (no product): 88366
+   High-value: 37250
+   Errors: 0
+   Elapsed: 386s
+   Rate: 33.41 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:30.853Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13000
+   Records: 1,511,276
+   Deleted: 13000
+   Skipped (no product): 88497
+   High-value: 37326
+   Errors: 0
+   Elapsed: 388s
+   Rate: 33.44 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  62% /
+[2025-11-08T19:12:33.086Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13100
+   Records: 1,520,003
+   Deleted: 13100
+   Skipped (no product): 88497
+   High-value: 37544
+   Errors: 0
+   Elapsed: 390s
+   Rate: 33.51 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:35.270Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13200
+   Records: 1,527,027
+   Deleted: 13200
+   Skipped (no product): 89224
+   High-value: 37678
+   Errors: 0
+   Elapsed: 393s
+   Rate: 33.58 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:37.487Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13300
+   Records: 1,534,828
+   Deleted: 13300
+   Skipped (no product): 89224
+   High-value: 37910
+   Errors: 0
+   Elapsed: 395s
+   Rate: 33.64 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:39.524Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13400
+   Records: 1,542,125
+   Deleted: 13400
+   Skipped (no product): 89224
+   High-value: 38046
+   Errors: 0
+   Elapsed: 397s
+   Rate: 33.72 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:42.061Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13500
+   Records: 1,551,786
+   Deleted: 13500
+   Skipped (no product): 89224
+   High-value: 38207
+   Errors: 0
+   Elapsed: 399s
+   Rate: 33.76 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:44.674Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13600
+   Records: 1,562,302
+   Deleted: 13600
+   Skipped (no product): 89224
+   High-value: 38384
+   Errors: 0
+   Elapsed: 402s
+   Rate: 33.79 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:47.527Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13700
+   Records: 1,571,475
+   Deleted: 13700
+   Skipped (no product): 89224
+   High-value: 38526
+   Errors: 0
+   Elapsed: 405s
+   Rate: 33.79 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:49.960Z] 
+📊 Progress:
+   Dates: 4
+   Files: 13800
+   Records: 1,579,663
+   Deleted: 13800
+   Skipped (no product): 89224
+   High-value: 38604
+   Errors: 0
+   Elapsed: 407s
+   Rate: 33.84 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:52.099Z] 📅 [Worker 1] Processing date: 2024-07-07
+[2025-11-08T19:12:52.251Z] 
+📊 Progress:
+   Dates: 5
+   Files: 13900
+   Records: 1,586,853
+   Deleted: 13900
+   Skipped (no product): 89224
+   High-value: 38651
+   Errors: 0
+   Elapsed: 410s
+   Rate: 33.89 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:52.748Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14000
+   Records: 1,587,707
+   Deleted: 14000
+   Skipped (no product): 89224
+   High-value: 38656
+   Errors: 0
+   Elapsed: 410s
+   Rate: 34.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:52.824Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14100
+   Records: 1,587,707
+   Deleted: 14100
+   Skipped (no product): 89224
+   High-value: 38656
+   Errors: 0
+   Elapsed: 410s
+   Rate: 34.33 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:52.893Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14200
+   Records: 1,587,707
+   Deleted: 14200
+   Skipped (no product): 89224
+   High-value: 38656
+   Errors: 0
+   Elapsed: 410s
+   Rate: 34.57 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:54.909Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14300
+   Records: 1,594,810
+   Deleted: 14300
+   Skipped (no product): 89314
+   High-value: 38688
+   Errors: 0
+   Elapsed: 412s
+   Rate: 34.64 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:12:57.694Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14400
+   Records: 1,604,980
+   Deleted: 14400
+   Skipped (no product): 89314
+   High-value: 38705
+   Errors: 0
+   Elapsed: 415s
+   Rate: 34.65 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:01.561Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14500
+   Records: 1,621,764
+   Deleted: 14500
+   Skipped (no product): 89783
+   High-value: 39002
+   Errors: 0
+   Elapsed: 419s
+   Rate: 34.57 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:03.374Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14600
+   Records: 1,628,218
+   Deleted: 14600
+   Skipped (no product): 89783
+   High-value: 39164
+   Errors: 0
+   Elapsed: 421s
+   Rate: 34.66 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:06.670Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14700
+   Records: 1,641,033
+   Deleted: 14700
+   Skipped (no product): 90001
+   High-value: 39384
+   Errors: 0
+   Elapsed: 424s
+   Rate: 34.63 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:10.525Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14800
+   Records: 1,656,275
+   Deleted: 14800
+   Skipped (no product): 90005
+   High-value: 39914
+   Errors: 0
+   Elapsed: 428s
+   Rate: 34.55 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:12.389Z] 
+📊 Progress:
+   Dates: 5
+   Files: 14900
+   Records: 1,662,979
+   Deleted: 14900
+   Skipped (no product): 90173
+   High-value: 39998
+   Errors: 0
+   Elapsed: 430s
+   Rate: 34.63 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:17.271Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15000
+   Records: 1,685,548
+   Deleted: 15000
+   Skipped (no product): 92206
+   High-value: 40706
+   Errors: 0
+   Elapsed: 435s
+   Rate: 34.47 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:24.607Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15100
+   Records: 1,720,443
+   Deleted: 15100
+   Skipped (no product): 98442
+   High-value: 42511
+   Errors: 0
+   Elapsed: 442s
+   Rate: 34.13 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:32.592Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15200
+   Records: 1,755,610
+   Deleted: 15200
+   Skipped (no product): 101178
+   High-value: 44484
+   Errors: 0
+   Elapsed: 450s
+   Rate: 33.74 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:39.272Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15300
+   Records: 1,784,722
+   Deleted: 15300
+   Skipped (no product): 104851
+   High-value: 45561
+   Errors: 0
+   Elapsed: 457s
+   Rate: 33.47 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:43.670Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15400
+   Records: 1,803,371
+   Deleted: 15400
+   Skipped (no product): 106679
+   High-value: 46294
+   Errors: 0
+   Elapsed: 461s
+   Rate: 33.37 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:44.761Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15500
+   Records: 1,806,181
+   Deleted: 15500
+   Skipped (no product): 106679
+   High-value: 46355
+   Errors: 0
+   Elapsed: 462s
+   Rate: 33.50 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:45.684Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15600
+   Records: 1,807,978
+   Deleted: 15600
+   Skipped (no product): 106679
+   High-value: 46421
+   Errors: 0
+   Elapsed: 463s
+   Rate: 33.65 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:49.983Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15700
+   Records: 1,823,222
+   Deleted: 15700
+   Skipped (no product): 107283
+   High-value: 47020
+   Errors: 0
+   Elapsed: 467s
+   Rate: 33.56 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:54.061Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15800
+   Records: 1,841,191
+   Deleted: 15800
+   Skipped (no product): 108235
+   High-value: 47366
+   Errors: 0
+   Elapsed: 471s
+   Rate: 33.48 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:57.473Z] 
+📊 Progress:
+   Dates: 5
+   Files: 15900
+   Records: 1,855,440
+   Deleted: 15900
+   Skipped (no product): 110392
+   High-value: 47507
+   Errors: 0
+   Elapsed: 475s
+   Rate: 33.45 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:13:59.962Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16000
+   Records: 1,864,252
+   Deleted: 16000
+   Skipped (no product): 110392
+   High-value: 47523
+   Errors: 0
+   Elapsed: 477s
+   Rate: 33.49 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:02.889Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16100
+   Records: 1,875,151
+   Deleted: 16100
+   Skipped (no product): 110392
+   High-value: 47602
+   Errors: 0
+   Elapsed: 480s
+   Rate: 33.49 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:04.745Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16200
+   Records: 1,881,117
+   Deleted: 16200
+   Skipped (no product): 110662
+   High-value: 47671
+   Errors: 0
+   Elapsed: 482s
+   Rate: 33.57 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:06.921Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16300
+   Records: 1,889,295
+   Deleted: 16300
+   Skipped (no product): 110662
+   High-value: 47751
+   Errors: 0
+   Elapsed: 484s
+   Rate: 33.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:10.359Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16400
+   Records: 1,901,691
+   Deleted: 16400
+   Skipped (no product): 110793
+   High-value: 47950
+   Errors: 0
+   Elapsed: 488s
+   Rate: 33.59 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:12.453Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16500
+   Records: 1,910,449
+   Deleted: 16500
+   Skipped (no product): 111520
+   High-value: 48061
+   Errors: 0
+   Elapsed: 490s
+   Rate: 33.65 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:14.292Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16600
+   Records: 1,917,336
+   Deleted: 16600
+   Skipped (no product): 111520
+   High-value: 48304
+   Errors: 0
+   Elapsed: 492s
+   Rate: 33.73 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:16.247Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16700
+   Records: 1,924,432
+   Deleted: 16700
+   Skipped (no product): 111520
+   High-value: 48459
+   Errors: 0
+   Elapsed: 494s
+   Rate: 33.80 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:18.291Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16800
+   Records: 1,932,286
+   Deleted: 16800
+   Skipped (no product): 111520
+   High-value: 48607
+   Errors: 0
+   Elapsed: 496s
+   Rate: 33.86 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:20.902Z] 
+📊 Progress:
+   Dates: 5
+   Files: 16900
+   Records: 1,943,073
+   Deleted: 16900
+   Skipped (no product): 111520
+   High-value: 48765
+   Errors: 0
+   Elapsed: 498s
+   Rate: 33.88 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:23.425Z] 
+📊 Progress:
+   Dates: 5
+   Files: 17000
+   Records: 1,953,253
+   Deleted: 17000
+   Skipped (no product): 111520
+   High-value: 48959
+   Errors: 0
+   Elapsed: 501s
+   Rate: 33.91 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:25.820Z] 
+📊 Progress:
+   Dates: 5
+   Files: 17100
+   Records: 1,961,422
+   Deleted: 17100
+   Skipped (no product): 111520
+   High-value: 49018
+   Errors: 0
+   Elapsed: 503s
+   Rate: 33.95 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:27.975Z] 
+📊 Progress:
+   Dates: 5
+   Files: 17200
+   Records: 1,969,070
+   Deleted: 17200
+   Skipped (no product): 111520
+   High-value: 49091
+   Errors: 0
+   Elapsed: 505s
+   Rate: 34.00 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:29.011Z] 📅 [Worker 1] Processing date: 2024-07-08
+[2025-11-08T19:14:29.410Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17300
+   Records: 1,973,918
+   Deleted: 17300
+   Skipped (no product): 111520
+   High-value: 49123
+   Errors: 0
+   Elapsed: 507s
+   Rate: 34.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:29.520Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17400
+   Records: 1,973,918
+   Deleted: 17400
+   Skipped (no product): 111520
+   High-value: 49123
+   Errors: 0
+   Elapsed: 507s
+   Rate: 34.29 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:29.619Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17500
+   Records: 1,973,918
+   Deleted: 17500
+   Skipped (no product): 111520
+   High-value: 49123
+   Errors: 0
+   Elapsed: 507s
+   Rate: 34.48 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:30.370Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17600
+   Records: 1,976,179
+   Deleted: 17600
+   Skipped (no product): 111520
+   High-value: 49130
+   Errors: 0
+   Elapsed: 508s
+   Rate: 34.63 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:33.489Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17700
+   Records: 1,986,700
+   Deleted: 17700
+   Skipped (no product): 111610
+   High-value: 49167
+   Errors: 0
+   Elapsed: 511s
+   Rate: 34.61 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:36.271Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17800
+   Records: 1,997,187
+   Deleted: 17800
+   Skipped (no product): 112079
+   High-value: 49345
+   Errors: 0
+   Elapsed: 514s
+   Rate: 34.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:39.660Z] 
+📊 Progress:
+   Dates: 6
+   Files: 17900
+   Records: 2,011,694
+   Deleted: 17900
+   Skipped (no product): 112079
+   High-value: 49512
+   Errors: 0
+   Elapsed: 517s
+   Rate: 34.59 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:41.549Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18000
+   Records: 2,019,150
+   Deleted: 18000
+   Skipped (no product): 112079
+   High-value: 49681
+   Errors: 0
+   Elapsed: 519s
+   Rate: 34.65 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:44.953Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18100
+   Records: 2,034,080
+   Deleted: 18100
+   Skipped (no product): 112296
+   High-value: 49990
+   Errors: 0
+   Elapsed: 522s
+   Rate: 34.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:47.682Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18200
+   Records: 2,045,447
+   Deleted: 18200
+   Skipped (no product): 112468
+   High-value: 50386
+   Errors: 0
+   Elapsed: 525s
+   Rate: 34.63 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:49.883Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18300
+   Records: 2,053,228
+   Deleted: 18300
+   Skipped (no product): 112468
+   High-value: 50522
+   Errors: 0
+   Elapsed: 527s
+   Rate: 34.68 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:14:57.058Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18400
+   Records: 2,086,345
+   Deleted: 18400
+   Skipped (no product): 116490
+   High-value: 52264
+   Errors: 0
+   Elapsed: 534s
+   Rate: 34.40 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:04.154Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18500
+   Records: 2,119,903
+   Deleted: 18500
+   Skipped (no product): 120737
+   High-value: 53885
+   Errors: 0
+   Elapsed: 542s
+   Rate: 34.13 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:11.370Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18600
+   Records: 2,153,222
+   Deleted: 18600
+   Skipped (no product): 123495
+   High-value: 55784
+   Errors: 0
+   Elapsed: 549s
+   Rate: 33.87 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:17.814Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18700
+   Records: 2,185,940
+   Deleted: 18700
+   Skipped (no product): 128853
+   High-value: 57753
+   Errors: 0
+   Elapsed: 555s
+   Rate: 33.65 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:19.457Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18800
+   Records: 2,191,609
+   Deleted: 18800
+   Skipped (no product): 128974
+   High-value: 57791
+   Errors: 0
+   Elapsed: 557s
+   Rate: 33.73 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:20.188Z] 
+📊 Progress:
+   Dates: 6
+   Files: 18900
+   Records: 2,193,155
+   Deleted: 18900
+   Skipped (no product): 128974
+   High-value: 57851
+   Errors: 0
+   Elapsed: 558s
+   Rate: 33.87 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:21.419Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19000
+   Records: 2,196,924
+   Deleted: 19000
+   Skipped (no product): 128974
+   High-value: 58032
+   Errors: 0
+   Elapsed: 559s
+   Rate: 33.97 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:25.835Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19100
+   Records: 2,216,498
+   Deleted: 19100
+   Skipped (no product): 129593
+   High-value: 58647
+   Errors: 0
+   Elapsed: 563s
+   Rate: 33.88 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:29.931Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19200
+   Records: 2,234,229
+   Deleted: 19200
+   Skipped (no product): 131713
+   High-value: 58920
+   Errors: 0
+   Elapsed: 567s
+   Rate: 33.82 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:32.323Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19300
+   Records: 2,245,089
+   Deleted: 19300
+   Skipped (no product): 132700
+   High-value: 58986
+   Errors: 0
+   Elapsed: 570s
+   Rate: 33.85 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:34.674Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19400
+   Records: 2,254,085
+   Deleted: 19400
+   Skipped (no product): 132700
+   High-value: 58997
+   Errors: 0
+   Elapsed: 572s
+   Rate: 33.88 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:37.840Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19500
+   Records: 2,266,902
+   Deleted: 19500
+   Skipped (no product): 132970
+   High-value: 59141
+   Errors: 0
+   Elapsed: 575s
+   Rate: 33.87 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:39.180Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19600
+   Records: 2,270,771
+   Deleted: 19600
+   Skipped (no product): 132970
+   High-value: 59184
+   Errors: 0
+   Elapsed: 577s
+   Rate: 33.97 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:41.769Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19700
+   Records: 2,281,589
+   Deleted: 19700
+   Skipped (no product): 133101
+   High-value: 59262
+   Errors: 0
+   Elapsed: 579s
+   Rate: 33.99 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:44.411Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19800
+   Records: 2,291,819
+   Deleted: 19800
+   Skipped (no product): 133101
+   High-value: 59474
+   Errors: 0
+   Elapsed: 582s
+   Rate: 34.00 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:46.506Z] 
+📊 Progress:
+   Dates: 6
+   Files: 19900
+   Records: 2,298,554
+   Deleted: 19900
+   Skipped (no product): 133827
+   High-value: 59600
+   Errors: 0
+   Elapsed: 584s
+   Rate: 34.05 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:48.575Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20000
+   Records: 2,306,592
+   Deleted: 20000
+   Skipped (no product): 133827
+   High-value: 59842
+   Errors: 0
+   Elapsed: 586s
+   Rate: 34.10 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:50.280Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20100
+   Records: 2,313,518
+   Deleted: 20100
+   Skipped (no product): 133827
+   High-value: 59968
+   Errors: 0
+   Elapsed: 588s
+   Rate: 34.18 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:52.681Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20200
+   Records: 2,323,026
+   Deleted: 20200
+   Skipped (no product): 133827
+   High-value: 60142
+   Errors: 0
+   Elapsed: 590s
+   Rate: 34.21 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:55.466Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20300
+   Records: 2,333,839
+   Deleted: 20300
+   Skipped (no product): 133827
+   High-value: 60282
+   Errors: 0
+   Elapsed: 593s
+   Rate: 34.21 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:15:57.804Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20400
+   Records: 2,342,127
+   Deleted: 20400
+   Skipped (no product): 133827
+   High-value: 60443
+   Errors: 0
+   Elapsed: 595s
+   Rate: 34.25 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:00.314Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20500
+   Records: 2,351,294
+   Deleted: 20500
+   Skipped (no product): 133827
+   High-value: 60535
+   Errors: 0
+   Elapsed: 598s
+   Rate: 34.27 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:02.450Z] 
+📊 Progress:
+   Dates: 6
+   Files: 20600
+   Records: 2,358,846
+   Deleted: 20600
+   Skipped (no product): 133827
+   High-value: 60578
+   Errors: 0
+   Elapsed: 600s
+   Rate: 34.32 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:02.574Z] 📅 [Worker 1] Processing date: 2024-07-09
+[2025-11-08T19:16:02.985Z] 
+📊 Progress:
+   Dates: 7
+   Files: 20700
+   Records: 2,360,046
+   Deleted: 20700
+   Skipped (no product): 133827
+   High-value: 60589
+   Errors: 0
+   Elapsed: 600s
+   Rate: 34.45 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:03.093Z] 
+📊 Progress:
+   Dates: 7
+   Files: 20800
+   Records: 2,360,046
+   Deleted: 20800
+   Skipped (no product): 133827
+   High-value: 60589
+   Errors: 0
+   Elapsed: 600s
+   Rate: 34.61 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:03.188Z] 
+📊 Progress:
+   Dates: 7
+   Files: 20900
+   Records: 2,360,046
+   Deleted: 20900
+   Skipped (no product): 133827
+   High-value: 60589
+   Errors: 0
+   Elapsed: 601s
+   Rate: 34.77 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:04.885Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21000
+   Records: 2,365,179
+   Deleted: 21000
+   Skipped (no product): 133917
+   High-value: 60616
+   Errors: 0
+   Elapsed: 602s
+   Rate: 34.84 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:08.000Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21100
+   Records: 2,376,816
+   Deleted: 21100
+   Skipped (no product): 133917
+   High-value: 60637
+   Errors: 0
+   Elapsed: 605s
+   Rate: 34.83 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:11.129Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21200
+   Records: 2,390,651
+   Deleted: 21200
+   Skipped (no product): 134386
+   High-value: 60882
+   Errors: 0
+   Elapsed: 608s
+   Rate: 34.81 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:13.450Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21300
+   Records: 2,399,423
+   Deleted: 21300
+   Skipped (no product): 134386
+   High-value: 61024
+   Errors: 0
+   Elapsed: 611s
+   Rate: 34.84 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:16.403Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21400
+   Records: 2,411,546
+   Deleted: 21400
+   Skipped (no product): 134603
+   High-value: 61273
+   Errors: 0
+   Elapsed: 614s
+   Rate: 34.84 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:20.369Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21500
+   Records: 2,427,612
+   Deleted: 21500
+   Skipped (no product): 134607
+   High-value: 61697
+   Errors: 0
+   Elapsed: 618s
+   Rate: 34.78 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:22.210Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21600
+   Records: 2,433,966
+   Deleted: 21600
+   Skipped (no product): 134776
+   High-value: 61920
+   Errors: 0
+   Elapsed: 620s
+   Rate: 34.83 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:26.723Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21700
+   Records: 2,453,356
+   Deleted: 21700
+   Skipped (no product): 136809
+   High-value: 62488
+   Errors: 0
+   Elapsed: 624s
+   Rate: 34.74 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:33.887Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21800
+   Records: 2,487,356
+   Deleted: 21800
+   Skipped (no product): 143045
+   High-value: 64144
+   Errors: 0
+   Elapsed: 631s
+   Rate: 34.51 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:42.017Z] 
+📊 Progress:
+   Dates: 7
+   Files: 21900
+   Records: 2,524,078
+   Deleted: 21900
+   Skipped (no product): 145778
+   High-value: 66313
+   Errors: 0
+   Elapsed: 639s
+   Rate: 34.23 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:48.610Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22000
+   Records: 2,553,663
+   Deleted: 22000
+   Skipped (no product): 149452
+   High-value: 67669
+   Errors: 0
+   Elapsed: 646s
+   Rate: 34.03 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:53.197Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22100
+   Records: 2,574,263
+   Deleted: 22100
+   Skipped (no product): 151280
+   High-value: 68544
+   Errors: 0
+   Elapsed: 651s
+   Rate: 33.94 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:54.377Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22200
+   Records: 2,578,280
+   Deleted: 22200
+   Skipped (no product): 151280
+   High-value: 68593
+   Errors: 0
+   Elapsed: 652s
+   Rate: 34.04 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:55.066Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22300
+   Records: 2,580,009
+   Deleted: 22300
+   Skipped (no product): 151280
+   High-value: 68665
+   Errors: 0
+   Elapsed: 652s
+   Rate: 34.15 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:16:58.008Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22400
+   Records: 2,591,799
+   Deleted: 22400
+   Skipped (no product): 151403
+   High-value: 69122
+   Errors: 0
+   Elapsed: 655s
+   Rate: 34.15 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:02.664Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22500
+   Records: 2,610,637
+   Deleted: 22500
+   Skipped (no product): 152299
+   High-value: 69566
+   Errors: 0
+   Elapsed: 660s
+   Rate: 34.06 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:06.466Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22600
+   Records: 2,626,694
+   Deleted: 22600
+   Skipped (no product): 155009
+   High-value: 69767
+   Errors: 0
+   Elapsed: 664s
+   Rate: 34.02 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:08.482Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22700
+   Records: 2,634,738
+   Deleted: 22700
+   Skipped (no product): 155009
+   High-value: 69785
+   Errors: 0
+   Elapsed: 666s
+   Rate: 34.07 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:11.009Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22800
+   Records: 2,644,914
+   Deleted: 22800
+   Skipped (no product): 155009
+   High-value: 69841
+   Errors: 0
+   Elapsed: 668s
+   Rate: 34.09 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:13.240Z] 
+📊 Progress:
+   Dates: 7
+   Files: 22900
+   Records: 2,653,172
+   Deleted: 22900
+   Skipped (no product): 155279
+   High-value: 69934
+   Errors: 0
+   Elapsed: 671s
+   Rate: 34.12 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:14.965Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23000
+   Records: 2,659,656
+   Deleted: 23000
+   Skipped (no product): 155279
+   High-value: 70009
+   Errors: 0
+   Elapsed: 672s
+   Rate: 34.18 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:18.631Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23100
+   Records: 2,672,936
+   Deleted: 23100
+   Skipped (no product): 155410
+   High-value: 70110
+   Errors: 0
+   Elapsed: 676s
+   Rate: 34.15 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:20.869Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23200
+   Records: 2,682,045
+   Deleted: 23200
+   Skipped (no product): 156136
+   High-value: 70315
+   Errors: 0
+   Elapsed: 678s
+   Rate: 34.18 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:22.573Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23300
+   Records: 2,688,458
+   Deleted: 23300
+   Skipped (no product): 156136
+   High-value: 70548
+   Errors: 0
+   Elapsed: 680s
+   Rate: 34.24 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:24.329Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23400
+   Records: 2,695,750
+   Deleted: 23400
+   Skipped (no product): 156136
+   High-value: 70711
+   Errors: 0
+   Elapsed: 682s
+   Rate: 34.30 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:26.169Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23500
+   Records: 2,702,917
+   Deleted: 23500
+   Skipped (no product): 156136
+   High-value: 70810
+   Errors: 0
+   Elapsed: 684s
+   Rate: 34.36 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:29.041Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23600
+   Records: 2,714,740
+   Deleted: 23600
+   Skipped (no product): 156136
+   High-value: 71010
+   Errors: 0
+   Elapsed: 686s
+   Rate: 34.36 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:31.562Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23700
+   Records: 2,725,355
+   Deleted: 23700
+   Skipped (no product): 156136
+   High-value: 71202
+   Errors: 0
+   Elapsed: 689s
+   Rate: 34.38 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:33.735Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23800
+   Records: 2,732,580
+   Deleted: 23800
+   Skipped (no product): 156136
+   High-value: 71270
+   Errors: 0
+   Elapsed: 691s
+   Rate: 34.41 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:36.290Z] 
+📊 Progress:
+   Dates: 7
+   Files: 23900
+   Records: 2,740,212
+   Deleted: 23900
+   Skipped (no product): 156136
+   High-value: 71339
+   Errors: 0
+   Elapsed: 694s
+   Rate: 34.43 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:37.828Z] 📅 [Worker 1] Processing date: 2024-07-10
+[2025-11-08T19:17:38.112Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24000
+   Records: 2,745,629
+   Deleted: 24000
+   Skipped (no product): 156136
+   High-value: 71380
+   Errors: 0
+   Elapsed: 695s
+   Rate: 34.48 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:38.360Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24100
+   Records: 2,746,136
+   Deleted: 24100
+   Skipped (no product): 156136
+   High-value: 71380
+   Errors: 0
+   Elapsed: 696s
+   Rate: 34.62 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:38.447Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24200
+   Records: 2,746,136
+   Deleted: 24200
+   Skipped (no product): 156136
+   High-value: 71380
+   Errors: 0
+   Elapsed: 696s
+   Rate: 34.75 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:39.076Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24300
+   Records: 2,747,702
+   Deleted: 24300
+   Skipped (no product): 156136
+   High-value: 71386
+   Errors: 0
+   Elapsed: 696s
+   Rate: 34.87 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:41.518Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24400
+   Records: 2,756,228
+   Deleted: 24400
+   Skipped (no product): 156226
+   High-value: 71416
+   Errors: 0
+   Elapsed: 699s
+   Rate: 34.89 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:43.860Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24500
+   Records: 2,765,127
+   Deleted: 24500
+   Skipped (no product): 156695
+   High-value: 71438
+   Errors: 0
+   Elapsed: 701s
+   Rate: 34.91 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:47.767Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24600
+   Records: 2,782,477
+   Deleted: 24600
+   Skipped (no product): 156695
+   High-value: 71747
+   Errors: 0
+   Elapsed: 705s
+   Rate: 34.86 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:49.312Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24700
+   Records: 2,787,558
+   Deleted: 24700
+   Skipped (no product): 156695
+   High-value: 71904
+   Errors: 0
+   Elapsed: 707s
+   Rate: 34.93 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:53.669Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24800
+   Records: 2,803,251
+   Deleted: 24800
+   Skipped (no product): 156913
+   High-value: 72236
+   Errors: 0
+   Elapsed: 711s
+   Rate: 34.85 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:56.846Z] 
+📊 Progress:
+   Dates: 8
+   Files: 24900
+   Records: 2,815,910
+   Deleted: 24900
+   Skipped (no product): 156944
+   High-value: 72679
+   Errors: 0
+   Elapsed: 714s
+   Rate: 34.84 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:17:59.202Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25000
+   Records: 2,823,759
+   Deleted: 25000
+   Skipped (no product): 157087
+   High-value: 72812
+   Errors: 0
+   Elapsed: 717s
+   Rate: 34.86 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:05.219Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25100
+   Records: 2,850,057
+   Deleted: 25100
+   Skipped (no product): 159120
+   High-value: 74378
+   Errors: 0
+   Elapsed: 723s
+   Rate: 34.71 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:13.265Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25200
+   Records: 2,884,284
+   Deleted: 25200
+   Skipped (no product): 165357
+   High-value: 76943
+   Errors: 0
+   Elapsed: 731s
+   Rate: 34.47 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:20.594Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25300
+   Records: 2,918,595
+   Deleted: 25300
+   Skipped (no product): 168093
+   High-value: 79637
+   Errors: 0
+   Elapsed: 738s
+   Rate: 34.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:26.882Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25400
+   Records: 2,948,348
+   Deleted: 25400
+   Skipped (no product): 172639
+   High-value: 81571
+   Errors: 0
+   Elapsed: 744s
+   Rate: 34.11 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:30.729Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25500
+   Records: 2,963,509
+   Deleted: 25500
+   Skipped (no product): 173597
+   High-value: 82229
+   Errors: 0
+   Elapsed: 748s
+   Rate: 34.06 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:31.479Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25600
+   Records: 2,965,186
+   Deleted: 25600
+   Skipped (no product): 173597
+   High-value: 82303
+   Errors: 0
+   Elapsed: 749s
+   Rate: 34.16 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:32.261Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25700
+   Records: 2,966,959
+   Deleted: 25700
+   Skipped (no product): 173597
+   High-value: 82382
+   Errors: 0
+   Elapsed: 750s
+   Rate: 34.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:36.663Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25800
+   Records: 2,984,782
+   Deleted: 25800
+   Skipped (no product): 174201
+   High-value: 83110
+   Errors: 0
+   Elapsed: 754s
+   Rate: 34.19 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:40.784Z] 
+📊 Progress:
+   Dates: 8
+   Files: 25900
+   Records: 3,003,245
+   Deleted: 25900
+   Skipped (no product): 175493
+   High-value: 83566
+   Errors: 0
+   Elapsed: 758s
+   Rate: 34.14 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:43.710Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26000
+   Records: 3,014,873
+   Deleted: 26000
+   Skipped (no product): 177323
+   High-value: 83680
+   Errors: 0
+   Elapsed: 761s
+   Rate: 34.14 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:46.116Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26100
+   Records: 3,024,759
+   Deleted: 26100
+   Skipped (no product): 177323
+   High-value: 83692
+   Errors: 0
+   Elapsed: 763s
+   Rate: 34.16 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:48.854Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26200
+   Records: 3,035,736
+   Deleted: 26200
+   Skipped (no product): 177323
+   High-value: 83800
+   Errors: 0
+   Elapsed: 766s
+   Rate: 34.17 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:50.162Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26300
+   Records: 3,040,094
+   Deleted: 26300
+   Skipped (no product): 177593
+   High-value: 83842
+   Errors: 0
+   Elapsed: 768s
+   Rate: 34.24 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:52.448Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26400
+   Records: 3,049,360
+   Deleted: 26400
+   Skipped (no product): 177593
+   High-value: 83931
+   Errors: 0
+   Elapsed: 770s
+   Rate: 34.27 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:55.574Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26500
+   Records: 3,061,321
+   Deleted: 26500
+   Skipped (no product): 177593
+   High-value: 84133
+   Errors: 0
+   Elapsed: 773s
+   Rate: 34.26 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:57.616Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26600
+   Records: 3,069,831
+   Deleted: 26600
+   Skipped (no product): 178318
+   High-value: 84238
+   Errors: 0
+   Elapsed: 775s
+   Rate: 34.30 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:18:59.447Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26700
+   Records: 3,077,120
+   Deleted: 26700
+   Skipped (no product): 178318
+   High-value: 84487
+   Errors: 0
+   Elapsed: 777s
+   Rate: 34.35 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:01.315Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26800
+   Records: 3,083,941
+   Deleted: 26800
+   Skipped (no product): 178318
+   High-value: 84638
+   Errors: 0
+   Elapsed: 779s
+   Rate: 34.40 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:03.403Z] 
+📊 Progress:
+   Dates: 8
+   Files: 26900
+   Records: 3,091,800
+   Deleted: 26900
+   Skipped (no product): 178318
+   High-value: 84777
+   Errors: 0
+   Elapsed: 781s
+   Rate: 34.43 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:06.091Z] 
+📊 Progress:
+   Dates: 8
+   Files: 27000
+   Records: 3,102,931
+   Deleted: 27000
+   Skipped (no product): 178318
+   High-value: 84941
+   Errors: 0
+   Elapsed: 783s
+   Rate: 34.44 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:08.449Z] 
+📊 Progress:
+   Dates: 8
+   Files: 27100
+   Records: 3,112,342
+   Deleted: 27100
+   Skipped (no product): 178318
+   High-value: 85125
+   Errors: 0
+   Elapsed: 786s
+   Rate: 34.46 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:11.014Z] 
+📊 Progress:
+   Dates: 8
+   Files: 27200
+   Records: 3,121,181
+   Deleted: 27200
+   Skipped (no product): 178318
+   High-value: 85197
+   Errors: 0
+   Elapsed: 788s
+   Rate: 34.48 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:13.071Z] 
+📊 Progress:
+   Dates: 8
+   Files: 27300
+   Records: 3,128,977
+   Deleted: 27300
+   Skipped (no product): 178318
+   High-value: 85246
+   Errors: 0
+   Elapsed: 790s
+   Rate: 34.52 files/sec
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:19:13.985Z] 
+🎉 [Worker 1] Migration Complete!
+
+   Dates processed: 9
+   Files processed: 27339
+   Records inserted: 3,132,043
+   Files deleted: 27339
+   Skipped (no product): 178318
+   High-value cards: 85262
+   Errors: 0
+   Time: 791s (13.2 min)
+💾 Disk space: /dev/sda1        96G   59G   38G  61% /
+[2025-11-08T19:24:23.079Z] 
+📈 Database Stats:
+   Records: 177061232
+   Products: 384092
+   Dates: 449
+   Size: 0 bytes
+(no product): 178318
+   High-value cards: 85262
+   Errors: 0
+   Time: 791s (13.2 min)
+    
+[2025-11-08T19:24:23.079Z] 
+📈 Database Stats:
+   Records: 177061232
+   Products: 384092
+   Dates: 449
+   Size: 0 bytes
+    
+[2025-11-09T01:44:40.593Z] 🚀 [Worker 1] Starting price history migration (normalized schema)...
+[2025-11-09T01:44:40.597Z] Source: /usr/src/tcgcsv/price-history
+[2025-11-09T01:44:40.597Z] Date range: 2024-02-08 to 2025-11-01
+[2025-11-09T01:44:40.647Z] ✅ Database connected: Sun Nov 09 2025 01:44:40 GMT+0000 (Coordinated Universal Time)
+[2025-11-09T01:44:40.659Z] ✅ Loaded 30 variants into cache
+[2025-11-09T01:44:40.661Z] 💥 Fatal error: ENOENT: no such file or directory, scandir '/usr/src/tcgcsv/price-history'
+[2025-11-09T01:44:40.661Z] undefined
+[2025-11-09T01:45:25.579Z] 🚀 [Worker 1] Starting price history migration (normalized schema)...
+[2025-11-09T01:45:25.580Z] Source: /usr/src/tcgcsv/price-history
+[2025-11-09T01:45:25.583Z] Date range: 2024-02-08 to 2025-11-01
+[2025-11-09T01:45:25.618Z] ✅ Database connected: Sun Nov 09 2025 01:45:25 GMT+0000 (Coordinated Universal Time)
+[2025-11-09T01:45:25.624Z] ✅ Loaded 30 variants into cache
+[2025-11-09T01:45:25.625Z] 💥 Fatal error: ENOENT: no such file or directory, scandir '/usr/src/tcgcsv/price-history'
+[2025-11-09T01:45:25.625Z] undefined

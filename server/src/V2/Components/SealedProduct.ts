@@ -6,7 +6,7 @@
 
 import type { SupportedLanguages } from '@tcgdex/sdk'
 import { pool } from '../../libs/db'
-import { buildSealedProductQuery } from '../../libs/QueryBuilder'
+import { buildSealedProductQuery } from '../../libs/QueryBuilderOptimized'
 import type { Query } from '../../libs/QueryEngine/filter'
 
 export interface SealedProduct {
@@ -179,8 +179,3 @@ export function sealedProductToBrief(product: SealedProduct): SealedProductResum
 		image: product.image,
 	}
 }
-
-
-
-
-

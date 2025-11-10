@@ -10,7 +10,7 @@ import { objectOmit } from '@dzeio/object-util'
 import type { CardResume, Card as SDKCard } from '@tcgdex/sdk'
 import { SupportedLanguages } from '@tcgdex/sdk'
 import { pool } from '../../libs/db'
-import { buildCardQuery } from '../../libs/QueryBuilder'
+import { buildCardQuery } from '../../libs/QueryBuilderOptimized'
 import { getCardMarketPrice } from '../../libs/providers/cardmarket'
 import { getTCGPlayerPrice } from '../../libs/providers/tcgplayer'
 import type { Query } from '../../libs/QueryEngine/filter'
@@ -166,7 +166,7 @@ async function loadCard(lang: SupportedLanguages, id: string): Promise<SDKCard |
 	}
 
 	try {
-		const result = await pool.query(`
+		let result = await pool.query(`
 			SELECT
 				c.*,
 				s.name as set_name,
@@ -180,6 +180,44 @@ async function loadCard(lang: SupportedLanguages, id: string): Promise<SDKCard |
 			WHERE c.id = $1
 		`, [id])
 
+		// Fallback: try with lowercase if exact match fails
+		if (result.rows.length === 0) {
+			result = await pool.query(`
+				SELECT
+					c.*,
+					s.name as set_name,
+					s.logo as set_logo,
+					s.symbol as set_symbol,
+					s.card_count as set_card_count,
+					s.series_id as series_id,
+					s.metadata as set_metadata
+				FROM cards c
+				LEFT JOIN sets s ON c.set_id = s.id
+				WHERE LOWER(c.id) = $1
+			`, [id.toLowerCase()])
+		}
+
+		// Fallback: try matching by card number when smp prefix is used
+		if (result.rows.length === 0 && id.toLowerCase().includes('smp')) {
+			const cardNumber = id.split('-').pop()
+			if (cardNumber) {
+				result = await pool.query(`
+					SELECT
+						c.*,
+						s.name as set_name,
+						s.logo as set_logo,
+						s.symbol as set_symbol,
+						s.card_count as set_card_count,
+						s.series_id as series_id,
+						s.metadata as set_metadata
+					FROM cards c
+					LEFT JOIN sets s ON c.set_id = s.id
+					WHERE c.id ILIKE $1
+					LIMIT 1
+				`, [`%-${cardNumber}`])
+			}
+		}
+
 		if (result.rows.length === 0) {
 			return null
 		}
@@ -188,7 +226,7 @@ async function loadCard(lang: SupportedLanguages, id: string): Promise<SDKCard |
 
 		// Fetch variants and pricing data
 		const [variants, cardmarket, tcgplayer] = await Promise.all([
-			fetchCardVariants(id),
+			fetchCardVariants(result.rows[0].id),
 			getCardMarketPrice(card as any),
 			getTCGPlayerPrice(card as any),
 		])
@@ -249,7 +287,7 @@ export async function getAllCards(lang: SupportedLanguages): Promise<Array<SDKCa
  */
 export async function getCompiledCard(lang: SupportedLanguages, id: string): Promise<any> {
 	try {
-		const result = await pool.query(`
+		let result = await pool.query(`
 			SELECT
 				c.*,
 				s.name as set_name,
@@ -262,6 +300,44 @@ export async function getCompiledCard(lang: SupportedLanguages, id: string): Pro
 			LEFT JOIN sets s ON c.set_id = s.id
 			WHERE c.id = $1
 		`, [id])
+
+		// Fallback: try with lowercase if exact match fails
+		if (result.rows.length === 0) {
+			result = await pool.query(`
+				SELECT
+					c.*,
+					s.name as set_name,
+					s.logo as set_logo,
+					s.symbol as set_symbol,
+					s.card_count as set_card_count,
+					s.series_id as series_id,
+					s.metadata as set_metadata
+				FROM cards c
+				LEFT JOIN sets s ON c.set_id = s.id
+				WHERE LOWER(c.id) = $1
+			`, [id.toLowerCase()])
+		}
+
+		// Fallback: try matching by card number when smp prefix is used
+		if (result.rows.length === 0 && id.toLowerCase().includes('smp')) {
+			const cardNumber = id.split('-').pop()
+			if (cardNumber) {
+				result = await pool.query(`
+					SELECT
+						c.*,
+						s.name as set_name,
+						s.logo as set_logo,
+						s.symbol as set_symbol,
+						s.card_count as set_card_count,
+						s.series_id as series_id,
+						s.metadata as set_metadata
+					FROM cards c
+					LEFT JOIN sets s ON c.set_id = s.id
+					WHERE c.id ILIKE $1
+					LIMIT 1
+				`, [`%-${cardNumber}`])
+			}
+		}
 
 		if (result.rows.length === 0) {
 			return null

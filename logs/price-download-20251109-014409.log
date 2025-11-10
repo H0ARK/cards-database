@@ -1,0 +1,115 @@
+[0;32m[INFO][0m 2025-11-09 01:44:09 - Date range: 2025-11-02 to 2025-11-08
+[0;32m[INFO][0m 2025-11-09 01:44:10 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:10 - Downloading price archives...
+[0;32m[INFO][0m 2025-11-09 01:44:10 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:10 - Processing date: 2025-11-02
+[0;32m[INFO][0m 2025-11-09 01:44:10 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 3525k  100 3525k    0     0  13.2M      0 --:--:-- --:--:-- --:--:-- 13.2M
+[0;32m[INFO][0m 2025-11-09 01:44:10 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:10 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:12 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:12 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-02
+[0;32m[INFO][0m 2025-11-09 01:44:13 -   ✓ Price data ready for 2025-11-02
+[0;32m[INFO][0m 2025-11-09 01:44:13 -   📊 Found 4328 price files
+[0;32m[INFO][0m 2025-11-09 01:44:14 - Processing date: 2025-11-03
+[0;32m[INFO][0m 2025-11-09 01:44:14 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 3521k  100 3521k    0     0  16.9M      0 --:--:-- --:--:-- --:--:-- 17.0M
+[0;32m[INFO][0m 2025-11-09 01:44:14 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:14 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:16 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:16 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-03
+[0;32m[INFO][0m 2025-11-09 01:44:17 -   ✓ Price data ready for 2025-11-03
+[0;32m[INFO][0m 2025-11-09 01:44:17 -   📊 Found 4330 price files
+[0;32m[INFO][0m 2025-11-09 01:44:18 - Processing date: 2025-11-04
+[0;32m[INFO][0m 2025-11-09 01:44:18 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 3524k  100 3524k    0     0  19.9M      0 --:--:-- --:--:-- --:--:-- 20.0M
+[0;32m[INFO][0m 2025-11-09 01:44:19 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:19 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:21 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:21 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-04
+[0;32m[INFO][0m 2025-11-09 01:44:22 -   ✓ Price data ready for 2025-11-04
+[0;32m[INFO][0m 2025-11-09 01:44:22 -   📊 Found 4332 price files
+[0;32m[INFO][0m 2025-11-09 01:44:23 - Processing date: 2025-11-05
+[0;32m[INFO][0m 2025-11-09 01:44:23 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 31 3527k   31 1123k    0     0  7022k      0 --:--:-- --:--:-- --:--:-- 7019k100 3527k  100 3527k    0     0  16.7M      0 --:--:-- --:--:-- --:--:-- 16.7M
+[0;32m[INFO][0m 2025-11-09 01:44:23 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:23 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:25 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:25 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-05
+[0;32m[INFO][0m 2025-11-09 01:44:26 -   ✓ Price data ready for 2025-11-05
+[0;32m[INFO][0m 2025-11-09 01:44:26 -   📊 Found 4335 price files
+[0;32m[INFO][0m 2025-11-09 01:44:27 - Processing date: 2025-11-06
+[0;32m[INFO][0m 2025-11-09 01:44:27 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 3528k  100 3528k    0     0  66.2M      0 --:--:-- --:--:-- --:--:-- 67.5M
+[0;32m[INFO][0m 2025-11-09 01:44:27 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:27 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:29 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:29 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-06
+[0;32m[INFO][0m 2025-11-09 01:44:30 -   ✓ Price data ready for 2025-11-06
+[0;32m[INFO][0m 2025-11-09 01:44:30 -   📊 Found 4336 price files
+[0;32m[INFO][0m 2025-11-09 01:44:31 - Processing date: 2025-11-07
+[0;32m[INFO][0m 2025-11-09 01:44:31 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 3531k  100 3531k    0     0  66.9M      0 --:--:-- --:--:-- --:--:-- 67.6M
+[0;32m[INFO][0m 2025-11-09 01:44:32 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:32 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:34 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:34 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-07
+[0;32m[INFO][0m 2025-11-09 01:44:35 -   ✓ Price data ready for 2025-11-07
+[0;32m[INFO][0m 2025-11-09 01:44:35 -   📊 Found 4338 price files
+[0;32m[INFO][0m 2025-11-09 01:44:36 - Processing date: 2025-11-08
+[0;32m[INFO][0m 2025-11-09 01:44:36 -   Downloading archive...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 3527k  100 3527k    0     0  63.3M      0 --:--:-- --:--:-- --:--:-- 63.7M
+[0;32m[INFO][0m 2025-11-09 01:44:36 -   ✓ Downloaded 3.5M
+[0;32m[INFO][0m 2025-11-09 01:44:36 -   Extracting archive...
+[0;32m[INFO][0m 2025-11-09 01:44:38 -   ✓ Extracted successfully
+[0;32m[INFO][0m 2025-11-09 01:44:38 -   Moving to /home/ubuntu/cards-database/tcgcsv/price-history/2025-11-08
+[0;32m[INFO][0m 2025-11-09 01:44:39 -   ✓ Price data ready for 2025-11-08
+[0;32m[INFO][0m 2025-11-09 01:44:39 -   📊 Found 4339 price files
+[0;32m[INFO][0m 2025-11-09 01:44:40 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:40 - Download Summary
+[0;32m[INFO][0m 2025-11-09 01:44:40 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:40 - ✓ Success: 7
+[0;32m[INFO][0m 2025-11-09 01:44:40 - ⊗ Skipped: 0 (already existed)
+[0;32m[INFO][0m 2025-11-09 01:44:40 - ✗ Failed:  0
+[0;32m[INFO][0m 2025-11-09 01:44:40 - 
+[0;32m[INFO][0m 2025-11-09 01:44:40 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:40 - Importing prices to database...
+[0;32m[INFO][0m 2025-11-09 01:44:40 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:40 - Running migrate-price-history.ts...
+[2025-11-09T01:44:40.593Z] 🚀 [Worker 1] Starting price history migration (normalized schema)...
+[2025-11-09T01:44:40.597Z] Source: /usr/src/tcgcsv/price-history
+[2025-11-09T01:44:40.597Z] Date range: 2024-02-08 to 2025-11-01
+[2025-11-09T01:44:40.647Z] ✅ Database connected: Sun Nov 09 2025 01:44:40 GMT+0000 (Coordinated Universal Time)
+[2025-11-09T01:44:40.659Z] ✅ Loaded 30 variants into cache
+[2025-11-09T01:44:40.661Z] 💥 Fatal error: ENOENT: no such file or directory, scandir '/usr/src/tcgcsv/price-history'
+[2025-11-09T01:44:40.661Z] undefined
+[0;32m[INFO][0m 2025-11-09 01:44:40 - ✓ Price import completed
+[0;32m[INFO][0m 2025-11-09 01:44:40 - 
+[0;32m[INFO][0m 2025-11-09 01:44:40 - Updating database statistics...
+ERROR:  could not resize shared memory segment "/PostgreSQL.1410471416" to 67145248 bytes: No space left on device
+[0;32m[INFO][0m 2025-11-09 01:44:41 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:41 - Complete!
+[0;32m[INFO][0m 2025-11-09 01:44:41 - =================================================
+[0;32m[INFO][0m 2025-11-09 01:44:41 - New price data available for 7 day(s)
+[0;32m[INFO][0m 2025-11-09 01:44:41 - 
+[0;32m[INFO][0m 2025-11-09 01:44:41 - Verify with:
+[0;32m[INFO][0m 2025-11-09 01:44:41 -   curl https://api.rippzz.com/v2/status/data | jq '.lastUpdated.prices'
+[0;32m[INFO][0m 2025-11-09 01:44:41 - 
+[0;32m[INFO][0m 2025-11-09 01:44:41 - Check database:
+[0;32m[INFO][0m 2025-11-09 01:44:41 -   docker exec card-db-postgres psql -U cardadmin -d carddb -c "SELECT MAX(recorded_at) FROM price_history;"
+[0;32m[INFO][0m 2025-11-09 01:44:41 - 
+[0;32m[INFO][0m 2025-11-09 01:44:41 - Log saved to: /home/ubuntu/cards-database/logs/price-download-20251109-014409.log

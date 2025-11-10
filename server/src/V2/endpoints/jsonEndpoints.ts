@@ -130,9 +130,9 @@ server
 
 			let data: Array<SDKCard | any> = [];
 			switch (what.toLowerCase()) {
-				case "card":
-					data = await findCards(lang, query);
-					break;
+				// case "card":
+				// 	data = await findCards(lang, query);
+				// 	break;
 				case "set":
 					data = await findSets(lang, query);
 					break;
@@ -141,7 +141,7 @@ server
 					break;
 				default:
 					sendError(Errors.NOT_FOUND, res, {
-						details: `You can only run random requests on "card", "set" or "serie" while you did on "${what}"`,
+						details: `You can only run random requests on "set" or "serie" while you did on "${what}"`,
 					});
 					return;
 			}
@@ -161,14 +161,13 @@ server
 	 */
 	.get("/:lang/search", async (req: CustomRequest, res): Promise<void> => {
 		const { lang } = req.params;
-		const query: Query = req.advQuery ?? {};
 
 		if (!checkLanguage(lang)) {
 			sendError(Errors.LANGUAGE_INVALID, res, { lang });
 			return;
 		}
 
-		const searchTerm = query.q || query.search || req.query.q || req.query.search;
+		const searchTerm = (req.query.q || req.query.search) as string;
 
 		if (!searchTerm || typeof searchTerm !== 'string') {
 			sendError(Errors.GENERAL, res, {
@@ -178,28 +177,27 @@ server
 		}
 
 		try {
-			// Search all categories in parallel
-			const [cards, sets, series, sealedProducts] = await Promise.all([
-				findCards(lang, { q: searchTerm, $limit: query.$limit || 50 }),
-				findSets(lang, { q: searchTerm, $limit: 20 }),
-				findSeries(lang, { q: searchTerm, $limit: 10 }),
-				findSealedProducts(lang, { q: searchTerm, $limit: 20 }),
+			// Search all categories in parallel (cards disabled - use /v2/products instead)
+			const [sets, series, sealedProducts] = await Promise.all([
+				findSets(lang, { q: searchTerm }),
+				findSeries(lang, { q: searchTerm }),
+				findSealedProducts(lang, { q: searchTerm }),
 			]);
 
 			const results = {
 				query: searchTerm,
 				results: {
-					cards: cards.map(toBrief),
+					// cards: cards.map(toBrief),
 					sets: sets.map(setToBrief),
 					series: series.map(serieToBrief),
 					sealedProducts: sealedProducts.map(sealedProductToBrief),
 				},
 				counts: {
-					cards: cards.length,
+					// cards: cards.length,
 					sets: sets.length,
 					series: series.length,
 					sealedProducts: sealedProducts.length,
-					total: cards.length + sets.length + series.length + sealedProducts.length,
+					total: sets.length + series.length + sealedProducts.length,
 				},
 			};
 
@@ -234,22 +232,22 @@ server
 		let result: unknown;
 
 		switch (endpoint) {
-			case "cards": {
-				if ("set" in query) {
-					const tmp = query.set;
-					delete query.set;
-					query.$or = [
-						{
-							"set.id": tmp,
-						},
-						{
-							"set.name": tmp,
-						},
-					];
-				}
-				result = (await findCards(lang, query)).map(toBrief);
-				break;
-			}
+			// case "cards": {
+			// 	if ("set" in query) {
+			// 		const tmp = query.set;
+			// 		delete query.set;
+			// 		query.$or = [
+			// 			{
+			// 				"set.id": tmp,
+			// 			},
+			// 			{
+			// 				"set.name": tmp,
+			// 			},
+			// 		];
+			// 	}
+			// 	result = (await findCards(lang, query)).map(toBrief);
+			// 	break;
+			// }
 
 			case "sets": {
 				if ("serie" in query) {
@@ -275,43 +273,46 @@ server
 			case "products":
 				result = (await findSealedProducts(lang, query)).map(sealedProductToBrief);
 				break;
-			case "categories":
-			case "energy-types":
-			case "hp":
-			case "illustrators":
-			case "rarities":
-			case "regulation-marks":
-			case "retreats":
-			case "stages":
-			case "suffixes":
-			case "trainer-types":
-				result = unique(
-					(await getAllCards(lang))
-						.map((c) => c[endpointToField[endpoint]] as string)
-						.filter((c) => c)
-				).sort(betterSorter);
-				break;
-			case "types":
-			case "dex-ids":
-				result = unique(
-					(await getAllCards(lang))
-						.map(
-							(c) => c[endpointToField[endpoint]] as Array<string>
-						)
-						.filter((c) => c)
-						.reduce((p, c) => [...p, ...c], [] as Array<string>)
-				).sort(betterSorter);
-				break;
-			case "variants":
-				result = unique(
-					(await getAllCards(lang))
-						.map(
-							(c) => objectKeys(c.variants ?? {}) as Array<string>
-						)
-						.filter((c) => c)
-						.reduce((p, c) => [...p, ...c], [] as Array<string>)
-				).sort();
-				break;
+			// case "categories":
+			// case "energy-types":
+			// case "hp":
+			// case "illustrators":
+			// case "rarities":
+			// case "regulation-marks":
+			// case "retreats":
+			// case "stages":
+			// case "suffixes":
+			// case "trainer-types":
+			// 	// DISABLED - Uses old cards database
+			// 	result = unique(
+			// 		(await getAllCards(lang))
+			// 			.map((c) => c[endpointToField[endpoint]] as string)
+			// 			.filter((c) => c)
+			// 	).sort(betterSorter);
+			// 	break;
+			// case "types":
+			// case "dex-ids":
+			// 	// DISABLED - Uses old cards database
+			// 	result = unique(
+			// 		(await getAllCards(lang))
+			// 			.map(
+			// 				(c) => c[endpointToField[endpoint]] as Array<string>
+			// 			)
+			// 			.filter((c) => c)
+			// 			.reduce((p, c) => [...p, ...c], [] as Array<string>)
+			// 	).sort(betterSorter);
+			// 	break;
+			// case "variants":
+			// 	// DISABLED - Uses old cards database
+			// 	result = unique(
+			// 		(await getAllCards(lang))
+			// 			.map(
+			// 				(c) => objectKeys(c.variants ?? {}) as Array<string>
+			// 			)
+			// 			.filter((c) => c)
+			// 			.reduce((p, c) => [...p, ...c], [] as Array<string>)
+			// 	).sort();
+			// 	break;
 			default:
 				sendError(Errors.NOT_FOUND, res, { endpoint });
 				return;
@@ -323,94 +324,97 @@ server
 		res.json(result);
 	})
 
-	/**
-	 * Card by set/localId format
-	 * ex: /v2/en/cards/dp7/1 (returns card data)
-	 */
-	.get(
-		"/:lang/cards/:setId/:localId",
-		async (req: CustomRequest, res, next: NextFunction) => {
-			const { lang, setId, localId } = req.params;
+	// /**
+	//  * Card by set/localId format
+	//  * ex: /v2/en/cards/dp7/1 (returns card data)
+	//  * DISABLED - Use /v2/products instead
+	//  */
+	// .get(
+	// 	"/:lang/cards/:setId/:localId",
+	// 	async (req: CustomRequest, res, next: NextFunction) => {
+	// 		const { lang, setId, localId } = req.params;
 
-			if (!checkLanguage(lang)) {
-				return sendError(Errors.LANGUAGE_INVALID, res, { lang });
-			}
+	// 		if (!checkLanguage(lang)) {
+	// 			return sendError(Errors.LANGUAGE_INVALID, res, { lang });
+	// 		}
 
-			if (localId.toLowerCase() === "history") {
-				next();
-				return;
-			}
+	// 		if (localId.toLowerCase() === "history") {
+	// 			next();
+	// 			return;
+	// 		}
 
-			// Convert set/localId to global card ID
-			const cardId = `${setId}-${localId}`;
-			const result = await getCardById(lang, cardId);
-			if (!result) {
-				return sendError(Errors.NOT_FOUND, res);
-			}
-			return res.json(result);
-		}
-	)
+	// 		// Convert set/localId to global card ID
+	// 		const cardId = `${setId}-${localId}`;
+	// 		const result = await getCardById(lang, cardId);
+	// 		if (!result) {
+	// 			return sendError(Errors.NOT_FOUND, res);
+	// 		}
+	// 		return res.json(result);
+	// 	}
+	// )
 
-	/**
-	 * Card history by set/localId format
-	 * ex: /v2/en/cards/dp7/1/history?range=monthly (returns price history)
-	 */
-	.get(
-		"/:lang/cards/:setId/:localId/:action",
-		async (req: CustomRequest, res) => {
-			const { lang, setId, localId, action } = req.params;
+	// /**
+	//  * Card history by set/localId format
+	//  * ex: /v2/en/cards/dp7/1/history?range=monthly (returns price history)
+	//  * DISABLED - Use /v2/products instead
+	//  */
+	// .get(
+	// 	"/:lang/cards/:setId/:localId/:action",
+	// 	async (req: CustomRequest, res) => {
+	// 		const { lang, setId, localId, action } = req.params;
 
-			if (!checkLanguage(lang)) {
-				return sendError(Errors.LANGUAGE_INVALID, res, { lang });
-			}
+	// 		if (!checkLanguage(lang)) {
+	// 			return sendError(Errors.LANGUAGE_INVALID, res, { lang });
+	// 		}
 
-			if (action === "history") {
-				const range = (req.query.range as string) || "yearly";
-				const variant = (req.query.variant as string) || "normal";
-				const productId = req.query.productId
-					? parseInt(req.query.productId as string, 10)
-					: undefined;
-				// Convert set/localId to global card ID
-				const cardId = `${setId}-${localId}`;
-				const result = await getCardPriceHistory(
-					lang,
-					cardId,
-					range,
-					productId,
-					variant
-				);
-				return res.json(result);
-			}
+	// 		if (action === "history") {
+	// 			const range = (req.query.range as string) || "yearly";
+	// 			const variant = (req.query.variant as string) || "normal";
+	// 			const productId = req.query.productId
+	// 				? parseInt(req.query.productId as string, 10)
+	// 				: undefined;
+	// 			// Convert set/localId to global card ID
+	// 			const cardId = `${setId}-${localId}`;
+	// 			const result = await getCardPriceHistory(
+	// 				lang,
+	// 				cardId,
+	// 				range,
+	// 				productId,
+	// 				variant
+	// 			);
+	// 			return res.json(result);
+	// 		}
 
-			return sendError(Errors.NOT_FOUND, res, { action });
-		}
-	)
+	// 		return sendError(Errors.NOT_FOUND, res, { action });
+	// 	}
+	// )
 
-	/**
-	 * Card history by global ID format
-	 * ex: /v2/en/cards/lc-1/history?range=monthly
-	 */
-	.get("/:lang/cards/:cardId/history", async (req: CustomRequest, res) => {
-		const { lang, cardId } = req.params;
+	// /**
+	//  * Card history by global ID format
+	//  * ex: /v2/en/cards/lc-1/history?range=monthly
+	//  * DISABLED - Use /v2/products instead
+	//  */
+	// .get("/:lang/cards/:cardId/history", async (req: CustomRequest, res) => {
+	// 	const { lang, cardId } = req.params;
 
-		if (!checkLanguage(lang)) {
-			return sendError(Errors.LANGUAGE_INVALID, res, { lang });
-		}
+	// 	if (!checkLanguage(lang)) {
+	// 		return sendError(Errors.LANGUAGE_INVALID, res, { lang });
+	// 	}
 
-		const range = (req.query.range as string) || "yearly";
-		const variant = (req.query.variant as string) || "normal";
-		const productId = req.query.productId
-			? parseInt(req.query.productId as string, 10)
-			: undefined;
-		const result = await getCardPriceHistory(
-			lang,
-			cardId,
-			range,
-			productId,
-			variant
-		);
-		return res.json(result);
-	})
+	// 	const range = (req.query.range as string) || "yearly";
+	// 	const variant = (req.query.variant as string) || "normal";
+	// 	const productId = req.query.productId
+	// 		? parseInt(req.query.productId as string, 10)
+	// 		: undefined;
+	// 	const result = await getCardPriceHistory(
+	// 		lang,
+	// 		cardId,
+	// 		range,
+	// 		productId,
+	// 		variant
+	// 	);
+	// 	return res.json(result);
+	// })
 
 	/**
 	 * Listing Endpoint
@@ -432,14 +436,15 @@ server
 
 		let result: unknown;
 		switch (endpoint) {
-			case "cards":
-				// console.time('card')
-				result = await getCardById(lang, id);
-				if (!result) {
-					result = await findOneCard(lang, { name: id });
-				}
-				// console.timeEnd('card')
-				break;
+			// case "cards":
+			// 	// DISABLED - Use /v2/products instead
+			// 	// console.time('card')
+			// 	result = await getCardById(lang, id);
+			// 	if (!result) {
+			// 		result = await findOneCard(lang, { name: id });
+			// 	}
+			// 	// console.timeEnd('card')
+			// 	break;
 
 			case "sets":
 				result = await findOneSet(lang, { id });
@@ -454,17 +459,18 @@ server
 					result = await findOneSerie(lang, { name: id });
 				}
 				break;
-			case "dex-ids": {
-				result = {
-					name: parseInt(id, 10),
-					cards: (
-						await findCards(lang, {
-							dexId: { $in: [parseInt(id, 10)] },
-						})
-					).map(toBrief),
-				};
-				break;
-			}
+			// case "dex-ids": {
+			// 	// DISABLED - Uses old cards database
+			// 	result = {
+			// 		name: parseInt(id, 10),
+			// 		cards: (
+			// 			await findCards(lang, {
+			// 				dexId: { $in: [parseInt(id, 10)] },
+			// 			})
+			// 		).map(toBrief),
+			// 	};
+			// 	break;
+			// }
 			case "sealed-products":
 			case "sealed":
 			case "products": {
@@ -475,17 +481,19 @@ server
 				break;
 			}
 			default:
-				if (!endpointToField[endpoint]) {
-					break;
-				}
-				result = {
-					name: id,
-					cards: (
-						await findCards(lang, {
-							[endpointToField[endpoint]]: id,
-						})
-					).map(toBrief),
-				};
+				// DISABLED - Uses old cards database
+				// if (!endpointToField[endpoint]) {
+				// 	break;
+				// }
+				// result = {
+				// 	name: id,
+				// 	cards: (
+				// 		await findCards(lang, {
+				// 			[endpointToField[endpoint]]: id,
+				// 		})
+				// 	).map(toBrief),
+				// };
+				break;
 		}
 
 		// console.timeEnd('request')
@@ -516,31 +524,33 @@ server
 
 		let result: unknown;
 		switch (endpoint) {
-			case "cards":
-				if (subid === "skus") {
-					result = await listSKUs(getCompiledCard(lang, id));
-				} else if (subid === "history") {
-					// New history endpoint: /v2/en/cards/{cardId}/history?range=daily|monthly|yearly
-					const range = (req.query.range as string) || "yearly";
-					const productId = req.query.productId
-						? parseInt(req.query.productId as string, 10)
-						: undefined;
-					result = await getCardPriceHistory(
-						lang,
-						id,
-						range,
-						productId
-					);
-				}
-				break;
-			case "sets":
-				// allow the dev to use a non prefixed value like `10` instead of `010` for newer sets
-				// @ts-expect-error normal behavior until the filtering is more fiable	 --- IGNORE ---
-				result = await findOneCard(lang, {
-					localId: { $or: [subid.padStart(3, "0"), subid] },
-					$or: [{ "set.id": id }, { "set.name": id }],
-				});
-				break;
+			// case "cards":
+			// 	// DISABLED - Use /v2/products instead
+			// 	if (subid === "skus") {
+			// 		result = await listSKUs(getCompiledCard(lang, id));
+			// 	} else if (subid === "history") {
+			// 		// New history endpoint: /v2/en/cards/{cardId}/history?range=daily|monthly|yearly
+			// 		const range = (req.query.range as string) || "yearly";
+			// 		const productId = req.query.productId
+			// 			? parseInt(req.query.productId as string, 10)
+			// 			: undefined;
+			// 		result = await getCardPriceHistory(
+			// 			lang,
+			// 			id,
+			// 			range,
+			// 			productId
+			// 		);
+			// 	}
+			// 	break;
+			// case "sets":
+			// 	// DISABLED - Uses old cards database
+			// 	// allow the dev to use a non prefixed value like `10` instead of `010` for newer sets
+			// 	// @ts-expect-error normal behavior until the filtering is more fiable	 --- IGNORE ---
+			// 	result = await findOneCard(lang, {
+			// 		localId: { $or: [subid.padStart(3, "0"), subid] },
+			// 		$or: [{ "set.id": id }, { "set.name": id }],
+			// 	});
+			// 	break;
 		}
 		if (!result) {
 			return sendError(Errors.NOT_FOUND, res);

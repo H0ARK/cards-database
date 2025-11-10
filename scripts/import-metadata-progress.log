@@ -1,0 +1,97 @@
+[2025-11-08T14:47:24.860Z] 🚀 Starting TCGPlayer metadata import...
+[2025-11-08T14:47:24.860Z] 🚀 Starting TCGPlayer metadata import...
+[2025-11-08T14:47:24.860Z] Source: /usr/src/tcgcsv
+[2025-11-08T14:47:24.860Z] Source: /usr/src/tcgcsv
+[2025-11-08T14:47:24.908Z] ✅ Database connected: Sat Nov 08 2025 14:47:24 GMT+0000 (Coordinated Universal Time)
+[2025-11-08T14:47:24.908Z] ✅ Database connected: Sat Nov 08 2025 14:47:24 GMT+0000 (Coordinated Universal Time)
+[2025-11-08T14:47:24.909Z] 📦 Importing categories...
+[2025-11-08T14:47:24.909Z] 📦 Importing categories...
+[2025-11-08T14:47:24.913Z] 💥 Fatal error: ENOENT: no such file or directory, open '/usr/src/tcgcsv/catigories.json'
+[2025-11-08T14:47:24.913Z] 💥 Fatal error: ENOENT: no such file or directory, open '/usr/src/tcgcsv/catigories.json'
+[2025-11-08T14:47:24.913Z] undefined
+[2025-11-08T14:47:24.913Z] undefined
+[2025-11-08T14:47:28.333Z] 🚀 Starting TCGPlayer metadata import...
+[2025-11-08T14:47:28.334Z] Source: /home/ubuntu/cards-database/tcgcsv
+[2025-11-08T14:47:28.388Z] ✅ Database connected: Sat Nov 08 2025 14:47:28 GMT+0000 (Coordinated Universal Time)
+[2025-11-08T14:47:28.390Z] 📦 Importing categories...
+[2025-11-08T14:47:28.476Z] ✅ Imported 89 categories
+[2025-11-08T14:47:28.478Z] 📦 Importing groups (sets)...
+[2025-11-08T14:47:28.478Z] Found 88 group files to import
+[2025-11-08T15:07:11.879Z] 🚀 Starting TCGPlayer metadata import (normalized schema)...
+[2025-11-08T15:07:11.879Z] 🚀 Starting TCGPlayer metadata import (normalized schema)...
+[2025-11-08T15:07:11.880Z] Source: /home/ubuntu/cards-database/tcgcsv
+[2025-11-08T15:07:11.880Z] Source: /home/ubuntu/cards-database/tcgcsv
+[2025-11-08T15:07:11.978Z] ✅ Database connected: Sat Nov 08 2025 15:07:11 GMT+0000 (Coordinated Universal Time)
+[2025-11-08T15:07:11.978Z] ✅ Database connected: Sat Nov 08 2025 15:07:11 GMT+0000 (Coordinated Universal Time)
+[2025-11-08T15:07:11.981Z] 📦 Loading lookup caches...
+[2025-11-08T15:07:11.981Z] 📦 Loading lookup caches...
+[2025-11-08T15:07:11.992Z] ✅ Loaded 13 rarities, 13 card types, 9 variants
+[2025-11-08T15:07:11.992Z] ✅ Loaded 13 rarities, 13 card types, 9 variants
+[2025-11-08T15:07:11.993Z] 📦 Importing categories...
+[2025-11-08T15:07:11.993Z] 📦 Importing categories...
+[2025-11-08T15:07:12.088Z] ✅ Imported 89 categories
+[2025-11-08T15:07:12.088Z] ✅ Imported 89 categories
+[2025-11-08T15:07:12.089Z] 📦 Importing groups (sets)...
+[2025-11-08T15:07:12.089Z] 📦 Importing groups (sets)...
+[2025-11-08T15:07:12.094Z] Found 88 group files to import
+[2025-11-08T15:07:12.094Z] Found 88 group files to import
+[2025-11-08T15:07:26.778Z] ✅ Imported 24130 groups
+[2025-11-08T15:07:26.778Z] ✅ Imported 24130 groups
+[2025-11-08T15:07:26.782Z] 📦 Importing products (this will take a while)...
+[2025-11-08T15:07:26.782Z] 📦 Importing products (this will take a while)...
+[2025-11-08T15:07:26.783Z] Found 85 category directories
+[2025-11-08T15:07:26.783Z] Found 85 category directories
+[2025-11-08T15:09:43.845Z] ❌ Error processing products file /home/ubuntu/cards-database/tcgcsv/product/3/22325/products: JSON Parse error: Unrecognized token '<'
+[2025-11-08T15:09:43.845Z] ❌ Error processing products file /home/ubuntu/cards-database/tcgcsv/product/3/22325/products: JSON Parse error: Unrecognized token '<'
+[2025-11-08T15:13:15.984Z] ❌ Error importing products from /home/ubuntu/cards-database/tcgcsv/product/79/23956/products: invalid input syntax for type smallint: "NaN"
+[2025-11-08T15:13:15.984Z] ❌ Error importing products from /home/ubuntu/cards-database/tcgcsv/product/79/23956/products: invalid input syntax for type smallint: "NaN"
+[2025-11-08T15:13:39.073Z] ❌ Error importing products from /home/ubuntu/cards-database/tcgcsv/product/85/24172/products: invalid input syntax for type smallint: "NaN"
+[2025-11-08T15:13:39.073Z] ❌ Error importing products from /home/ubuntu/cards-database/tcgcsv/product/85/24172/products: invalid input syntax for type smallint: "NaN"
+[2025-11-08T15:13:39.846Z] ❌ Error importing products from /home/ubuntu/cards-database/tcgcsv/product/85/24194/products: invalid input syntax for type smallint: "NaN"
+[2025-11-08T15:13:39.846Z] ❌ Error importing products from /home/ubuntu/cards-database/tcgcsv/product/85/24194/products: invalid input syntax for type smallint: "NaN"
+[2025-11-08T15:13:49.968Z] ✅ Imported 450,100 products
+[2025-11-08T15:13:49.968Z] ✅ Imported 450,100 products
+[2025-11-08T15:13:49.972Z] 
+🎉 Import Complete!
+
+   Categories imported: 89
+   Groups imported: 24,130
+   Products imported: 450,100
+
+   Normalized lookups created:
+   - Rarities: 386
+   - Card Types: 217
+   - Variants: 0
+
+   Errors: 4
+   Total time: 398s (6.6 minutes)
+    
+[2025-11-08T15:13:49.972Z] 
+🎉 Import Complete!
+
+   Categories imported: 89
+   Groups imported: 24,130
+   Products imported: 450,100
+
+   Normalized lookups created:
+   - Rarities: 386
+   - Card Types: 217
+   - Variants: 0
+
+   Errors: 4
+   Total time: 398s (6.6 minutes)
+[2025-11-08T15:13:50.021Z] 
+📊 Database Verification:
+   Categories in DB: 89
+   Groups in DB: 24130
+   Products in DB: 449752
+   Rarities in DB: 399
+[2025-11-08T15:13:50.021Z] 
+📊 Database Verification:
+   Categories in DB: 89
+   Groups in DB: 24130
+   Products in DB: 449752
+   Rarities in DB: 399
+    
+[2025-11-08T15:13:50.031Z] 🖼️  Image URL test: https://tcgplayer-cdn.tcgplayer.com/product/42346_400w.jpg
+[2025-11-08T15:13:50.031Z] 🖼️  Image URL test: https://tcgplayer-cdn.tcgplayer.com/product/42346_400w.jpg

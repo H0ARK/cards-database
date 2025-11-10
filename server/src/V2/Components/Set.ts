@@ -7,7 +7,7 @@
 
 import type { Set as SDKSet, SetResume, SupportedLanguages } from '@tcgdex/sdk'
 import { pool } from '../../libs/db'
-import { buildSetQuery } from '../../libs/QueryBuilder'
+import { buildSetQuery } from '../../libs/QueryBuilderOptimized'
 import type { Query } from '../../libs/QueryEngine/filter'
 
 export type Set = SDKSet & {

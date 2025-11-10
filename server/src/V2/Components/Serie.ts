@@ -7,7 +7,7 @@
 
 import type { Serie as SDKSerie, SerieResume, SupportedLanguages } from '@tcgdex/sdk'
 import { pool } from '../../libs/db'
-import { buildSerieQuery } from '../../libs/QueryBuilder'
+import { buildSerieQuery } from '../../libs/QueryBuilderOptimized'
 import type { Query } from '../../libs/QueryEngine/filter'
 
 export type Serie = SDKSerie

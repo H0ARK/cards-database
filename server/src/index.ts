@@ -1,6 +1,8 @@
 import express, { type Response } from 'express'
 import jsonEndpoints from './V2/endpoints/jsonEndpoints'
+import productsEndpoints from './V2/endpoints/productsEndpoints'
 import openapi from './V2/endpoints/openapi'
+import discovery from './V2/endpoints/discovery'
 import graphql from './V2/graphql'
 import cluster from 'node:cluster'
 import { availableParallelism } from "node:os"
@@ -41,10 +43,10 @@ function acquireLock() {
 				fs.unlinkSync(LOCK_FILE)
 			}
 		}
-		
+
 		// Create lock file with current PID
 		fs.writeFileSync(LOCK_FILE, process.pid.toString())
-		
+
 		// Clean up lock file on exit
 		const cleanup = () => {
 			try {
@@ -55,7 +57,7 @@ function acquireLock() {
 				// Ignore errors during cleanup
 			}
 		}
-		
+
 		process.on('exit', cleanup)
 		process.on('SIGINT', () => {
 			cleanup()
@@ -65,7 +67,7 @@ function acquireLock() {
 			cleanup()
 			process.exit(0)
 		})
-		
+
 		return true
 	} catch (err) {
 		console.error('Failed to acquire lock:', err)
@@ -76,7 +78,7 @@ function acquireLock() {
 if (cluster.isPrimary) {
 	// Acquire lock to prevent multiple instances
 	acquireLock()
-	
+
 	console.log(`Primary ${process.pid} is running`)
 
 	// get maximum number of workers available for the software
@@ -192,6 +194,10 @@ if (cluster.isPrimary) {
 	// Setup GraphQL
 	server.use(`/v${VERSION}/graphql`, graphql)
 	server.use(`/v${VERSION}/openapi`, openapi)
+ 	server.use(`/v${VERSION}/discovery`, discovery)
+
+	// Setup NEW Products endpoints (with images!)
+	server.use(`/v${VERSION}`, productsEndpoints)
 
 	// Setup JSON endpoints
 	server.use(`/v${VERSION}`, jsonEndpoints)
